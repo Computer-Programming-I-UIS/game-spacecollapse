@@ -1,37 +1,20 @@
 class LifeBar
 {
+  int r;
+  int g = 255;
+  int b;
 
-   float x;
-   float y;
-   int w;
-   int h;
-   
-   int r;
-   int g = 255;
-   int b;
-   
-   Boolean loselify = false;
-   
-  
-  LifeBar(float initx, float inity, int initw, int inith)
-  {
-    x = initx+10;
-    y = inity+10;
-    w = initw+10;
-    h = inith+10;
-  }
-  
+  Boolean loselify = false;
+
   void lifebar()
-  {
+  {    
     fill(r, g, b);
-    rect(xmouse, ymouse, 10, 30);//vida de la nave
-    
+    rect(constrain(xmouse+45, 300, 1145), ymouse+35, 10, 30);//vida de la nave
+
     if (loselify == true)
     {
-      r++;
+      r = r+10;
       g--;
     }
-    
-    
   }
 }

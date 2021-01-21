@@ -20,7 +20,7 @@ void setup() {
   size(1500, 1000);
 
   bullets = new ArrayList<Bullet>();
-  shiplife= new LifeBar(xmouse, ymouse, 10, 20);
+  shiplife= new LifeBar();
 
   shi = loadImage("ShipI.png");
   shi2 = loadImage("ShipII.png");
@@ -31,8 +31,7 @@ void draw()
 {
   background(0);
   onstart();
-  
- 
+
 }
 void scrollspace()
 {
@@ -50,9 +49,8 @@ void onstart()
   {
     noCursor();
     this.scrollspace();
-    shiplife.lifebar();
     nave();
-    xmouse = constrain(mouseX - 50, 300, 1150);
+    xmouse = constrain(mouseX, 300, 1150);
     ymouse = mouseY - 16;
   }
 }
