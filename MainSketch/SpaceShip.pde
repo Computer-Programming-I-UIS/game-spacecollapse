@@ -2,8 +2,6 @@ int status = 1;
 
 void nave()
 {
-  //fill(r, g, b);
-
   shiplife.lifebar();
 
   switch (status)

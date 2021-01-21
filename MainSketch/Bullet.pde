@@ -20,11 +20,7 @@ class Bullet
   {
     speed = speed - gravity;
     y = y+speed;
-    if (y > height -w/2)
-    {
-      speed *= -0.95;
-      y =   height-w/2;
-    }
+
   }
   void display()
   {
@@ -35,7 +31,7 @@ class Bullet
 
   Boolean finished()
   {
-    life--;
+    life = life -10;
     if (life<0)
     {
       return true;
