@@ -5,9 +5,6 @@ void nave()
   float xmouse = constrain(mouseX - 50, 300, 1150);
   float ymouse = mouseY - 16;
 
-  int r = 0;
-  int g = 255;
-  int b = 0;
 
 
   //fill(r, g, b);
@@ -26,9 +23,6 @@ void nave()
     
   }
 
-
-
-
   for (int i = bullets.size()-1; i >= 0; i--)
   {
     Bullet bullet = bullets.get(i);
@@ -44,8 +38,6 @@ void nave()
   }
 }
 
-
-
 void toDoKeyPressed() {
 
   if (key == 'A'|| key == 'a')
@@ -57,10 +49,13 @@ void toDoKeyPressed() {
    status = 1;
   } 
   if (key == 'W'|| key == 'w')
-  {//el pacman se dibuja hacia arriba
+  {//
+    shiplife.loselify = true;
   } 
   if (key == 'S'|| key == 's')
-  {//el pacman se dibuja hacia abajo
+  {//
+   
+    gameStatus = 1;
   }
 }
 //}
