@@ -28,7 +28,7 @@ class Bullet
   }
   void display()
   {
-    fill(0,255, +life);
+    fill(0, 255, +life);
     noStroke();
     ellipse(x, y, w, w);
   }
@@ -36,14 +36,12 @@ class Bullet
   Boolean finished()
   {
     life--;
-    if(life<0)
+    if (life<0)
     {
       return true;
-    }
-    else
+    } else
     {
       return false;
     }
   }
 }
-  
