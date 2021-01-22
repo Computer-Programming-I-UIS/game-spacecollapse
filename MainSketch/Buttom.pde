@@ -131,7 +131,7 @@ class ButtomYes extends Buttom
     { 
       if (overBox) { 
         fill(255, 255, 255);
-        gameStatus = 10;
+        gameStatus = 11;
       }
     }
     rect(bx, by, boxSize, boxSize);

@@ -85,6 +85,15 @@ void onstart()
   case 1:
 
     areyousure();
+    
+    if(gameStatus == 10)
+    {
+      gameStatus = 0;
+    }
+    else if(gameStatus == 11) 
+    {
+      exit();
+    }
 
 
     break;
