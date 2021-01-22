@@ -39,11 +39,11 @@ void toDoKeyPressed() {
 
   if (key == 'A'|| key == 'a')
   {//
-    status = 2;
+    //status = 2;
   } 
   if (key == 'D'|| key == 'd')
   {//
-    status = 1;
+    //status = 1;
   } 
   if (key == 'W'|| key == 'w')
   {//
@@ -53,6 +53,6 @@ void toDoKeyPressed() {
   if (key == 'S'|| key == 's')
   {//
 
-    gameStatus = 1;
+    //gameStatus = 1;
   }
 }

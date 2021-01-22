@@ -1,6 +1,12 @@
 LifeBar shiplife;
 ShieldBar shipshield;
 
+Buttom start;
+ButtomConfig config;
+ButtomExit exit;
+ButtomYes yes;
+ButtomNo no;
+
 PImage shi;
 PImage shi2;
 PImage shi3;
@@ -32,12 +38,21 @@ void setup() {
   shiplife = new LifeBar();
   shipshield = new ShieldBar();
 
+  start = new Buttom();
+  config = new ButtomConfig();
+  exit = new ButtomExit();
+
+
+  yes = new ButtomYes();
+  no = new ButtomNo();
+
+
   this.awakestar();
 
   shi = loadImage("ShipI.png");
   shi2 = loadImage("ShipII.png");
   shi3 = loadImage("ShipIII.png");
-  
+
   SC = loadImage("Logo.png");
   space = loadImage("Space.png");
 }
@@ -62,26 +77,33 @@ void onstart()
 {  
   switch (gameStatus)
   {
-    case 0:
-    
-      mainmenu();
-    
-      break;
-    case 1:
+  case 0:
 
-      noCursor();
-      this.scrollspace();
+    mainmenu();
 
-      this.drawstar();
-      nave();
+    break;
+  case 1:
 
-      xmouse = constrain(mouseX, 300, 1150);
-      ymouse = mouseY - 16;
+    areyousure();
 
-      break;
-    case 3:
-    
-      break;
+
+    break;
+  case 2:
+
+    break;
+
+  case 3:
+
+    noCursor();
+    this.scrollspace();
+
+    this.drawstar();
+    nave();
+
+    xmouse = constrain(mouseX, 300, 1150);
+    ymouse = mouseY - 16;
+
+    break;
   }
 }
 
@@ -99,10 +121,30 @@ void drawstar()
 }  
 void mainmenu()
 {
-  background(0);
-  image(SC,450,100);
+  image(SC, 450, 100);//logo
+
+  start.showbuttom();
+  config.showbuttom();
+  exit.showbuttom();
+}
+void areyousure()
+{
+
+  int w = 500;
+  int h = 300;
+
+  strokeJoin(ROUND);
+  stroke(255, 0, 248);
+  strokeWeight(10);
+  fill(0);
+
   
 
+  rect(width/2-w/2, height/2.5, w, h);
+  
+  no.showbuttom();
+  yes.showbuttom();
+  //filter( BLUR, 8 );
 }
 
 

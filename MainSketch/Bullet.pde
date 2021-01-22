@@ -18,6 +18,7 @@ class Bullet
 
   void move()
   {
+    
     speed = speed - gravity;
     y = y+speed;
 
