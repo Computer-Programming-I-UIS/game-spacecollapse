@@ -2,10 +2,10 @@ LifeBar shiplife;
 ShieldBar shipshield;
 
 Buttom start;
-ButtomConfig config;
-ButtomExit exit;
-ButtomYes yes;
-ButtomNo no;
+//ButtomConfig config;
+//ButtomExit exit;
+//ButtomYes yes;
+//ButtomNo no;
 
 PImage shi;
 PImage shi2;
@@ -38,13 +38,13 @@ void setup() {
   shiplife = new LifeBar();
   shipshield = new ShieldBar();
 
-  start = new Buttom();
-  config = new ButtomConfig();
-  exit = new ButtomExit();
+  start = new Buttom(width/2-boxboxSize/2,height/3,70);
+  //config = new ButtomConfig();
+  //exit = new ButtomExit();
 
 
-  yes = new ButtomYes();
-  no = new ButtomNo();
+  //yes = new ButtomYes();
+  //no = new ButtomNo();
 
 
   this.awakestar();
@@ -133,8 +133,8 @@ void mainmenu()
   image(SC, 450, 100);//logo
 
   start.showbuttom();
-  config.showbuttom();
-  exit.showbuttom();
+  //config.showbuttom();
+  //exit.showbuttom();
 }
 void areyousure()
 {
@@ -151,8 +151,9 @@ void areyousure()
 
   rect(width/2-w/2, height/2.5, w, h);
   
-  no.showbuttom();
-  yes.showbuttom();
+  //no.showbuttom();
+  //yes.showbuttom();
+  
   //filter( BLUR, 8 );
 }
 
