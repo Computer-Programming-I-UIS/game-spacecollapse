@@ -5,11 +5,11 @@ ShieldBar shipshield;
 
 Robot robot;
 
-ButtomStart start;
-ButtomConfig config;
+Buttom start;
+Buttom config;
 Buttom exit;
-ButtomYes yes;
-ButtomNo no;
+Buttom yes;
+//ButtomNo no;
 
 PImage shi;
 PImage shi2;
@@ -33,6 +33,7 @@ float ymouse = mouseY;//mouseY - 16;
 void setup() {
 
   size(1500, 1000);
+  frameRate(60);
 
   bullets = new ArrayList<Bullet>();
 
@@ -40,12 +41,13 @@ void setup() {
   shipshield = new ShieldBar();
   //clear(bullets);
 
-  start = new ButtomStart(width/2-150, height/3, 300, 70);
-  config = new ButtomConfig(width/2-150, height/2, 300, 70);
-  exit = new ButtomExit(width/2-150, height/1.5, 300, 70);
+  //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus)
+  start = new Buttom(width/2-150, height/3, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "START", width/2, height/2.5, 0, 255, 255,0, 3);
+  config = new Buttom(width/2-150, height/2, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "OPTIONS", width/2, height/1.77, 255, 255, 0,0, 2);
+  exit = new Buttom(width/2-150, height/1.5, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "EXIT", width/2, height/1.37, 255, 0, 0,0, 1);
 
-  yes = new ButtomYes(width/2-70*2, height/2+35, 70);
-  no = new ButtomNo(width/2+70, height/2+35, 70);
+  // yes = new Buttom(width/2-70*2, height/2+35, 70,70,"YES",width/2,yes.by+65,#ff0000,11);
+  //  no = new ButtomNo(width/2+70, height/2+35, 70);
 
   this.awakestar();
 
@@ -76,6 +78,7 @@ void scrollspace()
 
 void onstart()
 {  
+
   switch (gameStatus)
   {
   case 0:
@@ -103,8 +106,8 @@ void onstart()
 
   case 3:
 
-   
-    //noCursor();
+
+    noCursor();
     this.scrollspace(); 
 
     this.drawstar();
@@ -132,17 +135,15 @@ void drawstar()
   }
 }  
 public void centerCursor() throws Exception {
-  
+
   Robot robot = new Robot();
-  robot.mouseMove(900,700);
+  robot.mouseMove(940, 700);
 }
 void mainmenu()
 {
   image(SC, 450, 100);//logo
 
-  //start.showbuttom();
   start.showbuttom();
-  //start.test();
   config.showbuttom();
   exit.showbuttom();
 }
@@ -169,8 +170,8 @@ void areyousure()
   //filter( BLUR, 4);
   //text("ARE YOU SURE?", width/2, height/2);
 
-  no.showbuttom();
-  yes.showbuttom();
+  //no.showbuttom();
+  //yes.showbuttom();
 }
 void keyPressed() // echarle un ojo a keyReleased();
 {
