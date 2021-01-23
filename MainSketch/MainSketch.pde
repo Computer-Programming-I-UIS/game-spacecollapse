@@ -1,11 +1,15 @@
+import java.awt.*;
+
 LifeBar shiplife;
 ShieldBar shipshield;
 
-Buttom start;
-//ButtomConfig config;
-//ButtomExit exit;
-//ButtomYes yes;
-//ButtomNo no;
+Robot robot;
+
+ButtomStart start;
+ButtomConfig config;
+Buttom exit;
+ButtomYes yes;
+ButtomNo no;
 
 PImage shi;
 PImage shi2;
@@ -26,9 +30,6 @@ Stars[] stars = new Stars [nstars];
 float xmouse = mouseX;//constrain(mouseX - 50, 300, 1150);
 float ymouse = mouseY;//mouseY - 16;
 
-
-
-
 void setup() {
 
   size(1500, 1000);
@@ -37,17 +38,17 @@ void setup() {
 
   shiplife = new LifeBar();
   shipshield = new ShieldBar();
+  //clear(bullets);
 
-  start = new Buttom(width/2-boxboxSize/2,height/3,70);
-  //config = new ButtomConfig();
-  //exit = new ButtomExit();
+  start = new ButtomStart(width/2-150, height/3, 300, 70);
+  config = new ButtomConfig(width/2-150, height/2, 300, 70);
+  exit = new ButtomExit(width/2-150, height/1.5, 300, 70);
 
-
-  //yes = new ButtomYes();
-  //no = new ButtomNo();
-
+  yes = new ButtomYes(width/2-70*2, height/2+35, 70);
+  no = new ButtomNo(width/2+70, height/2+35, 70);
 
   this.awakestar();
+
 
   shi = loadImage("ShipI.png");
   shi2 = loadImage("ShipII.png");
@@ -79,38 +80,40 @@ void onstart()
   {
   case 0:
 
-    mainmenu();
+    this.mainmenu();
 
     break;
   case 1:
 
-    areyousure();
-    
-    if(gameStatus == 10)
+    this.areyousure();
+
+    if (gameStatus == 10)
     {
       gameStatus = 0;
-    }
-    else if(gameStatus == 11) 
+    } else if (gameStatus == 11) 
     {
       exit();
     }
-
-
     break;
   case 2:
+
+    this.options();
 
     break;
 
   case 3:
 
-    noCursor();
-    this.scrollspace();
+   
+    //noCursor();
+    this.scrollspace(); 
 
     this.drawstar();
     nave();
 
     xmouse = constrain(mouseX, 300, 1150);
     ymouse = mouseY - 16;
+
+
 
     break;
   }
@@ -128,17 +131,26 @@ void drawstar()
     stars[i].caida();
   }
 }  
+public void centerCursor() throws Exception {
+  
+  Robot robot = new Robot();
+  robot.mouseMove(900,700);
+}
 void mainmenu()
 {
   image(SC, 450, 100);//logo
 
+  //start.showbuttom();
   start.showbuttom();
-  //config.showbuttom();
-  //exit.showbuttom();
+  //start.test();
+  config.showbuttom();
+  exit.showbuttom();
+}
+void options()
+{
 }
 void areyousure()
 {
-
   int w = 500;
   int h = 300;
 
@@ -147,17 +159,19 @@ void areyousure()
   strokeWeight(10);
   fill(0);
 
-  
-
   rect(width/2-w/2, height/2.5, w, h);
-  
-  //no.showbuttom();
-  //yes.showbuttom();
-  
-  //filter( BLUR, 8 );
+
+  textSize(50);
+  fill(255, 255, 0);
+  textAlign(CENTER, BOTTOM);
+
+  text("ARE YOU SURE?", width/2, height/2);
+  //filter( BLUR, 4);
+  //text("ARE YOU SURE?", width/2, height/2);
+
+  no.showbuttom();
+  yes.showbuttom();
 }
-
-
 void keyPressed() // echarle un ojo a keyReleased();
 {
   toDoKeyPressed();

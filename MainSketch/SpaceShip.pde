@@ -11,7 +11,6 @@ void nave()
     shipshield.shieldbar();
     image(shi, constrain(xmouse, 300, 1100), ymouse);
 
-
     break;
   case 2:
     image(shi3, constrain(xmouse, 300, 1100), ymouse);
