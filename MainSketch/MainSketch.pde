@@ -9,7 +9,7 @@ Buttom start;
 Buttom config;
 Buttom exit;
 Buttom yes;
-//ButtomNo no;
+Buttom no;
 
 PImage shi;
 PImage shi2;
@@ -41,13 +41,20 @@ void setup() {
   shipshield = new ShieldBar();
   //clear(bullets);
 
-  //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus)
-  start = new Buttom(width/2-150, height/3, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "START", width/2, height/2.5, 0, 255, 255,0, 3);
-  config = new Buttom(width/2-150, height/2, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "OPTIONS", width/2, height/1.77, 255, 255, 0,0, 2);
-  exit = new Buttom(width/2-150, height/1.5, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "EXIT", width/2, height/1.37, 255, 0, 0,0, 1);
+  //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus,MX,MY)
+  start = new Buttom(width/2-150, height/3, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "START", width/2, height/2.5, 0, 255, 255, 0, 50, 3,  1920/2-50,1080/2);
+  config = new Buttom(width/2-150, height/2, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "OPTIONS", width/2, height/1.77, 255, 255, 0, 0, 50, 2,  1920/2,0);
+  exit = new Buttom(width/2-150, height/1.5, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "EXIT", width/2, height/1.37, 255, 0, 0, 0, 50, 1,  1920/2,1080/2+100);
 
-  // yes = new Buttom(width/2-70*2, height/2+35, 70,70,"YES",width/2,yes.by+65,#ff0000,11);
-  //  no = new ButtomNo(width/2+70, height/2+35, 70);
+
+
+
+
+
+
+
+  yes = new Buttom(width/2-70*2, height/2+35, 70, 70, 12, #ff0000, 0, 10, #808080, 0, 133, "YES", width/2-104, height/2+95, 255, 0, 0, 0, 35, 11,  1920/2-75,1080/2+75);
+  no = new Buttom(width/2+70, height/2+35, 70, 70, 12, #0DFF00, 0, 10, #808080, 0, 133, "NO", width/2+104, height/2+95, 0, 255, 0, 0, 35, 0,  1920/2,1080/2-300);
 
   this.awakestar();
 
@@ -88,15 +95,9 @@ void onstart()
     break;
   case 1:
 
+
     this.areyousure();
 
-    if (gameStatus == 10)
-    {
-      gameStatus = 0;
-    } else if (gameStatus == 11) 
-    {
-      exit();
-    }
     break;
   case 2:
 
@@ -116,7 +117,11 @@ void onstart()
     xmouse = constrain(mouseX, 300, 1150);
     ymouse = mouseY - 16;
 
+    break;
 
+  case 11:
+
+    exit();
 
     break;
   }
@@ -134,14 +139,9 @@ void drawstar()
     stars[i].caida();
   }
 }  
-public void centerCursor() throws Exception {
-
-  Robot robot = new Robot();
-  robot.mouseMove(940, 700);
-}
 void mainmenu()
 {
-  image(SC, 450, 100);//logo
+  image(SC, width/2-298.5, 100);//width/2-298.5, 100
 
   start.showbuttom();
   config.showbuttom();
@@ -160,7 +160,7 @@ void areyousure()
   strokeWeight(10);
   fill(0);
 
-  rect(width/2-w/2, height/2.5, w, h);
+  rect(width/2-250, height/2.5, w, h);
 
   textSize(50);
   fill(255, 255, 0);
@@ -168,10 +168,9 @@ void areyousure()
 
   text("ARE YOU SURE?", width/2, height/2);
   //filter( BLUR, 4);
-  //text("ARE YOU SURE?", width/2, height/2);
 
-  //no.showbuttom();
-  //yes.showbuttom();
+  no.showbuttom();
+  yes.showbuttom();
 }
 void keyPressed() // echarle un ojo a keyReleased();
 {

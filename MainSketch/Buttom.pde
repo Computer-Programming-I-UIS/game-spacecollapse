@@ -26,8 +26,13 @@ class Buttom
   color theColorG;
   color theColorB;
   color alpha;
+  
+  int Ts;
 
   int gamest;
+  
+  int mouseMX;
+  int mouseMY;
 
   boolean overBox = false;
 
@@ -35,7 +40,7 @@ class Buttom
   //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus)
   Buttom(float initbx, float initby, float initboxW, float initboxH, float initBorP, color initcolBorP, color initrectColP, 
     float initBorS, color initcolBorS, color initrectColS, color initpressCol, 
-    String initname, float initTx, float initTy,color initColorR ,color initColorG,color initColorB ,color initalpha,int initgamest )
+    String initname, float initTx, float initTy,color initColorR ,color initColorG,color initColorB ,color initalpha,int initTS,int initgamest, int initMX, int initMY )
   {
     this.bx = initbx;
     this.by = initby;
@@ -62,7 +67,12 @@ class Buttom
     this.theColorB = initColorB;
     this.alpha=  initalpha;
     
+    this.Ts = initTS;
+    
     this.gamest = initgamest;
+    
+    this.mouseMX = initMX;
+    this.mouseMY = initMY;
   }
 
   void showbuttom()
@@ -82,20 +92,20 @@ class Buttom
       strokeJoin(ROUND);
       strokeWeight(this.BorS);
       stroke(this.colBorS); 
-      this.alpha = 100;
+      this.alpha = 190;
       fill(this.rectColS);
 
       overBox = false;
     }
 
-    if (mousePressed)
+    if (mousePressed && (mouseButton == LEFT))
     { 
       if (overBox) { 
         //this.pressed();
         
         fill(this.pressCol);
         gameStatus = gamest;
-        try {
+         try {
           centerCursor();
         }
         catch(Exception e) {
@@ -107,10 +117,16 @@ class Buttom
     rect(this.bx, this.by, this.boxW, this.boxH);
 
     fill(this.theColorR,this.theColorG,this.theColorB,this.alpha);
-    textSize(50);
+    textSize(Ts);
     textAlign(CENTER, BOTTOM);
     text(this.name, this.Tx, this.Ty ); //width/2,this.by+65
   }
+  public void centerCursor() throws Exception {
+  
+  Robot robot = new Robot();
+  robot.mouseMove(mouseMX,  mouseMY);
+  
+}
 }
 //class ButtomStart extends Buttom
 //{
