@@ -1,4 +1,3 @@
-
 class Buttom 
 {
   float bx; //= width/2-boxSize/2;
@@ -33,6 +32,9 @@ class Buttom
   
   int mouseMX;
   int mouseMY;
+  
+  float bcP;
+  float bcS;
 
   boolean overBox = false;
 
@@ -40,7 +42,7 @@ class Buttom
   //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus)
   Buttom(float initbx, float initby, float initboxW, float initboxH, float initBorP, color initcolBorP, color initrectColP, 
     float initBorS, color initcolBorS, color initrectColS, color initpressCol, 
-    String initname, float initTx, float initTy,color initColorR ,color initColorG,color initColorB ,color initalpha,int initTS,int initgamest, int initMX, int initMY )
+    String initname, float initTx, float initTy,color initColorR ,color initColorG,color initColorB ,color initalpha,int initTS,int initgamest, int initMX, int initMY,float initbcP, float initbcS )
   {
     this.bx = initbx;
     this.by = initby;
@@ -73,6 +75,9 @@ class Buttom
     
     this.mouseMX = initMX;
     this.mouseMY = initMY;
+    
+    this.bcP  = initbcP;
+    this.bcS  = initbcS;
   }
 
   void showbuttom()
@@ -86,6 +91,8 @@ class Buttom
       stroke(this.colBorP); 
       this.alpha = 255;
       fill(this.rectColP);//color de fondo del boton
+      
+      specLow = bcS;
     } else 
     {
       //this.theColorTx = 0;
@@ -94,11 +101,13 @@ class Buttom
       stroke(this.colBorS); 
       this.alpha = 190;
       fill(this.rectColS);
+      
+      specLow = bcP;
 
       overBox = false;
     }
 
-    if (mousePressed && (mouseButton == LEFT))
+    if (mousePressed && (mouseButton == LEFT) &&  !locked )
     { 
       if (overBox) { 
         //this.pressed();
@@ -111,6 +120,7 @@ class Buttom
         catch(Exception e) {
           //  Block of code to handle errors
         }
+        locked = true;
       }
     }
 

@@ -24,11 +24,19 @@ class Stars {
     }
      if(xmouse <= 600)
       {// genera el efecto de movimiento
-      sx = sx-1.5;
+      sx = sx+1.5;
+     }
+     else
+     {
+       sx = sx+0.1;
      }
      if(xmouse >= 880)
       {
-      sx = sx+1.5;
+      sx = sx-1.5;
+     }
+     else
+     {
+       sx = sx-0.1;
      }
   }
 }
