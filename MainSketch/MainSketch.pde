@@ -49,14 +49,19 @@ PImage shi3;
 PImage space;
 PImage SC;
 
-int nstars = 8;
+int nstars = 30;//estrellas con efectos
+int nbstars = 2;//estrellas grandes sin efectos(temporal)
+int normstars = 5;//estrellas normales sin efectos(temporal)
+
 int bulletWidth = 5;
 
 int gameStatus = 0;
 int Menu;
 
 ArrayList<Bullet>bullets;
-Stars[] stars = new Stars [nstars];
+StarsPlus[] stars = new StarsPlus [nstars];
+StarsBig[] starsbig = new StarsBig[nbstars];
+StarsNorm[] starsnorm = new StarsNorm[normstars];
 
 float xmouse = mouseX;//constrain(mouseX - 50, 300, 1150);
 float ymouse = mouseY;//mouseY - 16;
@@ -128,7 +133,7 @@ void setup() {
 
 
   main.loop();
-  main.setGain(-10);
+  main.setGain(-10);// ajustamos el volumen inicial a uno tolerable
 }
 
 void draw() 
@@ -173,7 +178,7 @@ void onstart()
 
 
     noCursor();
-    this.scrollspace(); 
+    //this.scrollspace(); 
     main.pause();
 
     this.drawstar();
@@ -195,13 +200,30 @@ void onstart()
 void awakestar()
 {
   for (int i = 0; i < stars.length; i++) {
-    stars[i] = new Stars();
+    stars[i] = new StarsPlus();
+  }
+
+  for (int i = 0; i < starsbig.length; i++) {
+    starsbig[i] = new StarsBig();
+  }
+
+  for (int i = 0; i < starsnorm.length; i++) {
+    starsnorm[i] = new StarsNorm();
   }
 }
 void drawstar()
 {
   for (int i = 0; i < stars.length; i++) {
     stars[i].caida();
+    //stars[i].mouseMove();
+  }
+  for (int i = 0; i < starsnorm.length; i++) {
+    starsnorm[i].caida();
+    starsnorm[i].mouseMove();
+  }
+  for (int i = 0; i < starsbig.length; i++) {
+    starsbig[i].caida();
+    starsbig[i].mouseMove();
   }
 }  
 void mainmenu()
@@ -315,5 +337,5 @@ void keyPressed() // echarle un ojo a keyReleased();
 void mouseReleased()
 {
 
-   locked = false;
+  locked = false;
 }
