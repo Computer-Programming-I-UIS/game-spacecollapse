@@ -49,6 +49,8 @@ PImage shi3;
 PImage space;
 PImage SC;
 
+PImage asteroid;
+
 int nstars = 30;//estrellas con efectos
 int nbstars = 2;//estrellas grandes sin efectos(temporal)
 int normstars = 5;//estrellas normales sin efectos(temporal)
@@ -62,6 +64,8 @@ ArrayList<Bullet>bullets;
 StarsPlus[] stars = new StarsPlus [nstars];
 StarsBig[] starsbig = new StarsBig[nbstars];
 StarsNorm[] starsnorm = new StarsNorm[normstars];
+
+Asteroids[] rock = new Asteroids[1];
 
 float xmouse = mouseX;//constrain(mouseX - 50, 300, 1150);
 float ymouse = mouseY;//mouseY - 16;
@@ -127,6 +131,8 @@ void setup() {
   shi = loadImage("ShipI.png");
   shi2 = loadImage("ShipII.png");
   shi3 = loadImage("ShipIII.png");
+
+  asteroid = loadImage("Asteroid.png");
 
   SC = loadImage("Logo.png");
   space = loadImage("Space.png");
@@ -210,6 +216,9 @@ void awakestar()
   for (int i = 0; i < starsnorm.length; i++) {
     starsnorm[i] = new StarsNorm();
   }
+    for (int i = 0; i < rock.length; i++) {
+    rock[i] = new Asteroids();
+  }
 }
 void drawstar()
 {
@@ -224,6 +233,10 @@ void drawstar()
   for (int i = 0; i < starsbig.length; i++) {
     starsbig[i].caida();
     starsbig[i].mouseMove();
+  }
+  for (int i = 0; i < rock.length; i++) {
+    rock[i].caida();
+     //rock[i].rotar();
   }
 }  
 void mainmenu()
