@@ -61,11 +61,12 @@ int gameStatus = 3;
 int Menu;
 
 ArrayList<Bullet>bullets;
+
 StarsPlus[] stars = new StarsPlus [nstars];
 StarsBig[] starsbig = new StarsBig[nbstars];
 StarsNorm[] starsnorm = new StarsNorm[normstars];
 
-Asteroids[] rock = new Asteroids[1];
+Asteroids[] rock = new Asteroids[5];
 
 float xmouse = mouseX;//constrain(mouseX - 50, 300, 1150);
 float ymouse = mouseY;//mouseY - 16;
