@@ -1,20 +1,35 @@
 class Asteroids {
-  float d;
+  float d = random(0 ,0);
+  
   float x;
   float y;
   float i;
+  float vel= 3;
   float xd = constrain(random(1500), 300, 1200);
-  float yd = random(height);
+  float yd = constrain(random(height), -100, -300);
 
   void caida() {
-    yd = yd+1;
+    print ("    ",d,"   ");
+
+    yd = yd+vel;//velocidad
     i = i+0.01;//rotacion
     fill(255);
     pushMatrix();
+
     translate(xd, yd);
     rotate(0.1 + i);
+    scale(d);
     image(asteroid, this.x-asteroid.width/2, this.y-asteroid.height/2);
     popMatrix();
+
+    //if (asteroid.height >= 100)
+    //{
+
+    //  this.vel = ;
+    //} else
+    //{
+    //  this.vel = 30;
+    //}
 
     if (yd>height) {
       xd = constrain(random(1500), 300, 1200);
@@ -26,6 +41,9 @@ class Asteroids {
       xd = constrain(random(1500), 300, 1200);
       d = random(10);
     }
+  }
+  void collision()
+  {
   }
 }
 //class StarsPlus extends Stars

@@ -57,7 +57,7 @@ int normstars = 5;//estrellas normales sin efectos(temporal)
 
 int bulletWidth = 5;
 
-int gameStatus = 0;
+int gameStatus = 3;
 int Menu;
 
 ArrayList<Bullet>bullets;
