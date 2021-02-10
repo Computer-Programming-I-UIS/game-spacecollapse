@@ -54,6 +54,7 @@ PImage asteroid;
 int nstars = 30;//estrellas con efectos
 int nbstars = 2;//estrellas grandes sin efectos(temporal)
 int normstars = 5;//estrellas normales sin efectos(temporal)
+int numAsteroids = 5;
 
 int bulletWidth = 5;
 
@@ -66,7 +67,9 @@ StarsPlus[] stars = new StarsPlus [nstars];
 StarsBig[] starsbig = new StarsBig[nbstars];
 StarsNorm[] starsnorm = new StarsNorm[normstars];
 
-Asteroids[] rock = new Asteroids[5];
+//Asteroids[] rock = new Asteroids[5];
+
+ArrayList<Asteroid> meteoritos;
 
 float xmouse = mouseX;//constrain(mouseX - 50, 300, 1150);
 float ymouse = mouseY;//mouseY - 16;
@@ -84,6 +87,7 @@ void setup() {
   //fullScreen(P3D);
 
   bullets = new ArrayList<Bullet>();
+  meteoritos = new ArrayList<Asteroid>();
 
   shiplife = new LifeBar();
   shipshield = new ShieldBar();
@@ -217,8 +221,9 @@ void awakestar()
   for (int i = 0; i < starsnorm.length; i++) {
     starsnorm[i] = new StarsNorm();
   }
-    for (int i = 0; i < rock.length; i++) {
-    rock[i] = new Asteroids();
+  for (int i = 0; i < numAsteroids; i++) {
+    //rock[i] = new Asteroids();
+    meteoritos.add(new Asteroid());//llamando el constructor (colocar argumentos del constructor)
   }
 }
 void drawstar()
@@ -235,10 +240,9 @@ void drawstar()
     starsbig[i].caida();
     starsbig[i].mouseMove();
   }
-  for (int i = 0; i < rock.length; i++) {
-    rock[i].caida();
-    rock[i].collision(bullets);
-     //rock[i].rotar();
+  for(Asteroid rock : meteoritos) {
+    rock.caida();
+    rock.collision(bullets);
   }
 }  
 void mainmenu()

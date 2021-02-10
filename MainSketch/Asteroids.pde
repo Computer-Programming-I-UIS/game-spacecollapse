@@ -1,4 +1,4 @@
-class Asteroids {
+class Asteroid {
   float d = random(0.5, 0.8);
 
   float x;
