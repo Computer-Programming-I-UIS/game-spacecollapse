@@ -237,6 +237,7 @@ void drawstar()
   }
   for (int i = 0; i < rock.length; i++) {
     rock[i].caida();
+    rock[i].collision(bullets);
      //rock[i].rotar();
   }
 }  
