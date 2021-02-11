@@ -1,3 +1,5 @@
+boolean locked = false; 
+
 class Buttom 
 {
   float bx; //= width/2-boxSize/2;
@@ -25,14 +27,14 @@ class Buttom
   color theColorG;
   color theColorB;
   color alpha;
-  
+
   int Ts;
 
   int gamest;
-  
+
   int mouseMX;
   int mouseMY;
-  
+
   float bcP;
   float bcS;
 
@@ -42,7 +44,7 @@ class Buttom
   //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus)
   Buttom(float initbx, float initby, float initboxW, float initboxH, float initBorP, color initcolBorP, color initrectColP, 
     float initBorS, color initcolBorS, color initrectColS, color initpressCol, 
-    String initname, float initTx, float initTy,color initColorR ,color initColorG,color initColorB ,color initalpha,int initTS,int initgamest, int initMX, int initMY,float initbcP, float initbcS )
+    String initname, float initTx, float initTy, color initColorR, color initColorG, color initColorB, color initalpha, int initTS, int initgamest, int initMX, int initMY, float initbcP, float initbcS )
   {
     this.bx = initbx;
     this.by = initby;
@@ -68,14 +70,14 @@ class Buttom
     this.theColorG = initColorG;
     this.theColorB = initColorB;
     this.alpha=  initalpha;
-    
+
     this.Ts = initTS;
-    
+
     this.gamest = initgamest;
-    
+
     this.mouseMX = initMX;
     this.mouseMY = initMY;
-    
+
     this.bcP  = initbcP;
     this.bcS  = initbcS;
   }
@@ -91,7 +93,7 @@ class Buttom
       stroke(this.colBorP); 
       this.alpha = 255;
       fill(this.rectColP);//color de fondo del boton
-      
+
       specLow = bcS;
     } else 
     {
@@ -101,7 +103,7 @@ class Buttom
       stroke(this.colBorS); 
       this.alpha = 190;
       fill(this.rectColS);
-      
+
       specLow = bcP;
 
       overBox = false;
@@ -111,10 +113,10 @@ class Buttom
     { 
       if (overBox) { 
         //this.pressed();
-        
+
         fill(this.pressCol);
         gameStatus = gamest;
-         try {
+        try {
           centerCursor();
         }
         catch(Exception e) {
@@ -126,17 +128,16 @@ class Buttom
 
     rect(this.bx, this.by, this.boxW, this.boxH);
 
-    fill(this.theColorR,this.theColorG,this.theColorB,this.alpha);
+    fill(this.theColorR, this.theColorG, this.theColorB, this.alpha);
     textSize(Ts);
     textAlign(CENTER, BOTTOM);
     text(this.name, this.Tx, this.Ty ); //width/2,this.by+65
   }
   public void centerCursor() throws Exception {
-  
-  Robot robot = new Robot();
-  robot.mouseMove(mouseMX,  mouseMY);
-  
-}
+
+    Robot robot = new Robot();
+    robot.mouseMove(mouseMX, mouseMY);
+  }
 }
 //class ButtomStart extends Buttom
 //{

@@ -31,6 +31,7 @@ class Asteroid {
     {
       this.vel = 5;
     }
+    // println(asteroid.height*d);
 
     if (yd>height+asteroid.height) {
       xd = constrain(random(1500), 300, 1200);
@@ -43,29 +44,47 @@ class Asteroid {
   }
   void collision(ArrayList<Bullet> theBullets)
   {
-    int i = 1;
+  
     for ( Bullet myBullet : theBullets ) {
-      // if(posx)
-      println(myBullet.y);
-      i++;
+      //if (myBullet.y  < yd+asteroid.height*d  && myBullet.y  > yd+asteroid.height*d  && myBullet.x > xd+asteroid.height*d && myBullet.x < xd-asteroid.height*d )
+      //{
+      //    println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      //}
+      if (myBullet.x > xd-(height*d)/8 && myBullet.x < xd+(height*d)/8 )
+      {
+        //meteoritos.remove();
+        numAsteroids= numAsteroids-1;
+        
+        meteoritos.remove(numAsteroids);
+      }
     }
-    if (i > 1) {
-      println(" ");
-      println(" ");
-      println(" ");
-      i ++;
-    }
-
-    /*/*
-     if(bullets.get() )
-     {
-     
-     
-     
-     }
-     */
   }
 }
+// void collision(ArrayList<Bullet> theBullets)
+//{
+//  int i = 1;
+//  for ( Bullet myBullet : theBullets ) {
+//    // if(posx)
+//    println(myBullet.y);
+//    i++;
+//  }
+//  if (i > 1) {
+//    println(" ");
+//    println(" ");
+//    println(" ");
+//    i ++;
+//  }
+
+//  /*/*
+//   if(bullets.get() )
+//   {
+
+
+
+//   }
+//   */
+//}
+//}
 //class StarsPlus extends Stars
 //{
 // float value()
