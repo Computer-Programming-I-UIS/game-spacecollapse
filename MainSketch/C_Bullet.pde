@@ -3,37 +3,34 @@ class Bullet
   float x;
   float y;
   float speed;
-  float gravity;
   float w;
-  float life = 255;
+  float time;
+ 
 
   Bullet(float initx, float inity, float initw)
   {
     x = initx;
     y = inity;
     w = initw;
-    speed = -30 ;
-    gravity = 0.2;
+    speed = -50 ;
   }
 
   void move()
   {
-    
-    speed = speed - gravity;
+    time =time+1;
+    speed = speed-time;
     y = y+speed;
-
   }
   void display()
   {
-    fill(0, 255, +life);
+    fill(255, 255, 0);
     noStroke();
     ellipse(x, y, w, w);
   }
 
   Boolean finished()
   {
-    life = life -10;
-    if (life<0)
+    if (this.y < 0)
     {
       return true;
     } else

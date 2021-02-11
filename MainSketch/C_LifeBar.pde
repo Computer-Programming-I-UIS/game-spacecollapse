@@ -9,7 +9,7 @@ class LifeBar
   void lifebar()
   {    
     fill(r, g, b);
-    rect(constrain(xmouse+45, 300, 1145), ymouse+35, 10, 30);//vida de la nave
+    rect(constrain(xmouse+45, 300, 1145), constrain(ymouse+35, -500, height-70), 10, 30);//vida de la nave
 
     if (loselify == true)
     {
@@ -19,7 +19,7 @@ class LifeBar
   }
 }
 
-class ShieldBar extends LifeBar
+class ShieldBar 
 {
   int r;
   int g;
@@ -31,14 +31,14 @@ class ShieldBar extends LifeBar
   {    
     fill(r, g, b);
     noStroke();
-    ellipse(constrain(xmouse+33.3, 300, 1134), ymouse+30.2, 8.5, 8.5);//escudo de la nave
-    ellipse(constrain(xmouse+66.3, 300,1167), ymouse+30.2, 8, 8);//escudo de la nave
+    ellipse(constrain(xmouse+33.3, 300, 1134), constrain(ymouse+30.2, -500, height-70), 8.5, 8.5);//escudo de la nave
+    ellipse(constrain(xmouse+66.3, 300, 1167), constrain(ymouse+30.2, -500, height-70), 8, 8);//escudo de la nave
 
-    ellipse(constrain(xmouse+34.9, 300, 1135), ymouse+22.1, 3.9, 3.9);
-    ellipse(constrain(xmouse+65.9, 300, 1165), ymouse+22.1, 3.9, 3.9);
+    ellipse(constrain(xmouse+34.9, 300, 1135),constrain(ymouse+22.1,-500,height-78.1), 3.9, 3.9);
+    ellipse(constrain(xmouse+64.9, 300, 1165),constrain(ymouse+22.1,-500,height-78.1), 3.9, 3.9);
 
-    ellipse(constrain(xmouse+26.5, 300, 1126), ymouse+70.5, 7.5, 7.5);//escudo de la nave
-    ellipse(constrain(xmouse+74.5, 300, 1175), ymouse+70.5, 7.5, 7.5);//escudo de la nave
+    ellipse(constrain(xmouse+26.5, 300, 1126), constrain(ymouse+70.5,-500,height-30), 7.5, 7.5);//escudo de la nave
+    ellipse(constrain(xmouse+74.5, 300, 1175),constrain(ymouse+70.5,-500,height-30), 7.5, 7.5);//escudo de la nave
 
     if (loseshieldy == true)
     {

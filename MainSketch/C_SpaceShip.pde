@@ -9,11 +9,11 @@ void nave()
   case 1:
 
     shipshield.shieldbar();
-    image(shi, constrain(xmouse, 300, 1100), ymouse);
+    image(shi, constrain(xmouse, 300, 1100), constrain(ymouse,-500,height-100));
 
     break;
   case 2:
-    image(shi3, constrain(xmouse, 300, 1100), ymouse);
+    image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse,-500,height-100));
 
     break;
   }
@@ -21,6 +21,7 @@ void nave()
   for (int i = bullets.size()-1; i >= 0; i--)
   {
     Bullet bullet = bullets.get(i);
+    print("              ", bullets.size(), "                         ");
     bullet.move();
     bullet.display();
     if (bullet.finished())
@@ -29,7 +30,7 @@ void nave()
     }
   }
   if (mousePressed) {
-    bullets.add(new Bullet(constrain(mouseX+50, 350, 1150), mouseY, bulletWidth));
+    bullets.add(new Bullet(constrain(mouseX+50, 350, 1150), constrain(mouseY,-100,height-75), bulletWidth));
   }
 }
 

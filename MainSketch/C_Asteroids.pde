@@ -44,18 +44,13 @@ class Asteroid {
   }
   void collision(ArrayList<Bullet> theBullets)
   {
-  
+
     for ( Bullet myBullet : theBullets ) {
-      //if (myBullet.y  < yd+asteroid.height*d  && myBullet.y  > yd+asteroid.height*d  && myBullet.x > xd+asteroid.height*d && myBullet.x < xd-asteroid.height*d )
-      //{
-      //    println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-      //}
-      if (myBullet.x > xd-(height*d)/8 && myBullet.x < xd+(height*d)/8 )
-      {
-        //meteoritos.remove();
+      if (myBullet.x > xd-(asteroid.height*d/2) && myBullet.x < xd+(asteroid.height*d/2) &&
+        myBullet.y > yd-(asteroid.height*d/2.05) && myBullet.y < yd+(asteroid.height*d/2.05) )
+     {
         numAsteroids= numAsteroids-1;
-        
-        meteoritos.remove(numAsteroids);
+       // meteoritos.remove(numAsteroids);
       }
     }
   }
