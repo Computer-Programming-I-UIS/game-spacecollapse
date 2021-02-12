@@ -5,14 +5,25 @@ void nave()
   for (int i = bullets.size()-1; i >= 0; i--)
   {
     Bullet bullet = bullets.get(i);
-    print("              ", bullets.size(), "                         ");
+   // print("              ", bullets.size(), "                         ");
     bullet.move();
     bullet.display();
     if (bullet.finished())
     {
       bullets.remove(i);
-    }   
+    }
   }
+  for (int i = meteoritos.size()-1; i >= 0; i--)
+  {
+    Asteroid mymeteorito = meteoritos.get(i);
+    print("              ", meteoritos.size(), "                         ");
+    mymeteorito.collision(bullets);
+    if (mymeteorito.collition == true)
+    {
+      meteoritos.remove(i);
+    }
+  }
+  
   if (mousePressed) {
     bullets.add(new Bullet(constrain(mouseX+50, 350, 1150), constrain(mouseY, -100, height-75), bulletWidth));
   }

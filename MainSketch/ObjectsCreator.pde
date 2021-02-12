@@ -43,6 +43,6 @@ void drawStars()
   }
   for (Asteroid rock : meteoritos) {
     rock.caida();
-    rock.collision(bullets);
+    //rock.collision(bullets);
   }
 }  
