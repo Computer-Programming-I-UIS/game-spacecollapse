@@ -48,9 +48,9 @@ class Asteroid {
     for ( Bullet myBullet : theBullets ) {
       if (myBullet.x > xd-(asteroid.height*d/2) && myBullet.x < xd+(asteroid.height*d/2) &&
         myBullet.y > yd-(asteroid.height*d/2.05) && myBullet.y < yd+(asteroid.height*d/2.05) )
-     {
-        numAsteroids= numAsteroids-1;
-       // meteoritos.remove(numAsteroids);
+      {
+        xd = constrain(random(1500), 300, 1200);
+        yd = random(-250);
       }
     }
   }
