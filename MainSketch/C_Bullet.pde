@@ -12,12 +12,12 @@ class Bullet
     x = initx;
     y = inity;
     w = initw;
-    speed = random(-5, -1);
+    speed = random(-1.5,-1);
   }
 
   void move()
   {
-    time =time+1;
+    time =time+0.1;
     speed = speed-time;
     y = y+speed;
   }
@@ -25,7 +25,7 @@ class Bullet
   {
     fill(255, 255, 0);
     noStroke();
-    ellipse(x, y, w, w);
+    ellipse(x, y, w/2, w);
   }
 
   Boolean finished()

@@ -8,7 +8,8 @@ class Asteroid {
   float pl = random(-1, 1);
   float vel= 3;
   float xd = constrain(random(1500), 300, 1200);
-  float yd = constrain(random(height), -100, -300);
+  float yd = constrain(random(height), -300, -600);
+  boolean collition = false;
 
   void caida() {
 
@@ -50,7 +51,12 @@ class Asteroid {
         myBullet.y > yd-(asteroid.height*d/2.05) && myBullet.y < yd+(asteroid.height*d/2.05) )
       {
         xd = constrain(random(1500), 300, 1200);
-        yd = random(-250);
+        yd = random(-550, -200);
+
+        collition = true;
+      } else {
+
+        collition = false;
       }
     }
   }

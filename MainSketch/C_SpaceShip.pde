@@ -2,22 +2,6 @@ int status = 1;
 
 void nave()
 {
-  shiplife.lifebar();
-
-  switch (status)
-  {
-  case 1:
-
-    shipshield.shieldbar();
-    image(shi, constrain(xmouse, 300, 1100), constrain(ymouse,-500,height-100));
-
-    break;
-  case 2:
-    image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse,-500,height-100));
-
-    break;
-  }
-
   for (int i = bullets.size()-1; i >= 0; i--)
   {
     Bullet bullet = bullets.get(i);
@@ -27,10 +11,25 @@ void nave()
     if (bullet.finished())
     {
       bullets.remove(i);
-    }
+    }   
   }
   if (mousePressed) {
-    bullets.add(new Bullet(constrain(mouseX+50, 350, 1150), constrain(mouseY,-100,height-75), bulletWidth));
+    bullets.add(new Bullet(constrain(mouseX+50, 350, 1150), constrain(mouseY, -100, height-75), bulletWidth));
+  }
+  shiplife.lifebar();
+
+  switch (status)
+  {
+  case 1:
+
+    shipshield.shieldbar();
+    image(shi, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+
+    break;
+  case 2:
+    image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+
+    break;
   }
 }
 
