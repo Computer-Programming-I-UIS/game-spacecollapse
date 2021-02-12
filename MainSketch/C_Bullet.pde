@@ -12,7 +12,7 @@ class Bullet
     x = initx;
     y = inity;
     w = initw;
-    speed = -50 ;
+    speed = random(-5, -1);
   }
 
   void move()
