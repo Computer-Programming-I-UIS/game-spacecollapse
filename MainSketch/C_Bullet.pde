@@ -5,6 +5,7 @@ class Bullet
   float speed;
   float w;
   float time;
+  boolean desaparecer;
  
 
   Bullet(float initx, float inity, float initw)
@@ -28,14 +29,14 @@ class Bullet
     ellipse(x, y, w/2, w);
   }
 
-  Boolean finished()
+  void finished()
   {
-    if (this.y < 0)
+    if (this.y < 0 ) // || 
     {
-      return true;
+      desaparecer = true;
     } else
     {
-      return false;
+      desaparecer = false;
     }
   }
 }

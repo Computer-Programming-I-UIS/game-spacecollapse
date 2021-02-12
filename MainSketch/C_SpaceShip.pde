@@ -8,18 +8,21 @@ void nave()
    // print("              ", bullets.size(), "                         ");
     bullet.move();
     bullet.display();
-    if (bullet.finished())
+    bullet.finished(); // Verificando si la bala se salio de la pantalla;
+    if (bullet.desaparecer) 
     {
       bullets.remove(i);
     }
   }
+  int colitionBulletIndex;
   for (int i = meteoritos.size()-1; i >= 0; i--)
   {
     Asteroid mymeteorito = meteoritos.get(i);
-    print("              ", meteoritos.size(), "                         ");
-    mymeteorito.collision(bullets);
+    //print("              ", meteoritos.size(), "                         ");
+    colitionBulletIndex = mymeteorito.collision(bullets);
     if (mymeteorito.collition == true)
     {
+      bullets.remove(colitionBulletIndex);
       meteoritos.remove(i);
     }
   }

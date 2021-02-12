@@ -1,11 +1,11 @@
-abstract class Stars {
+abstract class Star {
   float d;
   float sx = constrain(random(1500), 300, 1200);
   float y = random(height);
   float b;
   float g;
 
-  Stars() {
+  Star() {
   }//creamos un constructor vacio
   
   float value()
@@ -47,7 +47,7 @@ abstract class Stars {
     }
   }
 }
-class StarsPlus extends Stars
+class StarsPlus extends Star
 {
  float value()
  {
@@ -55,7 +55,7 @@ class StarsPlus extends Stars
    return diam;
  }
 }
-class StarsBig extends Stars
+class StarsBig extends Star
 {
   float value()
  {
@@ -63,7 +63,7 @@ class StarsBig extends Stars
    return diamx;
  }
 }
-class StarsNorm extends Stars
+class StarsNorm extends Star
 {
   float value()
  {
