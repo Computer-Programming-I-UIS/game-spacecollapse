@@ -34,7 +34,7 @@ PImage asteroid;
 int nstars = 30;//estrellas con efectos
 int nbstars = 2;//estrellas grandes sin efectos(temporal)
 int normstars = 5;//estrellas normales sin efectos(temporal)
-int numAsteroids = 5;
+int numAsteroids = 7;
 
 int bulletWidth = 5;
 

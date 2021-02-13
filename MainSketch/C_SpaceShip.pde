@@ -5,7 +5,7 @@ void nave()
   for (int i = bullets.size()-1; i >= 0; i--)
   {
     Bullet bullet = bullets.get(i);
-   // print("              ", bullets.size(), "                         ");
+    // print("              ", bullets.size(), "                         ");
     bullet.move();
     bullet.display();
     bullet.finished(); // Verificando si la bala se salio de la pantalla;
@@ -25,8 +25,18 @@ void nave()
       bullets.remove(colitionBulletIndex);
       meteoritos.remove(i);
     }
+    for (int j = meteoritos.size()-1; j >= 0; j--)
+    {
+      if (i != j) {
+        Asteroid mymeteorito2 = meteoritos.get(j);
+        if (dist(mymeteorito.xd, mymeteorito.yd, mymeteorito2.xd, mymeteorito2.yd) <= mymeteorito.r + mymeteorito2.r)
+        {
+          mymeteorito2.rebote(mymeteorito);
+        }
+      }
+    }
   }
-  
+
   if (mousePressed) {
     bullets.add(new Bullet(constrain(mouseX+50, 350, 1150), constrain(mouseY, -100, height-75), bulletWidth));
   }

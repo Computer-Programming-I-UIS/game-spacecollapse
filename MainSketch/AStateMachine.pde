@@ -26,7 +26,7 @@ void stateMachine()
     noCursor();
     //this.scrollspace(); 
     main.pause();
-
+    
     drawStars();
     nave();
 

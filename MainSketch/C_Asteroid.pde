@@ -1,20 +1,32 @@
 class Asteroid {
   float d = random(0.5, 0.8);
 
-  float x;
-  float y;
   float i;// rotacion
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
   float vel= 3;
+  PVector velocidad;
   float xd = constrain(random(1500), 300, 1200);
   float yd = random(height*-1, 0 );
   boolean collition = false;
+  float masa;
+  float r;
+
+  Asteroid(  )
+  {
+
+    velocidad = new PVector(random(-1.5, 1.5), random(2, 5));
+    masa = 2*asteroid.width;
+    r = asteroid.width*d/2;
+}
+
+
 
   void caida() {
 
 
-    yd = yd+vel;//velocidad
+    yd = yd+velocidad.y;//velocidad
+    xd = xd+velocidad.x;//velocidad
     i = i+rr*pl;//rotacion
     fill(255);
     pushMatrix();
@@ -22,7 +34,7 @@ class Asteroid {
     translate(xd, yd);
     rotate(i);
     scale(d);
-    image(asteroid, this.x-asteroid.width/2, this.y-asteroid.height/2);
+    image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
     popMatrix();
 
     //if (i >= 1)
@@ -35,15 +47,37 @@ class Asteroid {
     // println(asteroid.height*d);
 
     if (yd>height+asteroid.height*d/2) {
-      xd = constrain(random(1500), 300, 1200);
+      xd = random(300, 1200);
       yd = random(-250);
     }
-    if (xd <= 300 || xd >= 1200) {
+    if (xd <= 100 || xd >= 1400) {
 
-      xd = constrain(random(1500), 300, 1200);
+      yd=random(-250);
+      //xd = constrain(random(1500), 300, 1200);
     }
   }
+  void rebote(Asteroid meteoritoAcercandose) {
 
+    float v2_inicial = this.velocidad.x;
+    float v1_inicial = meteoritoAcercandose.velocidad.x;
+    float m1 = meteoritoAcercandose.masa;
+    float m2 = this.masa;
+
+    float dv = v2_inicial - v1_inicial;
+    float E1 = pow(v1_inicial, 2)*m1/2;
+    float E2 = pow(v2_inicial, 2)*m2/2;
+    float Et = E1+E2;
+
+    float a = m1/2;
+    float b = (m1*dv) + (m2/2);
+    float c = (m1*pow(dv, 2)/2) - Et;
+
+    float V2_final_1 = ( -b + sqrt( pow(b, 2) - (4*a*c) ) ) / (2*a);
+    //float V1_final_1 = dv + V2_final_1;
+
+
+    this.velocidad.x = V2_final_1*0.3;
+  }
 
 
 
