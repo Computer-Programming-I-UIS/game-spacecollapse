@@ -48,8 +48,8 @@ void drawStars()
   for (Asteroid rock : meteoritos) {
     rock.caida();
   }
-  //noStroke();
-  //fill(0);
-  //rect(0,0,310,height);
-  //rect(1190,0,310,height);
+  noStroke();
+  fill(0);
+  rect(0,0,310,height);
+  rect(1190,0,310,height);
 }  
