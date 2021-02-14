@@ -29,7 +29,7 @@ void nave()
     {
       if (i != j) {
         Asteroid mymeteorito2 = meteoritos.get(j);
-        if (dist(mymeteorito.xd, mymeteorito.yd, mymeteorito2.xd, mymeteorito2.yd) <= mymeteorito.r + mymeteorito2.r)
+        if (dist(mymeteorito.location.x, mymeteorito.location.y, mymeteorito2.location.x, mymeteorito2.location.y) <= mymeteorito.radius + mymeteorito2.radius)
         {
           mymeteorito2.rebote(mymeteorito);
         }

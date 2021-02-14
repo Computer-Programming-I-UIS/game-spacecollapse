@@ -23,7 +23,11 @@ void awakeStars()
   }
   for (int i = 0; i < numAsteroids; i++) {
     //rock[i] = new Asteroids();
-    meteoritos.add(new Asteroid());//llamando el constructor (colocar argumentos del constructor)
+    int rango = (1200-300)/numAsteroids;
+    meteoritos.add(new Asteroid((i*rango)+300+80, ((i+1)*rango)- 80 + 300, new PVector(random(-1.5, 1.5), random(3, 5))));//llamando el constructor
+    /*
+    (new PVector(random((i*rango)+300,(i+1)*rango + 300)
+     */
   }
 }
 
@@ -43,11 +47,9 @@ void drawStars()
   }
   for (Asteroid rock : meteoritos) {
     rock.caida();
-   
   }
-  noStroke();
-  fill(0);
-  rect(0,0,310,height);
-  rect(1190,0,310,height);
-  
+  //noStroke();
+  //fill(0);
+  //rect(0,0,310,height);
+  //rect(1190,0,310,height);
 }  

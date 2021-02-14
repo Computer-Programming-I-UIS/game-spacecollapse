@@ -4,34 +4,48 @@ class Asteroid {
   float i;// rotacion
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
-  float vel= 3;
-  PVector velocidad;
-  float xd = constrain(random(1500), 300, 1200);
-  float yd = random(height*-1, 0 );
+  //float vel= 3;
+  //PVector velocidad;
+  //float location.x = constrain(random(1500), 300, 1200);
+  //float location.y = random(height*-1, 0 );
   boolean collition = false;
-  float masa;
-  float r;
+  //float masa;
+  //float r;
+  PVector location;
+  PVector velocity;
+  PVector last_velocity = new PVector(0, 0);
+  //color ballColor;
+  float radius;
+  float density = 0.0003; // [g/pixel³]
+  float mass;
+  float e = 1;  // restitution coeficient
+  float xmin, xmax;
 
-  Asteroid(  )
+  Asteroid(float xmin, float xmax, PVector velocity)
   {
-
-    velocidad = new PVector(random(-1.5, 1.5), random(2, 5));
-    masa = 2*asteroid.width;
-    r = asteroid.width*d/2;
-}
+    this.location = new PVector(random(xmin, xmax), random(-10, -500));
+    this.velocity = velocity;
+    //this.ballColor = ballColor;
+    this.radius = asteroid.width*d/2;
+    // mass = volume * density;
+    this.mass = ( (4*PI*pow(this.radius, 3))/3 ) * density;
+    this.xmin = xmin;
+    this.xmax = xmax;
+  }
 
 
 
   void caida() {
 
 
-    yd = yd+velocidad.y;//velocidad
-    xd = xd+velocidad.x;//velocidad
+    //yd = yd+velocidad.y;//velocidad
+    //location.x = location.x+velocidad.x;//velocidad
+    location.add(velocity);
     i = i+rr*pl;//rotacion
     fill(255);
     pushMatrix();
 
-    translate(xd, yd);
+    translate( location.x, location.y);
     rotate(i);
     scale(d);
     image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
@@ -46,37 +60,38 @@ class Asteroid {
     //}
     // println(asteroid.height*d);
 
-    if (yd>height+asteroid.height*d/2) {
-      xd = random(300, 1200);
-      yd = random(-250);
+    if ( location.y>height+asteroid.height*d/2) {
+      location.x = random(xmin, xmax);
+      location.y = random(-10, -500);
+      velocity.x = random(-1.5, 1.5);
+      velocity.y = random(3, 5);
     }
-    if (xd <= 100 || xd >= 1400) {
+    if (location.x <= 100 || location.x >= 1400) {
 
-      yd=random(-250);
-      //xd = constrain(random(1500), 300, 1200);
+      location.y=random(-10, -500);
+      velocity.x = random(-1.5, 1.5);
+      velocity.y = random(3, 5);
+      //location.y = constrain(random(1500), 300, 1200);
     }
+    last_velocity.x = velocity.x;
+    last_velocity.y = velocity.y;
   }
   void rebote(Asteroid meteoritoAcercandose) {
+    // Mass and velocity from this object
+    float m1 = this.mass;
+    float v01 = this.last_velocity.x;
+    float vIy1 = this.last_velocity.y;
+    // Mass and velocity from second object
+    float m2 = meteoritoAcercandose.mass;
+    float v02 = meteoritoAcercandose.last_velocity.x;
+    float vIy2 = meteoritoAcercandose.last_velocity.y;
+    //
+    
 
-    float v2_inicial = this.velocidad.x;
-    float v1_inicial = meteoritoAcercandose.velocidad.x;
-    float m1 = meteoritoAcercandose.masa;
-    float m2 = this.masa;
-
-    float dv = v2_inicial - v1_inicial;
-    float E1 = pow(v1_inicial, 2)*m1/2;
-    float E2 = pow(v2_inicial, 2)*m2/2;
-    float Et = E1+E2;
-
-    float a = m1/2;
-    float b = (m1*dv) + (m2/2);
-    float c = (m1*pow(dv, 2)/2) - Et;
-
-    float V2_final_1 = ( -b + sqrt( pow(b, 2) - (4*a*c) ) ) / (2*a);
-    //float V1_final_1 = dv + V2_final_1;
-
-
-    this.velocidad.x = V2_final_1*0.3;
+    // final velocity from this object
+    this.velocity.x = ( m1*v01 + m2*v02 - e*m2*(v01-v02) ) / (m1 + m2);
+    this.velocity.y = ( m1*vIy1 + m2*vIy2 - e*m2*(vIy1-vIy2) ) / (m1 + m2);
+    
   }
 
 
@@ -86,11 +101,11 @@ class Asteroid {
     collition = false;
     int cnt = 0;
     for ( Bullet myBullet : theBullets ) {
-      if (myBullet.x > xd-(asteroid.height*d/2) && myBullet.x < xd+(asteroid.height*d/2) &&
-        myBullet.y > yd-(asteroid.height*d/2.05) && myBullet.y < yd+(asteroid.height*d/2.05) )
+      if (myBullet.x > location.x-(asteroid.height*d/2) && myBullet.x < location.x+(asteroid.height*d/2) &&
+        myBullet.y > location.y-(asteroid.height*d/2.05) && myBullet.y < location.y+(asteroid.height*d/2.05) )
       {
-        //xd = constrain(random(1500), 300, 1200);
-        //yd = random(-550, -200);
+        //location.x = constrain(random(1500), 300, 1200);
+        //location.y = random(-550, -200);
         myBullet.desaparecer = true;
         collition = true;
         break;
