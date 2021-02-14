@@ -30,6 +30,7 @@ PImage space;
 PImage SC;
 
 PImage asteroid;
+PImage asteroidDamaged;
 
 int nstars = 30;//estrellas con efectos
 int nbstars = 2;//estrellas grandes sin efectos(temporal)

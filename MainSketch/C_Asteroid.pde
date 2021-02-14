@@ -42,7 +42,15 @@ class Asteroid {
     translate( location.x, location.y);
     rotate(i);
     scale(d);
-    image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
+    if (collition == true)
+    {
+      image(asteroidDamaged, 0-asteroid.width/2, 0-asteroid.height/2);
+    } else
+    {
+
+      image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
+    }
+
     popMatrix();
 
 
@@ -74,7 +82,6 @@ class Asteroid {
     float v02 = meteoritoAcercandose.last_velocity.x;
     float vIy2 = meteoritoAcercandose.last_velocity.y;
     //
-
 
     // final velocity from this object
     this.velocity.x = ( m1*v01 + m2*v02 - e*m2*(v01-v02) ) / (m1 + m2);

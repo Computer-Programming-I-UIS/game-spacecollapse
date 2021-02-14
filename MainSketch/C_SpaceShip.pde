@@ -37,6 +37,8 @@ void nave()
         if (dist(mymeteorito.location.x, mymeteorito.location.y, mymeteorito2.location.x, mymeteorito2.location.y) <= mymeteorito.radius + mymeteorito2.radius)
         {
           mymeteorito2.rebote(mymeteorito);
+          mymeteorito.collition = true;
+          
         }
       }
     }
