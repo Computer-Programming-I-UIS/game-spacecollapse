@@ -4,13 +4,15 @@ class Asteroid {
   float i;// rotacion
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
- 
+
+  float life = 40;
+
   boolean collition = false;
- 
+
   PVector location;
   PVector velocity;
   PVector last_velocity = new PVector(0, 0);
-  
+
   float radius;
   float density = 0.0003; // [g/pixel³]
   float mass;
@@ -27,6 +29,7 @@ class Asteroid {
     this.mass = ( (4*PI*pow(this.radius, 3))/3 ) * density;
     this.xmin = xmin;
     this.xmax = xmax;
+    life = life -10;
   }
 
   void caida() {
@@ -48,12 +51,14 @@ class Asteroid {
       location.y = random(-10, -500);
       velocity.x = random(-1.5, 1.5);
       velocity.y = random(3, 5);
+      life = 40;
     }
     if (location.x <= 100 || location.x >= 1400) {
 
       location.y=random(-10, -500);
       velocity.x = random(-1.5, 1.5);
       velocity.y = random(3, 5);
+      life = 40;
       //location.y = constrain(random(1500), 300, 1200);
     }
     last_velocity.x = velocity.x;
@@ -88,6 +93,8 @@ class Asteroid {
       {
         myBullet.desaparecer = true;
         collition = true;
+        life = life - 5;
+        this.velocity.y = this.velocity.y -1;
         break;
       } else {
 

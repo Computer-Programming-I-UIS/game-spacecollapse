@@ -20,10 +20,15 @@ void nave()
     Asteroid mymeteorito = meteoritos.get(i);
     //print("              ", meteoritos.size(), "                         ");
     colitionBulletIndex = mymeteorito.collision(bullets);
-    if (mymeteorito.collition == true)
+    if (mymeteorito.collition == true && mymeteorito.life <= 0)
     {
       bullets.remove(colitionBulletIndex);
       meteoritos.remove(i);
+    } else if (mymeteorito.collition == true)
+    {
+      bullets.remove(colitionBulletIndex);
+      // noTint();
+     //tint(255, 0, 0);
     }
     for (int j = meteoritos.size()-1; j >= 0; j--)
     {
@@ -47,10 +52,12 @@ void nave()
   case 1:
 
     shipshield.shieldbar();
+    
     image(shi, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
 
     break;
   case 2:
+
     image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
 
     break;
