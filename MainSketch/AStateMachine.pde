@@ -26,12 +26,14 @@ void stateMachine()
     noCursor();
     //this.scrollspace(); 
     main.pause();
-    
-    drawStars();
-    nave();
 
-    xmouse = constrain(mouseX, 300, 1150);
-    ymouse = mouseY - 16;
+    drawStars();
+    player.nave();
+    player.keyPressed();
+   
+
+    //xmouse = constrain(mouseX, 300, 1150);
+    //ymouse = mouseY - 16;
 
     break;
 

@@ -1,90 +1,129 @@
-int status = 1;
+class SpaceShip {
 
-void nave()
-{
-  for (int i = bullets.size()-1; i >= 0; i--)
+  int shipStatus = 1;
+  float xmouse = width/2;
+  float ymouse = height/2;
+  boolean lockShoot = false;
+
+
+  SpaceShip()
   {
-    Bullet bullet = bullets.get(i);
-    // print("              ", bullets.size(), "                         ");
-    bullet.move();
-    bullet.display();
-    bullet.finished(); // Verificando si la bala se salio de la pantalla;
-    if (bullet.desaparecer) 
-    {
-      bullets.remove(i);
-    }
   }
-  int colitionBulletIndex;
-  for (int i = meteoritos.size()-1; i >= 0; i--)
+  void nave()
   {
-    Asteroid mymeteorito = meteoritos.get(i);
-    //print("              ", meteoritos.size(), "                         ");
-    colitionBulletIndex = mymeteorito.collision(bullets);
-    if (mymeteorito.collition == true && mymeteorito.life <= 0)
+    for (int i = bullets.size()-1; i >= 0; i--)
     {
-      bullets.remove(colitionBulletIndex);
-      meteoritos.remove(i);
-    } else if (mymeteorito.collition == true)
-    {
-      bullets.remove(colitionBulletIndex);
-      // noTint();
-     //tint(255, 0, 0);
+      Bullet bullet = bullets.get(i);
+      // print("              ", bullets.size(), "                         ");
+      bullet.move();
+      bullet.display();
+      bullet.finished(); // Verificando si la bala se salio de la pantalla;
+      if (bullet.desaparecer) 
+      {
+        bullets.remove(i);
+      }
     }
-    for (int j = meteoritos.size()-1; j >= 0; j--)
+    int colitionBulletIndex;
+    for (int i = meteoritos.size()-1; i >= 0; i--)
     {
-      if (i != j) {
-        Asteroid mymeteorito2 = meteoritos.get(j);
-        if (dist(mymeteorito.location.x, mymeteorito.location.y, mymeteorito2.location.x, mymeteorito2.location.y) <= mymeteorito.radius + mymeteorito2.radius)
-        {
-          mymeteorito2.rebote(mymeteorito);
-          mymeteorito.collition = true;
-          
+      Asteroid mymeteorito = meteoritos.get(i);
+     // print("              ", mymeteorito.life, "                         ");
+      colitionBulletIndex = mymeteorito.collision(bullets);
+      if (mymeteorito.collition == true && mymeteorito.life <= 0)
+      {
+        bullets.remove(colitionBulletIndex);
+        
+        meteoritos.remove(i);
+      } else if (mymeteorito.collition == true)
+      {
+
+        bullets.remove(colitionBulletIndex);
+      }
+      for (int j = meteoritos.size()-1; j >= 0; j--)
+      {
+        if (i != j) {
+          Asteroid mymeteorito2 = meteoritos.get(j);
+          if (dist(mymeteorito.location.x, mymeteorito.location.y, mymeteorito2.location.x, mymeteorito2.location.y) <= mymeteorito.radius + mymeteorito2.radius)
+          {
+            mymeteorito2.rebote(mymeteorito);
+            mymeteorito.life -= 10;
+            mymeteorito.collition = true;
+            
+          }
         }
       }
     }
+    shiplife.lifebar();
+
+    switch (shipStatus)
+    {
+    case 1:
+
+      shipshield.shieldbar();
+      shipshield.ShieldRange();
+
+
+      image(shi, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+
+
+      break;
+    case 2:
+
+      image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+
+      break;
+    }
   }
 
-  if (mousePressed) {
-    bullets.add(new Bullet(constrain(mouseX+50, 350, 1150), constrain(mouseY, -100, height-75), bulletWidth));
-  }
-  shiplife.lifebar();
+  void keyPressed() {
 
-  switch (status)
+    //  //shiplife.loselify = true;
+    //  //shipshield.loseshieldy = true;
+    if (keyPressed)
+    {
+      if (key == ' ' && lockShoot == false)
+      {
+        //if (directionY<0) { 
+        bullets.add(new Bullet(constrain(xmouse+50, 350, 1150), constrain(ymouse, -100, height-75), bulletWidth));
+        lockShoot = true;
+        //}
+      }
+    }
+
+    if (keyPressed && key == CODED)
+    {
+
+      if (keyCode == LEFT )
+      {
+        //if (directionX>0) { 
+        xmouse -= 3;
+
+        //}
+      } 
+      if (keyCode == RIGHT)
+      {
+        //if (directionX<0) {  
+        xmouse += 3;
+        //}
+      }  
+      if (keyCode == UP )
+      {
+        //if (directionY<0) {
+        ymouse -= 3;
+
+        //}
+      }  
+      if (keyCode == DOWN )
+      {
+        //if (directionY<0) { 
+        ymouse += 4;
+        //}
+      }
+    }
+  }
+  void keyReleased()
   {
-  case 1:
 
-    shipshield.shieldbar();
-    
-    image(shi, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
-
-    break;
-  case 2:
-
-    image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
-
-    break;
-  }
-}
-
-
-void toDoKeyPressed() {
-
-  if (key == 'A'|| key == 'a')
-  {//
-    status = 2;
-  } 
-  if (key == 'D'|| key == 'd')
-  {//
-    status = 1;
-  } 
-  if (key == 'W'|| key == 'w')
-  {//
-    shiplife.loselify = true;
-    shipshield.loseshieldy = true;
-  } 
-  if (key == 'S'|| key == 's')
-  {//
-
-    //gameStatus = 1;
+    lockShoot = false;
   }
 }

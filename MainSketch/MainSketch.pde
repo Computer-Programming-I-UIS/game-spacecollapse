@@ -4,6 +4,8 @@ import ddf.minim.*;
 import ddf.minim.signals.*;
 import ddf.minim.analysis.*;
 
+SpaceShip player;
+
 LifeBar shiplife;
 ShieldBar shipshield;
 
@@ -26,6 +28,13 @@ PImage shi;
 PImage shi2;
 PImage shi3;
 
+PImage shield1;
+PImage shield2;
+PImage shield3;
+PImage shield4;
+PImage shield5;
+
+
 PImage space;
 PImage SC;
 
@@ -35,7 +44,7 @@ PImage asteroidDamaged;
 int nstars = 30;//estrellas con efectos
 int nbstars = 2;//estrellas grandes sin efectos(temporal)
 int normstars = 5;//estrellas normales sin efectos(temporal)
-int numAsteroids = 6;
+int numAsteroids = 5;
 
 int bulletWidth = 5;
 
@@ -51,8 +60,7 @@ StarsNorm[] starsnorm = new StarsNorm[normstars];
 
 //Asteroids[] rock = new Asteroids[5];
 
-float xmouse = mouseX;//constrain(mouseX - 50, 300, 1150);
-float ymouse = mouseY;//mouseY - 16;
+//mouseY - 16;
 
 
 void setup() {
@@ -62,7 +70,7 @@ void setup() {
 
   LoadImages();
   InitBackgroundCubes();
-  
+
   bullets = new ArrayList<Bullet>();
   meteoritos = new ArrayList<Asteroid>();
 
@@ -73,7 +81,7 @@ void setup() {
   main = minim.loadFile("Start.mp3");
 
   awakeStars();
-
+  initShip();
   createButtoms();
 
   main.loop();
@@ -98,9 +106,13 @@ void scrollspace()
   }
 }
 
-void keyPressed()
+//void keyPressed()
+//{
+//  //player.keyPressed();
+//}
+void keyReleased()
 {
-  toDoKeyPressed();
+ player.keyReleased();
 }
 void mouseReleased()
 {

@@ -29,7 +29,6 @@ class Asteroid {
     this.mass = ( (4*PI*pow(this.radius, 3))/3 ) * density;
     this.xmin = xmin;
     this.xmax = xmax;
-    life = life -10;
   }
 
   void caida() {
@@ -54,14 +53,14 @@ class Asteroid {
     popMatrix();
 
 
-    if ( location.y>height+asteroid.height*d/2) {
+    if ( location.y>height+asteroid.height*d/2 && life > 0) {
       location.x = random(xmin, xmax);
       location.y = random(-10, -500);
       velocity.x = random(-1.5, 1.5);
       velocity.y = random(3, 5);
       life = 40;
     }
-    if (location.x <= 100 || location.x >= 1400) {
+    if (location.x <= 100 || location.x >= 1400 && life >0) {
 
       location.y=random(-10, -500);
       velocity.x = random(-1.5, 1.5);
@@ -88,6 +87,11 @@ class Asteroid {
     this.velocity.y = ( m1*vIy1 + m2*vIy2 - e*m2*(vIy1-vIy2) ) / (m1 + m2);
   }
 
+  void shipCollition() {
+    //if (location.x-(asteroid.height*d/2) > ))
+    //{
+    //}
+  }
 
 
   int collision(ArrayList<Bullet> theBullets)
