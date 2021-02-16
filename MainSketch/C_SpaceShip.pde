@@ -27,18 +27,25 @@ class SpaceShip {
     for (int i = meteoritos.size()-1; i >= 0; i--)
     {
       Asteroid mymeteorito = meteoritos.get(i);
-     // print("              ", mymeteorito.life, "                         ");
+      // print("              ", mymeteorito.life, "                         ");
       colitionBulletIndex = mymeteorito.collision(bullets);
       if (mymeteorito.collition == true && mymeteorito.life <= 0)
       {
         bullets.remove(colitionBulletIndex);
-        
+
         meteoritos.remove(i);
       } else if (mymeteorito.collition == true)
       {
 
         bullets.remove(colitionBulletIndex);
       }
+
+
+
+
+
+
+
       for (int j = meteoritos.size()-1; j >= 0; j--)
       {
         if (i != j) {
@@ -48,9 +55,9 @@ class SpaceShip {
             mymeteorito2.rebote(mymeteorito);
             mymeteorito.life -= 10;
             mymeteorito.collition = true;
-            
           }
         }
+        mymeteorito.shipCollition();
       }
     }
     shiplife.lifebar();

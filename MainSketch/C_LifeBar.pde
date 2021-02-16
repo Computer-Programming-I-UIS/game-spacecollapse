@@ -27,15 +27,44 @@ class ShieldBar
   int h = 120;
   int w = 80;
   int time;
-  
-   
-  
+  int shieldStatus = 0;
+
+
+
   Boolean loseshieldy = false;
 
 
   void ShieldRange()
-  {
+  {  
+    //fill(0,255,0,150);
+    //ellipse(player.xmouse+50, player.ymouse+50,140,190);    
+
+    //    image(shield1, player.xmouse-50, player.ymouse-50);
+
+    switch(shieldStatus)
+    {
+    case 0:
+
+
       image(shield1, player.xmouse-50, player.ymouse-50);
+
+      break;
+
+    case 1:
+       image(shield2, player.xmouse-50, player.ymouse-50);
+      break;
+
+    case 2:
+       image(shield3, player.xmouse-50, player.ymouse-50);
+      break;
+
+    case 3:
+       image(shield4, player.xmouse-50, player.ymouse-50);
+      break;
+    case 4:
+       image(shield5, player.xmouse-50, player.ymouse-50);
+      break;
+    }
   }
   void shieldbar()
   {    

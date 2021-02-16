@@ -88,9 +88,22 @@ class Asteroid {
   }
 
   void shipCollition() {
-    //if (location.x-(asteroid.height*d/2) > ))
-    //{
-    //}
+    //fill(0, 100, 20);
+    //rect(location.x, location.y+asteroid.height*d/2, 10, 10);
+    //rect(player.xmouse, player.ymouse-50, 10, 10);
+    
+    if (location.x+asteroid.height*d/2 > player.xmouse && location.x - asteroid.height*d/2 < player.xmouse+105
+    && location.y+asteroid.height*d/2 > player.ymouse-50 && location.y -asteroid.height*d/2 < player.ymouse+145)
+    {
+      print (" ", "romper escudo", " ", " ");
+      //stop();
+      shipshield.shieldStatus += 1;
+      collition =true;
+      
+      this.velocity.y -= 5;
+      //this.velocity.x += 5;
+      //considerando destruirlo en vez de redireccionarlos
+    }
   }
 
 
@@ -105,7 +118,7 @@ class Asteroid {
         myBullet.desaparecer = true;
         collition = true;
         life = life - 5;
-        this.velocity.y = this.velocity.y -1;
+        this.velocity.y -= 1;
         break;
       } else {
 
