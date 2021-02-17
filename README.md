@@ -17,6 +17,10 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1200 mb.
  - https://processing.org
  - http://code.compartmental.net/minim/index.html
 
+agradecimieto especial para alessandrocapra:
+
+ -https://github.com/alessandrocapra/ProcessingCubes/tree/master/cubes
+
 # Imagenes originales por Jerok
 
  Todos los derechos reservados.
@@ -24,6 +28,7 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1200 mb.
 # CRÉDITOS Y LINKS
 - David Romero
 - Fabian Romero
+- alessandrocapra
 
 # Clasificacion 
 ![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/RP.png)
