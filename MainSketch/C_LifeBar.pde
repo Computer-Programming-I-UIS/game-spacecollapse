@@ -28,6 +28,7 @@ class ShieldBar
   int w = 80;
   int time;
   int shieldStatus = 0;
+  int cnt = 0;
 
 
 
@@ -38,32 +39,33 @@ class ShieldBar
   {  
     //fill(0,255,0,150);
     //ellipse(player.xmouse+50, player.ymouse+50,140,190);    
-
+    if (frameCount % 5 == 0)
+      cnt ++;
     //    image(shield1, player.xmouse-50, player.ymouse-50);
+    if (cnt == 0 || cnt == 4 || cnt == 8 || cnt == 10 || cnt == 12) {
+      switch(shieldStatus)
+      {
+      case 0:
 
-    switch(shieldStatus)
-    {
-    case 0:
+        image(shield1, player.xmouse-50, player.ymouse-50);
 
+        break;
 
-      image(shield1, player.xmouse-50, player.ymouse-50);
+      case 1:
+        image(shield2, player.xmouse-50, player.ymouse-50);
+        break;
 
-      break;
+      case 2:
+        image(shield3, player.xmouse-50, player.ymouse-50);
+        break;
 
-    case 1:
-       image(shield2, player.xmouse-50, player.ymouse-50);
-      break;
-
-    case 2:
-       image(shield3, player.xmouse-50, player.ymouse-50);
-      break;
-
-    case 3:
-       image(shield4, player.xmouse-50, player.ymouse-50);
-      break;
-    case 4:
-       image(shield5, player.xmouse-50, player.ymouse-50);
-      break;
+      case 3:
+        image(shield4, player.xmouse-50, player.ymouse-50);
+        break;
+      case 4:
+        image(shield5, player.xmouse-50, player.ymouse-50);
+        break;
+      }
     }
   }
   void shieldbar()

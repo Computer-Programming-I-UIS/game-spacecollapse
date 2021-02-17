@@ -10,6 +10,11 @@ void mainmenu()
 }
 void options()
 {
+  image(Credits, 0, 0);
+  if (frameCount % 420 == 0)
+  {
+    gameStatus = 0;
+  }
 }
 void areyousure()
 {

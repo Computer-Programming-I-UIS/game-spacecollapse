@@ -38,17 +38,20 @@ PImage shield5;
 PImage space;
 PImage SC;
 
+PImage Credits;
+PImage RP;
+
 PImage asteroid;
 PImage asteroidDamaged;
 
 int nstars = 30;//estrellas con efectos
 int nbstars = 2;//estrellas grandes sin efectos(temporal)
 int normstars = 5;//estrellas normales sin efectos(temporal)
-int numAsteroids =1;// 5
+int numAsteroids =5;// 5
 
 int bulletWidth = 5;
 
-int gameStatus = 3;
+int gameStatus = 0;
 int Menu;
 
 ArrayList<Bullet>bullets;
@@ -78,7 +81,7 @@ void setup() {
   shipshield = new ShieldBar();
 
   minim = new Minim(this);
-  main = minim.loadFile("Start.mp3");
+  main = minim.loadFile("S_Start.mp3");
 
   awakeStars();
   initShip();
@@ -106,13 +109,16 @@ void scrollspace()
   }
 }
 
+void keyPressed() {
+}
+
 //void keyPressed()
 //{
 //  //player.keyPressed();
 //}
 void keyReleased()
 {
- player.keyReleased();
+  player.keyReleased();
 }
 void mouseReleased()
 {

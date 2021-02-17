@@ -18,7 +18,8 @@ void LoadImages()
 
   //UI
   SC = loadImage("Logo.png");
-
+  Credits = loadImage("Creditos.png");
+  RP = loadImage("RP.png");
   //background
   space = loadImage("Space.png");
 }

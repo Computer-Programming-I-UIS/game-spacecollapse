@@ -126,6 +126,8 @@ class SpaceShip {
         ymouse += 4;
         //}
       }
+      xmouse = constrain(xmouse, 300, 1200-shi.width);
+      ymouse = constrain(ymouse, 0, height);
     }
   }
   void keyReleased()

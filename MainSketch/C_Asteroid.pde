@@ -88,19 +88,30 @@ class Asteroid {
   }
 
   void shipCollition() {
-    //fill(0, 100, 20);
-    //rect(location.x, location.y+asteroid.height*d/2, 10, 10);
-    //rect(player.xmouse, player.ymouse-50, 10, 10);
-    
+    fill(0, 100, 20);
+    rect(location.x, location.y+asteroid.height*d/2, 10, 10);
+    rect(player.xmouse, player.ymouse-50, 10, 10);
+
     if (location.x+asteroid.height*d/2 > player.xmouse && location.x - asteroid.height*d/2 < player.xmouse+105
-    && location.y+asteroid.height*d/2 > player.ymouse-50 && location.y -asteroid.height*d/2 < player.ymouse+145)
+      && location.y+asteroid.height*d/2 > player.ymouse-50 && location.y -asteroid.height*d/2 < player.ymouse+145)
     {
-      print (" ", "romper escudo", " ", " ");
+      //print (" ", "romper escudo", " ", " ");
       //stop();
-      shipshield.shieldStatus += 1;
       collition =true;
-      
-      this.velocity.y -= 5;
+      if (this.velocity.y > 0)
+        this.location.y -= 3;
+      if (this.velocity.x < 0)
+        this.location.x += 2;
+      else 
+        this.location.x -= 2;
+      this.velocity.y = this.velocity.y*-1;
+      this.velocity.x = this.velocity.x*-1;
+      //life -= 20;
+      shipshield.shieldStatus = shipshield.shieldStatus+ 1;
+      shipshield.cnt = 0;
+      println(shipshield.shieldStatus);
+
+
       //this.velocity.x += 5;
       //considerando destruirlo en vez de redireccionarlos
     }
