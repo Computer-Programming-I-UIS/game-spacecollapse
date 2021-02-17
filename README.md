@@ -1,4 +1,4 @@
-![Logospacecollapse](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Logo.png)
+![Logospacecollapse](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/Logo.png)
 
 # Autor
 -David Romero (Jerok)
@@ -31,7 +31,7 @@ agradecimieto especial para alessandrocapra:
 - alessandrocapra
 
 # Clasificacion 
-![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/RP.png)
+![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/RP.png)
 
 
-![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/JerokLogo.png)
+![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/JerokLogo.png)
