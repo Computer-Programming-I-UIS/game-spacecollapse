@@ -1,37 +1,37 @@
 abstract class Star {
   float d;
+  color starFill;
   float sx = constrain(random(1500), 300, 1200);
   float y = random(height);
   float b;
   float g;
 
+  float min1;
+  float min2;
+  float max1;
+  float max2;
+
   Star() {
   }//creamos un constructor vacio
-  
+
   float value()
   {
     return value();
   }
   void mouseMove()
   {
-    //if (xmouse <= 600)
-    //{// genera el efecto de movimiento
-    //  sx = sx+1.5;
-    //} else
-    //{
-    //  sx = sx+0.1;
-    //}
-    //if (xmouse >= 880)
-    //{
-    //  sx = sx-1.5;
-    //} else
-    //{
-    //  sx = sx-0.1;
-    //}
+    if (player.ismovR == true)//usar bool como bandera mejor
+    {// genera el efecto de movimiento
+      sx = sx+random(min1, max1);
+    } else
+      if (player.ismovL == true)
+      {
+        sx = sx-random(min2, max2);
+      }
   }
   void caida() {
     y = y + 5 ;   //VELOCIDAD
-    fill(255);
+    fill(starFill);
     ellipse(this.sx, this.y, this.d, this.d);
     d = value();
 
@@ -47,27 +47,59 @@ abstract class Star {
     }
   }
 }
-class StarsPlus extends Star
+class StarPlus extends Star
 {
- float value()
- {
-   float diam = random(2);
-   return diam;
- }
-}
-class StarsBig extends Star
-{
+
+  StarPlus(color initStarFill, float initMin1, float initMax1 ) {
+
+    starFill = initStarFill;
+    min1 = initMin1;
+    max1 = initMax1;
+    min2 = min1;
+    max2 = max1;
+  }
+
   float value()
- {
-   float diamx = 5;
-   return diamx;
- }
+  {
+    fill(starFill);
+    float diam = random(2);
+    return diam;
+  }
 }
-class StarsNorm extends Star
+class StarBig extends Star
 {
+  StarBig(color initStarFill, float initMin1, float initMax1 ) {
+
+    starFill = initStarFill;
+    min1 = initMin1;
+    max1 = initMax1;
+    min2 = min1;
+    max2 = max1;
+  }
+
+
   float value()
- {
-   float diamx = 4;
-   return diamx;
- }
+  {
+    fill(starFill);
+    float diamx = 5;
+    return diamx;
+  }
+}
+class StarNorm extends Star
+{
+   StarNorm(color initStarFill, float initMin1, float initMax1 ) {
+
+    starFill = initStarFill;
+    min1 = initMin1;
+    max1 = initMax1;
+    min2 = min1;
+    max2 = max1;
+  }
+
+  float value()
+  {
+    fill(starFill);
+    float diamx = 4;
+    return diamx;
+  }
 }

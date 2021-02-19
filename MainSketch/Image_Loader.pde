@@ -11,6 +11,10 @@ void LoadImages()
   shield4 = loadImage("Shield4.png");
   shield5 = loadImage("Shield5.png");
   
+  load1 = loadImage("Loading1.png");
+  load2 = loadImage("Loading2.png");
+  load3 = loadImage("Loading3.png");
+  
 
   //enemies
   asteroid = loadImage("Asteroid.png");

@@ -1,9 +1,11 @@
 class SpaceShip {
 
   int shipStatus = 1;
-  float xmouse = width/2;
-  float ymouse = height/2;
+  int xmouse = width/2;
+  float ymouse = height/1.2;
   boolean lockShoot = false;
+  boolean ismovR = false;
+  boolean ismovL = false;
 
 
   SpaceShip()
@@ -104,28 +106,18 @@ class SpaceShip {
       {
         //if (directionX>0) { 
         xmouse -= 3;
-
-        //}
-      } 
+        ismovL =true;
+      }
       if (keyCode == RIGHT)
       {
         //if (directionX<0) {  
         xmouse += 3;
+        ismovR = true;
         //}
       }  
-      if (keyCode == UP )
-      {
-        //if (directionY<0) {
-        ymouse -= 3;
 
-        //}
-      }  
-      if (keyCode == DOWN )
-      {
-        //if (directionY<0) { 
-        ymouse += 4;
-        //}
-      }
+
+
       xmouse = constrain(xmouse, 300, 1200-shi.width);
       ymouse = constrain(ymouse, 0, height);
     }
@@ -134,5 +126,7 @@ class SpaceShip {
   {
 
     lockShoot = false;
+    ismovR = false;
+    ismovL = false;
   }
 }

@@ -38,3 +38,13 @@ void areyousure()
   no.showbuttom();
   yes.showbuttom();
 }
+void screenLoading ()
+{
+  if (frameCount % 420 == 0)
+  {
+    gameStatus = 3;
+  }
+}
+
+//image(load1, 900, height -100);
+// background(0);

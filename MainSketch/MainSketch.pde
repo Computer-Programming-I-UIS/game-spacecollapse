@@ -34,6 +34,9 @@ PImage shield3;
 PImage shield4;
 PImage shield5;
 
+PImage load1;
+PImage load2;
+PImage load3;
 
 PImage space;
 PImage SC;
@@ -45,21 +48,23 @@ PImage asteroid;
 PImage asteroidDamaged;
 
 int nstars = 30;//estrellas con efectos
+int nstars2 = 5;
 int nbstars = 2;//estrellas grandes sin efectos(temporal)
 int normstars = 5;//estrellas normales sin efectos(temporal)
-int numAsteroids =5;// 5
+int numAsteroids = 5;// 5
 
 int bulletWidth = 5;
 
-int gameStatus = 0;
+int gameStatus = 3;
 int Menu;
 
 ArrayList<Bullet>bullets;
 ArrayList<Asteroid> meteoritos;
 
-StarsPlus[] stars = new StarsPlus [nstars];
-StarsBig[] starsbig = new StarsBig[nbstars];
-StarsNorm[] starsnorm = new StarsNorm[normstars];
+StarPlus[] stars = new StarPlus [nstars];
+StarBig[] starsbig = new StarBig[nbstars];
+StarNorm[] starsnorm = new StarNorm[normstars];
+StarPlus[] stars2 = new StarPlus [nstars2];
 
 //Asteroids[] rock = new Asteroids[5];
 

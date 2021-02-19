@@ -7,7 +7,7 @@ void stateMachine()
     //fullScreen(P3D);
     this.mainmenu();
     scale(0.5);
-    image(RP,100,1500);
+    image(RP, 100, 1500);
 
     break;
   case 1:
@@ -37,6 +37,10 @@ void stateMachine()
     //xmouse = constrain(mouseX, 300, 1150);
     //ymouse = mouseY - 16;
 
+    break;
+  case 4://loading
+    screenLoading();
+    main.pause();
     break;
 
   case 11:
