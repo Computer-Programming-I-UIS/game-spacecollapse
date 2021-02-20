@@ -7,6 +7,7 @@ class UI {
   PImage space = loadImage("Space.png");
 
   PImage[] load = new PImage[6];
+ // PImage[] exp = new PImage[3];
 
 
   //constructor
@@ -18,6 +19,10 @@ class UI {
     load[3] = loadImage( "Loading4.png" );
     load[4] = loadImage( "Loading5.png" );
     load[5] = loadImage( "Loading6.png" );
+
+    //exp[0] = loadImage( "Exp_1.png" );
+    //exp[1] = loadImage( "Exp_2.png" );
+    //exp[2] = loadImage( "Exp_3.png" );
   }
   //metodos
   void mainmenu()
@@ -75,6 +80,16 @@ class UI {
       gameStatus = 3;
     }
   }
+  //void Fx ()
+  //{
+  //  if (frameCount %3 == 0)
+  //  {
+  //    frameFx = (frameFx+1)%3;
+  //  }
+
+  //  // scale(0.3);
+  //  image( exp[frameFx], width/2, height/2 );
+  //}
 
   int framesShake = 0;
 
@@ -99,7 +114,7 @@ class UI {
     {
       if (framesShakemini< 15) {
         shakeScreenmini();
-              shipshield.loseshieldy = true;
+        shipshield.loseshieldy = true;
 
         framesShakemini++;
       } else
@@ -111,13 +126,13 @@ class UI {
   }
   void shakeScreen()
   {
-    println("shaking");
+    // println("shaking");
 
     translate(random(-5, 5), random(-5, 5));
   }
   void shakeScreenmini()
   {
-    println("shaking");
+    //println("shaking");
 
     translate(random(-2, 2), random(-2, 2));
   }

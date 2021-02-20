@@ -26,6 +26,8 @@ Robot robot;
 
 boolean shaking = false;
 boolean shakingmini = false;
+
+int frameFx = 0;
 int frame = 0;
 int timeSlow = 0;
 

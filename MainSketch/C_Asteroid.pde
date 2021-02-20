@@ -97,12 +97,12 @@ class Asteroid {
 
   void shipCollition() {
     //for debug
-    //fill(0, 100, 20);
+    fill(0, 100, 20);
     //rect(location.x, location.y+asteroid.height*d/2, 10, 10); //for asteroids
-    //rect(player.xmouse+15, player.ymouse-15, 5, 5);// for ship
+    rect(player.xmouse, player.ymouse+80, 5, 5);// for ship
 
     if (location.x+asteroid.height*d/2 > player.xmouse+15 && location.x - asteroid.height*d/2 < player.xmouse+90
-      && location.y+asteroid.height*d/2 > player.ymouse-15 && location.y -asteroid.height*d/2 < player.ymouse+110 && player.shipStatus == 1)
+      && location.y+asteroid.height*d/2 > player.ymouse-15 && location.y -asteroid.height*d/2 < player.ymouse+110 && player.shipStatus == 1 )
     {
       //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
       collition =true;
@@ -125,6 +125,24 @@ class Asteroid {
 
       //this.velocity.x += 5;
       //considerando destruirlo en vez de redireccionarlos
+    }
+    if (location.x+asteroid.height*d/2 > player.xmouse+45 && location.x - asteroid.height*d/2 < player.xmouse+55
+      && location.y+asteroid.height*d/2 > player.ymouse+25 && location.y -asteroid.height*d/2 < player.ymouse+80 
+      && player.shipStatus == 2)
+    {
+      //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
+      collition =true;
+      shaking = true;
+      if (this.velocity.y > 0)
+        this.location.y -= 3;
+      if (this.velocity.x < 0)
+        this.location.x += 2;
+      else 
+      this.location.x -= 2;
+      this.velocity.y = this.velocity.y*-1;
+      this.velocity.x = this.velocity.x*-1;
+      //life -= 20;
+      shiplife.shipLife -= 10;
     }
   }
 

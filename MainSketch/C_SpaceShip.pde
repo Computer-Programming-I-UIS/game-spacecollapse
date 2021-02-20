@@ -7,6 +7,8 @@ class SpaceShip {
   int shipStatus = 1;
   int xmouse = width/2;
   float ymouse = height/1.2;
+  
+  Boolean isDead = false;
   boolean lockShoot = false;
   boolean ismovR = false;
   boolean ismovL = false;
@@ -39,9 +41,9 @@ class SpaceShip {
       colitionBulletIndex = mymeteorito.collision(bullets);
       if (mymeteorito.collition == true && mymeteorito.life <= 0)
       {
-
+        
         bullets.remove(colitionBulletIndex);
-          
+        window.Fx();
         meteoritos.remove(i);
       } else if (mymeteorito.collition == true)
       {

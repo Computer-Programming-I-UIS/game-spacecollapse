@@ -1,4 +1,4 @@
-int gameStatus = 3;
+int gameStatus = 0;
 
 void stateMachine()
 {  
@@ -9,6 +9,7 @@ void stateMachine()
     //fullScreen(P3D);
     
     window.mainmenu();
+   
     scale(0.5);
     image(window.RP, 100, 1500);
 
