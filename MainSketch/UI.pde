@@ -40,11 +40,22 @@ void areyousure()
 }
 void screenLoading ()
 {
+  
+    scale(0.3);
+    image( load[frameCount%6], width*2.8, height*2.5 );
+
   if (frameCount % 420 == 0)
   {
     gameStatus = 3;
   }
 }
+void shakeScreen()
+{
+  println("shaking");
+  
+  translate(random(-5, 5), random(-5, 5));
+ 
 
+};
 //image(load1, 900, height -100);
 // background(0);

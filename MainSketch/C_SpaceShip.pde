@@ -33,6 +33,7 @@ class SpaceShip {
       colitionBulletIndex = mymeteorito.collision(bullets);
       if (mymeteorito.collition == true && mymeteorito.life <= 0)
       {
+
         bullets.remove(colitionBulletIndex);
 
         meteoritos.remove(i);

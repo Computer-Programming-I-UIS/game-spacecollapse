@@ -34,9 +34,7 @@ PImage shield3;
 PImage shield4;
 PImage shield5;
 
-PImage load1;
-PImage load2;
-PImage load3;
+PImage[] load = new PImage[6];
 
 PImage space;
 PImage SC;
@@ -55,7 +53,7 @@ int numAsteroids = 5;// 5
 
 int bulletWidth = 5;
 
-int gameStatus = 3;
+int gameStatus = 0;
 int Menu;
 
 ArrayList<Bullet>bullets;
