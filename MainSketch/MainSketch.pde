@@ -24,49 +24,19 @@ Buttom no;
 Buttom credits;
 
 
-PImage shi;
-PImage shi2;
-PImage shi3;
-
-PImage shield1;
-PImage shield2;
-PImage shield3;
-PImage shield4;
-PImage shield5;
-
-PImage[] load = new PImage[6];
-
+PImage Credits;
+PImage RP;
 PImage space;
 PImage SC;
 
-PImage Credits;
-PImage RP;
+PImage[] load = new PImage[6];
 
-PImage asteroid;
-PImage asteroidDamaged;
-
-int nstars = 30;//estrellas con efectos
-int nstars2 = 5;
-int nbstars = 2;//estrellas grandes sin efectos(temporal)
-int normstars = 5;//estrellas normales sin efectos(temporal)
-int numAsteroids = 5;// 5
-
-int bulletWidth = 5;
-
-int gameStatus = 0;
-int Menu;
+boolean shaking = false;
+int frame = 0;
 
 ArrayList<Bullet>bullets;
 ArrayList<Asteroid> meteoritos;
 
-StarPlus[] stars = new StarPlus [nstars];
-StarBig[] starsbig = new StarBig[nbstars];
-StarNorm[] starsnorm = new StarNorm[normstars];
-StarPlus[] stars2 = new StarPlus [nstars2];
-
-//Asteroids[] rock = new Asteroids[5];
-
-//mouseY - 16;
 
 
 void setup() {
@@ -97,7 +67,8 @@ void setup() {
 void draw() 
 {
   background(0);
-
+  
+  toShake();
   stateMachine();
 }
 

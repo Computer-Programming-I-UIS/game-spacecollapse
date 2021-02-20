@@ -1,3 +1,9 @@
+//PImage asteroid;
+PImage asteroidDamaged;
+
+//enemies
+
+
 class Asteroid {
   float d = random(0.5, 0.8);
 
@@ -6,6 +12,9 @@ class Asteroid {
   float pl = random(-1, 1);
 
   float life = 40;
+
+  PImage asteroid = loadImage("Asteroid.png");
+  PImage asteroidDamaged = loadImage("Asteroid_Damaged.png");
 
   boolean collition = false;
 
@@ -98,12 +107,13 @@ class Asteroid {
       //print (" ", "romper escudo", " ", " ");
       //stop();
       collition =true;
+      shaking = true;
       if (this.velocity.y > 0)
         this.location.y -= 3;
       if (this.velocity.x < 0)
         this.location.x += 2;
       else 
-        this.location.x -= 2;
+      this.location.x -= 2;
       this.velocity.y = this.velocity.y*-1;
       this.velocity.x = this.velocity.x*-1;
       //life -= 20;

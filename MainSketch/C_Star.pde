@@ -1,3 +1,15 @@
+int nstars = 30;//estrellas con efectos
+int nstars2 = 5;
+int nbstars = 2;//estrellas grandes sin efectos(temporal)
+int normstars = 5;//estrellas normales sin efectos(temporal)
+int numAsteroids = 5;// 5
+
+
+StarPlus[] stars = new StarPlus [nstars];
+StarBig[] starsbig = new StarBig[nbstars];
+StarNorm[] starsnorm = new StarNorm[normstars];
+StarPlus[] stars2 = new StarPlus [nstars2];
+
 abstract class Star {
   float d;
   color starFill;
@@ -87,7 +99,7 @@ class StarBig extends Star
 }
 class StarNorm extends Star
 {
-   StarNorm(color initStarFill, float initMin1, float initMax1 ) {
+  StarNorm(color initStarFill, float initMin1, float initMax1 ) {
 
     starFill = initStarFill;
     min1 = initMin1;

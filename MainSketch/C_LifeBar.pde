@@ -32,6 +32,14 @@ class ShieldBar
 
 
 
+  PImage shield1 = loadImage("Shield1.png");
+  PImage shield2 = loadImage("Shield2.png");
+  PImage shield3 = loadImage("Shield3.png");
+  PImage shield4 = loadImage("Shield4.png");
+  PImage shield5 = loadImage("Shield5.png");
+
+
+
   Boolean loseshieldy = false;
 
 

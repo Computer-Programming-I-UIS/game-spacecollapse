@@ -17,19 +17,19 @@ void initShip()
 void awakeStars()
 {
   for (int i = 0; i < stars.length; i++) {
-    stars[i] = new StarPlus(color(255, 255, 255),1.2,1.5);
+    stars[i] = new StarPlus(color(255, 255, 255), 1.2, 1.5);
   }
   for (int i = 0; i < stars2.length; i++)
   {
-    stars2[i] = new StarPlus(color(random(240, 255), 232, 0),1.1,1.6);
+    stars2[i] = new StarPlus(color(random(240, 255), 232, 0), 1.1, 1.6);
   }
 
   for (int i = 0; i < starsbig.length; i++) {
-    starsbig[i] = new StarBig(color(255, 255, 255), 1.2,1.3);
+    starsbig[i] = new StarBig(color(255, 255, 255), 1.2, 1.3);
   }
 
   for (int i = 0; i < starsnorm.length; i++) {
-    starsnorm[i] = new StarNorm(color(255, 255, 255),0.9,1.2 );
+    starsnorm[i] = new StarNorm(color(255, 255, 255), 0.9, 1.2 );
   }
   for (int i = 0; i < numAsteroids; i++) {
     //rock[i] = new Asteroids();
@@ -46,7 +46,6 @@ void drawStars()
   for (int i = 0; i < stars.length; i++) {
     stars[i].caida();
     stars[i].mouseMove();
-    
   }
   for (int i = 0; i < stars2.length; i++) {
 

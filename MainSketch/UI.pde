@@ -1,3 +1,5 @@
+
+
 void mainmenu()
 {
   ShowCubes();
@@ -40,22 +42,38 @@ void areyousure()
 }
 void screenLoading ()
 {
+  if (frameCount %7 == 0)
+  {
+    frame = (frame+1)%6;
+  }
   
-    scale(0.3);
-    image( load[frameCount%6], width*2.8, height*2.5 );
+  scale(0.3);
+  image( load[frame], width*2.8, height*2.5 );
 
-  if (frameCount % 420 == 0)
+  if (frameCount % 320 == 0)
   {
     gameStatus = 3;
+  }
+}
+
+int framesShake = 0;
+void toShake()
+{
+  if (shaking == true)
+  {
+    if (framesShake< 10) {
+      shakeScreen();
+      framesShake++;
+    } else
+    {
+      framesShake = 0;
+      shaking = false;
+    }
   }
 }
 void shakeScreen()
 {
   println("shaking");
-  
-  translate(random(-5, 5), random(-5, 5));
- 
 
-};
-//image(load1, 900, height -100);
-// background(0);
+  translate(random(-5, 5), random(-5, 5));
+}

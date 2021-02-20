@@ -1,3 +1,5 @@
+int bulletWidth = 5;
+
 class Bullet
 {
   float x;
@@ -6,14 +8,14 @@ class Bullet
   float w;
   float time;
   boolean desaparecer;
- 
+
 
   Bullet(float initx, float inity, float initw)
   {
     x = initx;
     y = inity;
     w = initw;
-    speed = random(-1.5,-1);
+    speed = random(-1.5, -1);
   }
 
   void move()

@@ -1,4 +1,14 @@
+
+//player
+
+
 class SpaceShip {
+
+
+
+  PImage shi = loadImage("ShipI.png");
+  PImage shi2 = loadImage("ShipII.png");
+  PImage shi3 = loadImage("ShipIII.png");
 
   int shipStatus = 1;
   int xmouse = width/2;

@@ -1,3 +1,5 @@
+int gameStatus = 0;
+
 void stateMachine()
 {  
   switch (gameStatus)
@@ -5,11 +7,11 @@ void stateMachine()
   case 0:
 
     //fullScreen(P3D);
-    shakeScreen();
+    
     this.mainmenu();
     scale(0.5);
     image(RP, 100, 1500);
-    
+
 
     break;
   case 1:
@@ -41,10 +43,10 @@ void stateMachine()
 
     break;
   case 4://loading
-    
+
     screenLoading();
     main.pause();
-    
+
     break;
 
   case 11:
