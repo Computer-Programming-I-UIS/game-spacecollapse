@@ -21,6 +21,13 @@ class LifeBar
 
 class ShieldBar 
 {
+
+  PImage shield1 = loadImage("Shield1.png");
+  PImage shield2 = loadImage("Shield2.png");
+  PImage shield3 = loadImage("Shield3.png");
+  PImage shield4 = loadImage("Shield4.png");
+  PImage shield5 = loadImage("Shield5.png");
+
   int r;
   int g;
   int b = 255;
@@ -29,16 +36,6 @@ class ShieldBar
   int time;
   int shieldStatus = 0;
   int cnt = 0;
-
-
-
-  PImage shield1 = loadImage("Shield1.png");
-  PImage shield2 = loadImage("Shield2.png");
-  PImage shield3 = loadImage("Shield3.png");
-  PImage shield4 = loadImage("Shield4.png");
-  PImage shield5 = loadImage("Shield5.png");
-
-
 
   Boolean loseshieldy = false;
 

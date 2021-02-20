@@ -1,11 +1,5 @@
-
-//player
-
-
 class SpaceShip {
-
-
-
+  //Atributos
   PImage shi = loadImage("ShipI.png");
   PImage shi2 = loadImage("ShipII.png");
   PImage shi3 = loadImage("ShipIII.png");
@@ -17,10 +11,12 @@ class SpaceShip {
   boolean ismovR = false;
   boolean ismovL = false;
 
-
+  //Constructor
   SpaceShip()
   {
   }
+  
+  //Metodos
   void nave()
   {
     for (int i = bullets.size()-1; i >= 0; i--)
@@ -45,19 +41,13 @@ class SpaceShip {
       {
 
         bullets.remove(colitionBulletIndex);
-
+          
         meteoritos.remove(i);
       } else if (mymeteorito.collition == true)
       {
-
+        shakingmini = true;
         bullets.remove(colitionBulletIndex);
       }
-
-
-
-
-
-
 
       for (int j = meteoritos.size()-1; j >= 0; j--)
       {

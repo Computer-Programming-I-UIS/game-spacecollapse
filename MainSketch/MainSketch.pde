@@ -4,6 +4,15 @@ import ddf.minim.*;
 import ddf.minim.signals.*;
 import ddf.minim.analysis.*;
 
+UI window;
+
+Buttom start;
+Buttom config;
+Buttom exit;
+Buttom yes;
+Buttom no;
+Buttom credits;
+
 SpaceShip player;
 
 LifeBar shiplife;
@@ -15,36 +24,20 @@ FFT fft;
 
 Robot robot;
 
-Buttom start;
-Buttom config;
-Buttom exit;
-Buttom yes;
-Buttom no;
-
-Buttom credits;
-
-
-PImage Credits;
-PImage RP;
-PImage space;
-PImage SC;
-
-PImage[] load = new PImage[6];
-
 boolean shaking = false;
+boolean shakingmini = false;
 int frame = 0;
+int timeSlow = 0;
 
 ArrayList<Bullet>bullets;
 ArrayList<Asteroid> meteoritos;
-
-
 
 void setup() {
 
   size(1500, 1000, P3D);
   frameRate(60);
 
-  LoadImages();
+
   InitBackgroundCubes();
 
   bullets = new ArrayList<Bullet>();
@@ -56,8 +49,10 @@ void setup() {
   minim = new Minim(this);
   main = minim.loadFile("S_Start.mp3");
 
+  player = new SpaceShip();
+  window = new UI();
+
   awakeStars();
-  initShip();
   createButtoms();
 
   main.loop();
@@ -67,29 +62,23 @@ void setup() {
 void draw() 
 {
   background(0);
-  
-  toShake();
+
+  window.toShake();
+  window.toShakemini();
   stateMachine();
 }
 
-//____________________________________________________________________________
+//_____________________________NOT IN USE____________________________________
 
-void scrollspace()
-{
-  int x = frameCount*3 % space.width;
-
-  for (int i = -x; i < width; i += space.width) {
-    copy(space, 0, 0, space.width, height, 300, -i, space.width, height);
-  }
-}
-
-void keyPressed() {
-}
-
-//void keyPressed()
+//void scrollspace()
 //{
-//  //player.keyPressed();
+//  int x = frameCount*3 % space.width;
+
+//  for (int i = -x; i < width; i += space.width) {
+//    copy(space, 0, 0, space.width, height, 300, -i, space.width, height);
+//  }
 //}
+//-----------------------------FOR NOW...------------------------------------
 void keyReleased()
 {
   player.keyReleased();

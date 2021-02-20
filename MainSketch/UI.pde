@@ -1,79 +1,122 @@
+class UI {
+  //Atributos
+
+  PImage SC = loadImage("Logo.png");
+  PImage Credits = loadImage("Creditos.png");
+  PImage RP = loadImage("RP.png");
+  PImage space = loadImage("Space.png");
+
+  PImage[] load = new PImage[6];
 
 
-void mainmenu()
-{
-  ShowCubes();
-
-  image(SC, width/2-298.5, 100);//width/2-298.5, 100
-
-  start.showbuttom();
-  config.showbuttom();
-  exit.showbuttom();
-}
-void options()
-{
-  image(Credits, 0, 0);
-  if (frameCount % 420 == 0)
+  //constructor
+  UI()
   {
-    gameStatus = 0;
+    load[0] = loadImage( "Loading1.png" );
+    load[1] = loadImage( "Loading2.png" );
+    load[2] = loadImage( "Loading3.png" );
+    load[3] = loadImage( "Loading4.png" );
+    load[4] = loadImage( "Loading5.png" );
+    load[5] = loadImage( "Loading6.png" );
   }
-}
-void areyousure()
-{
-  int w = 500;
-  int h = 300;
-
-  strokeJoin(ROUND);
-  stroke(255, 0, 248);
-  strokeWeight(10);
-  fill(0);
-
-  rect(width/2-250, height/2.5, w, h);
-
-  textSize(50);
-  fill(255, 255, 0);
-  textAlign(CENTER, BOTTOM);
-
-  text("ARE YOU SURE?", width/2, height/2);
-  //filter( BLUR, 4);
-
-  no.showbuttom();
-  yes.showbuttom();
-}
-void screenLoading ()
-{
-  if (frameCount %7 == 0)
+  //metodos
+  void mainmenu()
   {
-    frame = (frame+1)%6;
+    ShowCubes();
+
+    image(SC, width/2-298.5, 100);//width/2-298.5, 100
+
+    start.showbuttom();
+    config.showbuttom();
+    exit.showbuttom();
   }
-  
-  scale(0.3);
-  image( load[frame], width*2.8, height*2.5 );
-
-  if (frameCount % 320 == 0)
+  void options()
   {
-    gameStatus = 3;
-  }
-}
-
-int framesShake = 0;
-void toShake()
-{
-  if (shaking == true)
-  {
-    if (framesShake< 10) {
-      shakeScreen();
-      framesShake++;
-    } else
+    image(Credits, 0, 0);
+    if (frameCount % 420 == 0)
     {
-      framesShake = 0;
-      shaking = false;
+      gameStatus = 0;
     }
   }
-}
-void shakeScreen()
-{
-  println("shaking");
+  void areyousure()
+  {
+    int w = 500;
+    int h = 300;
 
-  translate(random(-5, 5), random(-5, 5));
+    strokeJoin(ROUND);
+    stroke(255, 0, 248);
+    strokeWeight(10);
+    fill(0);
+
+    rect(width/2-250, height/2.5, w, h);
+
+    textSize(50);
+    fill(255, 255, 0);
+    textAlign(CENTER, BOTTOM);
+
+    text("ARE YOU SURE?", width/2, height/2);
+    //filter( BLUR, 4);
+
+    no.showbuttom();
+    yes.showbuttom();
+  }
+  void screenLoading ()
+  {
+    if (frameCount %7 == 0)
+    {
+      frame = (frame+1)%6;
+    }
+
+    scale(0.3);
+    image( load[frame], width*2.8, height*2.5 );
+
+    if (frameCount % 320 == 0)
+    {
+      gameStatus = 3;
+    }
+  }
+
+  int framesShake = 0;
+
+  void toShake()
+  {
+    if (shaking == true)
+    {
+      if (framesShake< 15) {
+        shakeScreen();
+        framesShake++;
+      } else
+      {
+        framesShake = 0;
+        shaking = false;
+      }
+    }
+  }
+  int framesShakemini = 0;
+  void toShakemini()
+  {
+    if (shakingmini == true)
+    {
+      if (framesShakemini< 15) {
+        shakeScreenmini();
+        framesShakemini++;
+      } else
+      {
+        framesShakemini = 0;
+        shakingmini = false;
+      }
+    }
+  }
+  void shakeScreen()
+  {
+    println("shaking");
+
+    translate(random(-5, 5), random(-5, 5));
+  }
+  void shakeScreenmini()
+  {
+    println("shaking");
+
+    translate(random(-2, 2), random(-2, 2));
+  }
 }

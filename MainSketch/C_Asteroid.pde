@@ -53,9 +53,9 @@ class Asteroid {
     if (collition == true)
     {
       image(asteroidDamaged, 0-asteroid.width/2, 0-asteroid.height/2);
+      
     } else
     {
-
       image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
     }
 

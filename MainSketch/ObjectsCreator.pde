@@ -8,11 +8,6 @@ void createButtoms()
   yes = new Buttom(width/2-70*2, height/2+35, 70, 70, 12, #ff0000, 0, 10, #808080, 0, 133, "YES", width/2-104, height/2+95, 255, 0, 0, 0, 35, 11, 1920/2-75, 1080/2+75, 0, 0);
   no = new Buttom(width/2+70, height/2+35, 70, 70, 12, #0DFF00, 0, 10, #808080, 0, 133, "NO", width/2+104, height/2+95, 0, 255, 0, 0, 35, 0, 1920/2, 1080/2-300, 0, 0);
 }
-void initShip()
-{
-  player = new SpaceShip();
-}
-
 
 void awakeStars()
 {

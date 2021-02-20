@@ -8,21 +8,21 @@ void stateMachine()
 
     //fullScreen(P3D);
     
-    this.mainmenu();
+    window.mainmenu();
     scale(0.5);
-    image(RP, 100, 1500);
+    image(window.RP, 100, 1500);
 
 
     break;
   case 1:
 
 
-    this.areyousure();
+    window.areyousure();
 
     break;
   case 2:
 
-    this.options();
+    window.options();
 
     break;
 
@@ -44,7 +44,7 @@ void stateMachine()
     break;
   case 4://loading
 
-    screenLoading();
+    window.screenLoading();
     main.pause();
 
     break;
