@@ -34,12 +34,10 @@ abstract class Star {
   {
     if (player.ismovR == true)//usar bool como bandera mejor
     {// genera el efecto de movimiento
-
       sx = sx+random(min1, max1);
     } 
     if (player.ismovL == true)
     {
-
       sx = sx-random(min2, max2);
     }
   }

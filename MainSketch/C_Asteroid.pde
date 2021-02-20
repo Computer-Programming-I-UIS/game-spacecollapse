@@ -53,7 +53,6 @@ class Asteroid {
     if (collition == true)
     {
       image(asteroidDamaged, 0-asteroid.width/2, 0-asteroid.height/2);
-      
     } else
     {
       image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
@@ -97,15 +96,15 @@ class Asteroid {
   }
 
   void shipCollition() {
-    fill(0, 100, 20);
-    rect(location.x, location.y+asteroid.height*d/2, 10, 10);
-    rect(player.xmouse, player.ymouse-50, 10, 10);
+    //for debug
+    //fill(0, 100, 20);
+    //rect(location.x, location.y+asteroid.height*d/2, 10, 10); //for asteroids
+    //rect(player.xmouse+15, player.ymouse-15, 5, 5);// for ship
 
-    if (location.x+asteroid.height*d/2 > player.xmouse && location.x - asteroid.height*d/2 < player.xmouse+105
-      && location.y+asteroid.height*d/2 > player.ymouse-50 && location.y -asteroid.height*d/2 < player.ymouse+145)
+    if (location.x+asteroid.height*d/2 > player.xmouse+15 && location.x - asteroid.height*d/2 < player.xmouse+90
+      && location.y+asteroid.height*d/2 > player.ymouse-15 && location.y -asteroid.height*d/2 < player.ymouse+110 && player.shipStatus == 1)
     {
-      //print (" ", "romper escudo", " ", " ");
-      //stop();
+      //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
       collition =true;
       shaking = true;
       if (this.velocity.y > 0)
@@ -118,9 +117,11 @@ class Asteroid {
       this.velocity.x = this.velocity.x*-1;
       //life -= 20;
       shipshield.shieldStatus = shipshield.shieldStatus+ 1;
-      shipshield.cnt = 0;
-      println(shipshield.shieldStatus);
+      shipshield.loseshieldy = true;
 
+      shipshield.cnt = 0;
+      // shipshield.loseshieldy = false;
+      println(shipshield.shieldStatus);
 
       //this.velocity.x += 5;
       //considerando destruirlo en vez de redireccionarlos

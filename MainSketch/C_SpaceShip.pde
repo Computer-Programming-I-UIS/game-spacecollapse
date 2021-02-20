@@ -72,9 +72,7 @@ class SpaceShip {
       shipshield.shieldbar();
       shipshield.ShieldRange();
 
-
       image(shi, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
-
 
       break;
     case 2:

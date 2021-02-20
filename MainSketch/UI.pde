@@ -99,6 +99,8 @@ class UI {
     {
       if (framesShakemini< 15) {
         shakeScreenmini();
+              shipshield.loseshieldy = true;
+
         framesShakemini++;
       } else
       {
