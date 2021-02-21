@@ -61,7 +61,7 @@ class Asteroid {
     popMatrix();
 
 
-    if ( location.y>height+asteroid.height*d/2 && life > 0) {
+    if ( location.y>height+asteroid.height*d/2 && life > 0|| location.y < 0-2*asteroid.height*d/2 ) {
       location.x = random(xmin, xmax);
       location.y = random(-10, -500);
       velocity.x = random(-1.5, 1.5);

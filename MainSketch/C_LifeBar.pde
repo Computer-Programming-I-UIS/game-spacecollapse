@@ -3,17 +3,21 @@ class LifeBar
   int r;
   int g = 255;
   int b;
-  
+
+  float deadx, deady;
+
   int h = -30;
 
- int shipLife = 50;
+  int shipLife = 50;
 
   void lifebar()
   { 
-    fill(150);
-    rect(constrain(player.xmouse+45, 300, 1145), constrain(player.ymouse+62, -500, height-70), 10, -30);
-    fill(r, g, b);
-    rect(constrain(player.xmouse+45, 300, 1145), constrain(player.ymouse+62, -500, height-70), 10, h);//vida de la nave
+    if (player.isDead == false) {
+      fill(150);
+      rect(constrain(player.xmouse+45, 300, 1145), constrain(player.ymouse+62, -500, height-70), 10, -30);
+      fill(r, g, b);
+      rect(constrain(player.xmouse+45, 300, 1145), constrain(player.ymouse+62, -500, height-70), 10, h);//vida de la nave
+    }
     if (shipLife >= 50)
     {
       r=0;
@@ -21,135 +25,51 @@ class LifeBar
       b = 0;
       h = -25;
     }
-      if (shipLife <= 40)
+    if (shipLife <= 40)
     {
       r=248;
       g=255;
       b = 0;
       h = -20;
     }
-      if (shipLife <= 30)
+    if (shipLife <= 30)
     {
       r=248;
       g=255;
       b = 0;
       h = -20;
     }
-      if (shipLife <= 20)
+    if (shipLife <= 20)
     {
       r=255;
       g=161;
       b = 0;
       h = -10;
     }
-     if (shipLife <= 10)
+    if (shipLife <= 10)
     {
       r=255;
       g=161;
       b = 0;
       h = -5;
     }
-    if(shipLife <= 0)
+    if (shipLife <= 0)
     {
-    player.isDead = true;
-    }
-  }
-}
 
-class ShieldBar 
-{
-
-  PImage shield1 = loadImage("Shield1.png");
-  PImage shield2 = loadImage("Shield2.png");
-  PImage shield3 = loadImage("Shield3.png");
-  PImage shield4 = loadImage("Shield4.png");
-  PImage shield5 = loadImage("Shield5.png");
-
-  int r;
-  int g;
-  int b = 255;
-  int h = 120;
-  int w = 80;
-  int time;
-  int shieldStatus = 0;
-  int cnt = 0;
-
-  Boolean loseshieldy = false;
-
-
-  void ShieldRange()
-  {  
-    //for debug shields
-    //fill(0,255,0,50);
-    //ellipse(player.xmouse+50, player.ymouse+50, 110, 150);
-  
-    if (frameCount % 5 == 0)
-      cnt ++;
-    //    image(shield1, player.xmouse-50, player.ymouse-50);
-    if (cnt == 0 || cnt == 4 || cnt == 8 || cnt == 10 || cnt == 12) {
-      switch(shieldStatus)
+      h = -1;
+      r=255;
+      g = 0;
+      b = 0;
+      deadx = player.xmouse;
+      deady = player.ymouse;
+      player.shipStatus++;
+      player.isDead = true;
+      
+      if (frameCount % 100 == 0)
       {
-      case 0:
-
-        image(shield1, player.xmouse-50, player.ymouse-50);
-        r = 0;
-        g = 255;
-        b = 214;
-
-        break;
-
-      case 1:
-        image(shield2, player.xmouse-50, player.ymouse-50);
-        r = 0;
-        g = 255;
-        b = 0;
-
-        break;
-
-      case 2:
-        image(shield3, player.xmouse-50, player.ymouse-50);
-        r = 251;
-        g = 255;
-        b = 0;
-
-        break;
-
-      case 3:
-        image(shield4, player.xmouse-50, player.ymouse-50);
-        r = 255;
-        g = 173;
-        b = 0;
-
-        break;
-      case 4:
-        image(shield5, player.xmouse-50, player.ymouse-50);
-        r = 255;
-        g = 0;
-        b = 0;
-
-        break;
-      default:
-
-        player.shipStatus = 2;
-
-        break;
+        cursor();
+        gameStatus = 0;
       }
     }
-  }
-  void shieldbar()
-  {    
-
-
-    fill(r, g, b);
-    noStroke();
-    //puntos para la barra de vida del escudo
-    ellipse(constrain(player.xmouse+33.3, 300, 1134), constrain(player.ymouse+30.2, -500, height-70), 8.5, 8.5);//escudo de la nave
-    ellipse(constrain(player.xmouse+66.3, 300, 1167), constrain(player.ymouse+30.2, -500, height-70), 8, 8);//escudo de la nave
-
-    ellipse(constrain(player.xmouse+34.9, 300, 1135), constrain(player.ymouse+22.1, -500, height-78.1), 3.9, 3.9);
-    ellipse(constrain(player.xmouse+64.9, 300, 1165), constrain(player.ymouse+22.1, -500, height-78.1), 3.9, 3.9);
-
-    ellipse(constrain(player.xmouse+26.5, 300, 1126), constrain(player.ymouse+70.5, -500, height-30), 7.5, 7.5);//escudo de la nave
-    ellipse(constrain(player.xmouse+74.5, 300, 1175), constrain(player.ymouse+70.5, -500, height-30), 7.5, 7.5);//escudo de la nave
   }
 }

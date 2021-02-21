@@ -4,20 +4,26 @@ class SpaceShip {
   PImage shi2 = loadImage("ShipII.png");
   PImage shi3 = loadImage("ShipIII.png");
 
+  PImage[] exp = new PImage[3];
+
   int shipStatus = 1;
   int xmouse = width/2;
   float ymouse = height/1.2;
-  
+
   Boolean isDead = false;
   boolean lockShoot = false;
+  Boolean lockMouse = false;
   boolean ismovR = false;
   boolean ismovL = false;
 
   //Constructor
   SpaceShip()
   {
+    exp[0] = loadImage( "Exp_1.png" );
+    exp[1] = loadImage( "Exp_2.png" );
+    exp[2] = loadImage( "Exp_3.png" );
   }
-  
+
   //Metodos
   void nave()
   {
@@ -41,9 +47,9 @@ class SpaceShip {
       colitionBulletIndex = mymeteorito.collision(bullets);
       if (mymeteorito.collition == true && mymeteorito.life <= 0)
       {
-        
+
         bullets.remove(colitionBulletIndex);
-        window.Fx();
+        //window.Fx();
         meteoritos.remove(i);
       } else if (mymeteorito.collition == true)
       {
@@ -82,6 +88,19 @@ class SpaceShip {
       image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
 
       break;
+    default:
+    
+      if (isDead == true)
+      {
+        lockMouse = true;
+        if (frameCount %3 == 0)
+        {
+          frameFx = (frameFx+1)%3;
+        }
+
+        // scale(0.3);
+        image( exp[frameFx], shiplife.deadx, shiplife.deady );
+      }
     }
   }
 
@@ -91,7 +110,7 @@ class SpaceShip {
     //  //shipshield.loseshieldy = true;
     if (keyPressed)
     {
-      if (key == ' ' && lockShoot == false)
+      if (key == ' ' && lockShoot == false && lockMouse == false)
       {
         //if (directionY<0) { 
         bullets.add(new Bullet(constrain(xmouse+50, 350, 1150), constrain(ymouse, -100, height-75), bulletWidth));
@@ -103,13 +122,13 @@ class SpaceShip {
     if (keyPressed && key == CODED)
     {
 
-      if (keyCode == LEFT )
+      if (keyCode == LEFT &&  lockMouse == false )
       {
         //if (directionX>0) { 
         xmouse -= 3;
         ismovL =true;
       }
-      if (keyCode == RIGHT)
+      if (keyCode == RIGHT &&  lockMouse == false)
       {
         //if (directionX<0) {  
         xmouse += 3;

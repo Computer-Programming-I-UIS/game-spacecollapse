@@ -7,7 +7,7 @@ class UI {
   PImage space = loadImage("Space.png");
 
   PImage[] load = new PImage[6];
- // PImage[] exp = new PImage[3];
+ 
 
 
   //constructor
@@ -20,9 +20,7 @@ class UI {
     load[4] = loadImage( "Loading5.png" );
     load[5] = loadImage( "Loading6.png" );
 
-    //exp[0] = loadImage( "Exp_1.png" );
-    //exp[1] = loadImage( "Exp_2.png" );
-    //exp[2] = loadImage( "Exp_3.png" );
+    
   }
   //metodos
   void mainmenu()
