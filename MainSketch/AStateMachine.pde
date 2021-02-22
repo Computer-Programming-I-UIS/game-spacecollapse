@@ -34,9 +34,10 @@ void stateMachine()
     //this.scrollspace(); 
     loading.pause();
     main.pause();
-
+    window.waveShow();
     drawStars();
     player.nave();
+    player.shipPoints();
     player.keyPressed();
 
     //xmouse = constrain(mouseX, 300, 1150);

@@ -13,10 +13,13 @@ class UI {
   int clx = 0 ;
   int clx2 = 0 ;
 
-  int conterSkip = 0;
+  int txWh = 0;
+  int counterSkip = 0;
+  int wave = 1;
 
   boolean endSkip = false;
   boolean abierto = true;
+  boolean abierto2 = true;
   boolean change = false;
 
 
@@ -182,11 +185,51 @@ class UI {
     } else
     {
       change = false;
+     
     }
 
     fill(123);
     noStroke();
     rect(0, 0, constrain(clx, 0, width/2), height);
     rect(width, 0, constrain(clx2, -width/2, 0), height);
+  }
+  void waveShow()
+  {
+
+    if (gameStatus == 3 && endSkip == true ) {
+      if (abierto2 == true && counterSkip == 0)
+      {
+        //endSkip = false;
+
+        txWh += 100;
+        if ( txWh >= width/2)
+        {
+          txWh = width/2;
+          if (frameCount %110 == 0)
+          {
+            abierto2 = false;
+          }
+        }
+      } else
+      {
+        txWh-= 20;
+
+        if (txWh <= 0 )
+        {
+          abierto2 = true;
+          counterSkip++;
+          woosh.play();
+          if ( woosh.isPlaying() == true)
+          {
+            woosh.rewind();
+          }
+        }
+      }
+    }
+
+    fill(255);
+    textSize(50);
+    textAlign(CENTER, BOTTOM);
+    text("WAVE" + " " + wave, txWh, height/2 ); //width/2,this.by+65
   }
 }

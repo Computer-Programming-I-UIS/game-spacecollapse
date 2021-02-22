@@ -25,7 +25,7 @@ class Asteroid {
 
   Asteroid(float xmin, float xmax, PVector velocity)
   {
-    this.location = new PVector(random(xmin, xmax), random(-10, -500));
+    this.location = new PVector(random(xmin, xmax), random(-300, -50));
     this.velocity = velocity;
     //this.ballColor = ballColor;
     this.radius = asteroid.width*d/2;
@@ -45,6 +45,7 @@ class Asteroid {
     translate( location.x, location.y);
     rotate(i);
     scale(d);
+
     if (collition == true)
     {
       image(asteroidDamaged, 0-asteroid.width/2, 0-asteroid.height/2);
@@ -52,20 +53,20 @@ class Asteroid {
     {
       image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
     }
-
     popMatrix();
+
 
 
     if ( location.y>height+asteroid.height*d/2 && life > 0|| location.y < 0-2*asteroid.height*d/2 || player.isDead == true ) {
       location.x = random(xmin, xmax);
-      location.y = random(-10, -500);
+      location.y = random(-300, -50);
       velocity.x = random(-1.5, 1.5);
-      velocity.y = random(3, 5);
+      velocity.y = random(2, 5);
       life = 40;
     }
     if (location.x <= 100 || location.x >= 1400 && life >0 || player.isDead == true) {
 
-      location.y=random(-10, -500);
+      location.y=random(-300, -50);
       velocity.x = random(-1.5, 1.5);
       velocity.y = random(3, 5);
       life = 40;
@@ -98,7 +99,7 @@ class Asteroid {
     //for debug
     fill(0, 100, 20);
     //rect(location.x, location.y+asteroid.height*d/2, 10, 10); //for asteroids
-    rect(player.xmouse, player.ymouse+80, 5, 5);// for ship
+    //rect(player.xmouse, player.ymouse+80, 5, 5);// for ship
 
     if (location.x+asteroid.height*d/2 > player.xmouse+15 && location.x - asteroid.height*d/2 < player.xmouse+90
       && location.y+asteroid.height*d/2 > player.ymouse-15 && location.y -asteroid.height*d/2 < player.ymouse+110 && player.shipStatus == 1 )
@@ -112,7 +113,7 @@ class Asteroid {
       if (this.velocity.x < 0)
         this.location.x += 2;
       else 
-      this.location.x -= 2;
+      this.location.x -= 3;
       this.velocity.y = this.velocity.y*-1;
       this.velocity.x = this.velocity.x*-1;
       //life -= 20;
@@ -146,7 +147,7 @@ class Asteroid {
       if (this.velocity.x < 0)
         this.location.x += 2;
       else 
-      this.location.x -= 2;
+      this.location.x -= 3;
       this.velocity.y = this.velocity.y*-1;
       this.velocity.x = this.velocity.x*-1;
       //life -= 20;

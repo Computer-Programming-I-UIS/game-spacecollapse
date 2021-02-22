@@ -77,8 +77,9 @@ class SpaceShip {
       {
 
         bullets.remove(colitionBulletIndex);
-        //window.Fx();
         meteoritos.remove(i);
+
+        playerScore++;
       } else if (mymeteorito.collition == true)
       {
         shakingmini = true;
@@ -132,6 +133,8 @@ class SpaceShip {
 
       break;
     default:
+
+
 
       if (isDead == true)
       {
@@ -309,9 +312,13 @@ class SpaceShip {
     h1 = 120;
     w1 = 80;
     time = 0;
+    playerScore = 0;
     shieldStatus = 0;
     numAsteroids = 5;
     cnt = 0;
+
+    window.counterSkip = 0;
+    window.wave = 1;
 
 
     isDead = false;
@@ -321,6 +328,16 @@ class SpaceShip {
     ismovR = false;
     ismovL = false;
     loseshieldy = false;
+  }
+  void shipPoints()
+  {
+    if (playerScore > 3 && playerScore < 5)
+    {
+      window.counterSkip = 0;
+      window.wave++;
+      playerScore++;
+      numAsteroids = 6;
+    }
   }
 
 
@@ -365,9 +382,6 @@ class SpaceShip {
         ismovR = true;
         //}
       }  
-
-
-
       xmouse = constrain(xmouse, 300, 1200-shi.width);
       ymouse = constrain(ymouse, 0, height);
     }

@@ -40,6 +40,8 @@ int frameFx = 0;
 int frame = 0;
 int timeSlow = 0;
 
+int playerScore = 0;
+
 int thew = 1500;
 int theh = 1000;
 
@@ -83,14 +85,15 @@ void setup() {
 
   loading.pause();
 
-  main.setGain(10);// ajustamos el volumen inicial a uno tolerable}
-  loading.setGain(-20);
-  hit.setGain(-10);
-  shieldBoing.setGain(-10);
-  shipHit.setGain(-10);
-  asteroidHit.setGain(-10);
-  shoot.setGain(-10);
+  main.setGain(-10);// ajustamos el volumen inicial a uno tolerable}
+  loading.setGain(-30);
+  hit.setGain(-20);
+  shieldBoing.setGain(-20);
+  shipHit.setGain(-30);
+  asteroidHit.setGain(-20);
+  shoot.setGain(-20);
   click.setGain(-15);
+  woosh.setGain(-20);
 }
 
 void draw() 
