@@ -94,6 +94,7 @@ class SpaceShip {
             mymeteorito2.rebote(mymeteorito);
             mymeteorito.life -= 10;
             mymeteorito.collition = true;
+            
           }
         }
         mymeteorito.shipCollition();
@@ -227,7 +228,7 @@ class SpaceShip {
       switch(shieldStatus)
       {
       case 0:
-
+        
         image(shield1, player.xmouse-50, player.ymouse-50);
         r2 = 0;
         g2 = 255;
@@ -291,12 +292,9 @@ class SpaceShip {
   }
   void reset()
   {
-    
-  
-  
   }
-  
-  
+
+
   void keyPressed() {
 
     //  //shiplife.loselify = true;
@@ -338,6 +336,15 @@ class SpaceShip {
 
       xmouse = constrain(xmouse, 300, 1200-shi.width);
       ymouse = constrain(ymouse, 0, height);
+    }
+  }
+  void soundBoing()
+  {
+
+    shieldBoing.play();
+    if ( shieldBoing.isPlaying() == true)
+    {
+      shieldBoing.rewind();
     }
   }
 

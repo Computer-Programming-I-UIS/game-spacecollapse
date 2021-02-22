@@ -20,6 +20,10 @@ SpaceShip player;
 
 Minim minim;
 AudioPlayer main;
+AudioPlayer hit;
+AudioPlayer shoot;
+AudioPlayer shieldBoing;
+AudioPlayer shipHit;
 FFT fft;
 
 Robot robot;
@@ -55,6 +59,12 @@ void setup() {
 
   minim = new Minim(this);
   main = minim.loadFile("S_Start.mp3");
+  hit = minim.loadFile("Z_hit.mp3");
+  shoot = minim.loadFile("Z_TheHit.mp3");
+  shieldBoing =  minim.loadFile("Z_TheHit.mp3");
+  shipHit =  minim.loadFile("Z_ShipHit.mp3");
+
+
 
   player = new SpaceShip();
   window = new UI();
@@ -64,11 +74,14 @@ void setup() {
 
   main.loop();
   main.setGain(-10);// ajustamos el volumen inicial a uno tolerable
+  hit.setGain(-10);
+  shieldBoing.setGain(-10);
+  shipHit.setGain(-10);
 }
 
 void draw() 
 {
-  background(0,0,20);
+  background(0, 0, 20);
   window.toShake();
   window.toShakemini();
   stateMachine();

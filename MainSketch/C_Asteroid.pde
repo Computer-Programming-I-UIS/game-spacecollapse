@@ -83,8 +83,12 @@ class Asteroid {
     float m2 = meteoritoAcercandose.mass;
     float v02 = meteoritoAcercandose.last_velocity.x;
     float vIy2 = meteoritoAcercandose.last_velocity.y;
-    //
 
+    hit.play();
+    if ( hit.isPlaying() == true)
+    {
+      hit.rewind();
+    }
     // final velocity from this object
     this.velocity.x = ( m1*v01 + m2*v02 - e*m2*(v01-v02) ) / (m1 + m2);
     this.velocity.y = ( m1*vIy1 + m2*vIy2 - e*m2*(vIy1-vIy2) ) / (m1 + m2);
@@ -102,6 +106,7 @@ class Asteroid {
       //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
       collition =true;
       shaking = true;
+      player.soundBoing();
       if (this.velocity.y > 0)
         this.location.y -= 3;
       if (this.velocity.x < 0)
@@ -129,6 +134,13 @@ class Asteroid {
       collition =true;
       player.myColl = true;
       shaking = true;
+
+      shipHit.play();
+      if ( shipHit.isPlaying() == true)
+      {
+        shipHit.rewind();
+      }
+
       if (this.velocity.y > 0)
         this.location.y -= 3;
       if (this.velocity.x < 0)
