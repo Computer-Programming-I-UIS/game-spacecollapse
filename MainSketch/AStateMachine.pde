@@ -1,4 +1,4 @@
-int gameStatus = 3;
+int gameStatus = 0;
 
 void stateMachine()
 {  
@@ -32,6 +32,7 @@ void stateMachine()
 
     noCursor();
     //this.scrollspace(); 
+    loading.pause();
     main.pause();
 
     drawStars();
@@ -45,6 +46,7 @@ void stateMachine()
   case 4://loading
 
     window.screenLoading();
+    loading.play();
     main.pause();
 
     break;

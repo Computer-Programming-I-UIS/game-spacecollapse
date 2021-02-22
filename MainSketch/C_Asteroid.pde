@@ -56,14 +56,14 @@ class Asteroid {
     popMatrix();
 
 
-    if ( location.y>height+asteroid.height*d/2 && life > 0|| location.y < 0-2*asteroid.height*d/2 ) {
+    if ( location.y>height+asteroid.height*d/2 && life > 0|| location.y < 0-2*asteroid.height*d/2 || player.isDead == true ) {
       location.x = random(xmin, xmax);
       location.y = random(-10, -500);
       velocity.x = random(-1.5, 1.5);
       velocity.y = random(3, 5);
       life = 40;
     }
-    if (location.x <= 100 || location.x >= 1400 && life >0) {
+    if (location.x <= 100 || location.x >= 1400 && life >0 || player.isDead == true) {
 
       location.y=random(-10, -500);
       velocity.x = random(-1.5, 1.5);
@@ -163,6 +163,12 @@ class Asteroid {
       if (myBullet.x > location.x-(asteroid.height*d/2) && myBullet.x < location.x+(asteroid.height*d/2) &&
         myBullet.y > location.y-(asteroid.height*d/2.05) && myBullet.y < location.y+(asteroid.height*d/2.05) )
       {
+        asteroidHit.play();
+        if ( asteroidHit.isPlaying() == true)
+        {
+          asteroidHit.rewind();
+        }
+
         myBullet.desaparecer = true;
         collition = true;
         life = life - 5;

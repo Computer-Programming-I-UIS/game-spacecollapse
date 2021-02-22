@@ -114,14 +114,19 @@ class Buttom
     { 
 
       if (overBox) { 
-        
+
         noStroke();
         window.change = true;
-        
+
         fill(this.pressCol);
-      
-          gameStatus = gamest;
-        
+        click.play();
+        if ( click.isPlaying() == true)
+        {
+          click.rewind();
+        }
+
+        gameStatus = gamest;
+
         try {
           centerCursor();
         }
@@ -138,8 +143,6 @@ class Buttom
     textSize(Ts);
     textAlign(CENTER, BOTTOM);
     text(this.name, this.Tx, this.Ty ); //width/2,this.by+65
-    
-     
   }
   public void centerCursor() throws Exception {
 

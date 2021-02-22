@@ -94,7 +94,6 @@ class SpaceShip {
             mymeteorito2.rebote(mymeteorito);
             mymeteorito.life -= 10;
             mymeteorito.collition = true;
-            
           }
         }
         mymeteorito.shipCollition();
@@ -208,8 +207,10 @@ class SpaceShip {
 
       if (frameCount % 100 == 0)
       {
-        cursor();
-        gameStatus = 0;
+        noCursor();
+        reset();
+        gameStatus = 3;
+        window.change = true;
       }
     }
   }
@@ -228,7 +229,7 @@ class SpaceShip {
       switch(shieldStatus)
       {
       case 0:
-        
+
         image(shield1, player.xmouse-50, player.ymouse-50);
         r2 = 0;
         g2 = 255;
@@ -292,6 +293,34 @@ class SpaceShip {
   }
   void reset()
   {
+    shipStatus = 1;
+    xmouse = width/2;
+    ymouse = height/1.2;
+    shipLife = 50;
+
+    r=0;
+    g = 255;
+    b =0;
+    h = -30;
+
+    r2 = 0;
+    g2 = 0;
+    b2 = 255;
+    h1 = 120;
+    w1 = 80;
+    time = 0;
+    shieldStatus = 0;
+    numAsteroids = 5;
+    cnt = 0;
+
+
+    isDead = false;
+    myColl = false;
+    lockShoot = false;
+    lockMouse = false;
+    ismovR = false;
+    ismovL = false;
+    loseshieldy = false;
   }
 
 
@@ -307,6 +336,11 @@ class SpaceShip {
         bullets.add(new Bullet(constrain(xmouse+50, 350, 1150), constrain(ymouse, -100, height-75), bulletWidth));
         lockShoot = true;
         //}
+        shoot.play();
+        if ( shoot.isPlaying() == true)
+        {
+          shoot.rewind();
+        }
       }
       // if (key == 'P' && lockMouse == false)
       //{

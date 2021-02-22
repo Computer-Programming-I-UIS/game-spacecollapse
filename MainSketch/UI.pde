@@ -157,8 +157,8 @@ class UI {
       if (abierto == true)
       {
         endSkip = false;
-        clx+= 500;
-        clx2-= 500;
+        clx+= 1000;
+        clx2-= 1000;
         if (clx2 <= -width/2 && clx >= width/2)
         {
           abierto = false;
@@ -172,6 +172,11 @@ class UI {
           abierto =true;
           endSkip = true;
           change = false;
+          woosh.play();
+          if ( woosh.isPlaying() == true)
+          {
+            woosh.rewind();
+          }
         }
       }
     } else
