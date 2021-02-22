@@ -1,9 +1,3 @@
-//PImage asteroid;
-PImage asteroidDamaged;
-
-//enemies
-
-
 class Asteroid {
   float d = random(0.5, 0.8);
 
@@ -17,6 +11,7 @@ class Asteroid {
   PImage asteroidDamaged = loadImage("Asteroid_Damaged.png");
 
   boolean collition = false;
+
 
   PVector location;
   PVector velocity;
@@ -132,6 +127,7 @@ class Asteroid {
     {
       //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
       collition =true;
+      player.myColl = true;
       shaking = true;
       if (this.velocity.y > 0)
         this.location.y -= 3;

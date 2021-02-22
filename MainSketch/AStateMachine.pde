@@ -1,4 +1,4 @@
-int gameStatus = 0;
+int gameStatus = 3;
 
 void stateMachine()
 {  

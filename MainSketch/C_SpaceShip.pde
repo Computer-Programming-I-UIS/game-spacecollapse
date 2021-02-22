@@ -11,6 +11,7 @@ class SpaceShip {
   float ymouse = height/1.2;
 
   Boolean isDead = false;
+  Boolean myColl = false;
   boolean lockShoot = false;
   Boolean lockMouse = false;
   boolean ismovR = false;
@@ -69,6 +70,7 @@ class SpaceShip {
           }
         }
         mymeteorito.shipCollition();
+        
       }
     }
     shiplife.lifebar();
@@ -85,11 +87,27 @@ class SpaceShip {
       break;
     case 2:
 
-      image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+      if (myColl == false)
+      {
+        image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+      } 
+      else
+      {
+        
+        tint(255, 0, 0);
+        image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+        noTint();
+        if(frameCount % 40 ==0)
+        {
+          myColl = false;
+        }
+      }
+
+
 
       break;
     default:
-    
+
       if (isDead == true)
       {
         lockMouse = true;
@@ -119,8 +137,8 @@ class SpaceShip {
       }
       // if (key == 'P' && lockMouse == false)
       //{
-        
-        
+
+
       //}
     }
 
