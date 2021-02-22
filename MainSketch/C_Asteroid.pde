@@ -111,12 +111,12 @@ class Asteroid {
       this.velocity.y = this.velocity.y*-1;
       this.velocity.x = this.velocity.x*-1;
       //life -= 20;
-      shipshield.shieldStatus = shipshield.shieldStatus+ 1;
-      shipshield.loseshieldy = true;
+      player.shieldStatus = player.shieldStatus+ 1;
+      //player.loseshieldy = true;
 
-      shipshield.cnt = 0;
-      // shipshield.loseshieldy = false;
-      println(shipshield.shieldStatus);
+      player.cnt = 0;
+      player.loseshieldy = false;
+      //println(player.shieldStatus);
 
       //this.velocity.x += 5;
       //considerando destruirlo en vez de redireccionarlos
@@ -138,7 +138,7 @@ class Asteroid {
       this.velocity.y = this.velocity.y*-1;
       this.velocity.x = this.velocity.x*-1;
       //life -= 20;
-      shiplife.shipLife -= 10;
+      player.shipLife -= 10;
     }
   }
 

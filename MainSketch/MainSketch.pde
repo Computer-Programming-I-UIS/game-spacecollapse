@@ -15,8 +15,8 @@ Buttom credits;
 
 SpaceShip player;
 
-LifeBar shiplife;
-ShieldBar shipshield;
+
+
 
 Minim minim;
 AudioPlayer main;
@@ -50,8 +50,8 @@ void setup() {
   bullets = new ArrayList<Bullet>();
   meteoritos = new ArrayList<Asteroid>();
 
-  shiplife = new LifeBar();
-  shipshield = new ShieldBar();
+
+
 
   minim = new Minim(this);
   main = minim.loadFile("S_Start.mp3");
