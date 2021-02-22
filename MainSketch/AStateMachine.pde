@@ -6,12 +6,10 @@ void stateMachine()
   {
   case 0:
 
-    //fullScreen(P3D);
-    
+
     window.mainmenu();
-   
-    scale(0.5);
-    image(window.RP, 100, 1500);
+
+
 
 
     break;
@@ -20,10 +18,12 @@ void stateMachine()
 
     window.areyousure();
 
+
     break;
   case 2:
 
     window.options();
+
 
     break;
 
@@ -37,7 +37,6 @@ void stateMachine()
     drawStars();
     player.nave();
     player.keyPressed();
-
 
     //xmouse = constrain(mouseX, 300, 1150);
     //ymouse = mouseY - 16;
@@ -56,4 +55,7 @@ void stateMachine()
 
     break;
   }
+  pushMatrix();
+  window.changeScreen();
+  popMatrix();
 }

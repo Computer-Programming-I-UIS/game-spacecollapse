@@ -31,6 +31,11 @@ int frameFx = 0;
 int frame = 0;
 int timeSlow = 0;
 
+int thew = 1500;
+int theh = 1000;
+
+
+
 ArrayList<Bullet>bullets;
 ArrayList<Asteroid> meteoritos;
 
@@ -63,8 +68,7 @@ void setup() {
 
 void draw() 
 {
-  background(0);
-
+  background(0,0,20);
   window.toShake();
   window.toShakemini();
   stateMachine();

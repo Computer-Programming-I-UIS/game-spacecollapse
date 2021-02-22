@@ -1,5 +1,4 @@
 boolean locked = false; 
-
 class Buttom 
 {
   float bx; //= width/2-boxSize/2;
@@ -37,6 +36,8 @@ class Buttom
 
   float bcP;
   float bcS;
+
+  int counter;
 
   boolean overBox = false;
 
@@ -111,11 +112,16 @@ class Buttom
 
     if (mousePressed && (mouseButton == LEFT) &&  !locked )
     { 
-      if (overBox) { 
-        //this.pressed();
 
+      if (overBox) { 
+        
+        noStroke();
+        window.change = true;
+        
         fill(this.pressCol);
-        gameStatus = gamest;
+      
+          gameStatus = gamest;
+        
         try {
           centerCursor();
         }
@@ -132,6 +138,8 @@ class Buttom
     textSize(Ts);
     textAlign(CENTER, BOTTOM);
     text(this.name, this.Tx, this.Ty ); //width/2,this.by+65
+    
+     
   }
   public void centerCursor() throws Exception {
 

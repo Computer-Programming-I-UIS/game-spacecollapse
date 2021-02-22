@@ -117,6 +117,11 @@ class SpaceShip {
         lockShoot = true;
         //}
       }
+      // if (key == 'P' && lockMouse == false)
+      //{
+        
+        
+      //}
     }
 
     if (keyPressed && key == CODED)
