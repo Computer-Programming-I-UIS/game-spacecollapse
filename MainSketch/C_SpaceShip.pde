@@ -339,8 +339,18 @@ class SpaceShip {
     //  numAsteroids = 6;
     //}
   }
+  void ShipTrigger()
+  {
+    fill(255, 120, 0, 150);
+    rect(player.xmouse+25, player.ymouse-30, 50, 50);
+    rect(player.xmouse-30, player.ymouse-10, 50, 100);
+    rect(player.xmouse+ 80, player.ymouse-10, 50, 100);
+    
+    rect(500, -500, 50, 50);
 
-
+    //rect(player.xmouse, player.ymouse+80, 5, 5);
+    noFill();
+  }
   void keyPressed() {
 
     //  //shiplife.loselify = true;

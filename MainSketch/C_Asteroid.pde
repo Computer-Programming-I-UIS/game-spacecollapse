@@ -1,5 +1,5 @@
 class Asteroid {
-  float d = random(0.4, 0.5);
+  float d = random(0.3, 0.5);
 
   float i;// rotacion
   float rr = random(-0.1, 0.1);
@@ -27,7 +27,7 @@ class Asteroid {
 
   Asteroid(float xmin, float xmax, PVector velocity)
   {
-    this.location = new PVector(random(xmin, xmax), random(-50, -500));
+    this.location = new PVector(random(xmin, xmax), random(-1000, -500));
     this.velocity = velocity;
     //this.ballColor = ballColor;
     this.radius = asteroid.width*d/2;
@@ -38,7 +38,7 @@ class Asteroid {
   }
 
   void reset() {
-    this.location = new PVector(random(xmin, xmax), random(-1000, -50));
+    this.location = new PVector(random(xmin, xmax), random(-1000, -500));
   }
 
 
@@ -66,14 +66,15 @@ class Asteroid {
 
     if ( location.y>height+asteroid.height*d/2 && life >= 0  || location.y < 0-2*asteroid.height*d/2 && velocity.y <= -1 || player.isDead == true ) {
       location.x = random(xmin, xmax);
-      location.y = random(-50, -500);
+      location.y = random(-1000, -500);
       velocity.x = random(-1, 1);
       velocity.y = random(1, 2);
       life = 40;
     }
     if (location.x <= 310 || location.x >= 1190 || player.isDead == true) {
 
-      location.y=random(-50, -500);
+      //location.x = random(xmin, xmax);
+      location.y=random(-1000, -500);
       velocity.x = random(-1, 1);
       velocity.y = random(1, 2);
       life = 40;
@@ -102,11 +103,11 @@ class Asteroid {
     this.velocity.x = ( m1*v01 + m2*v02 - e*m2*(v01-v02) ) / (m1 + m2);
     this.velocity.y = ( m1*vIy1 + m2*vIy2 - e*m2*(vIy1-vIy2) ) / (m1 + m2);
 
-    this.velocity.x = constrain(this.velocity.x,-3,3);
-    this.velocity.y = constrain(this.velocity.y,-4,4);
+    //    this.velocity.x = constrain(this.velocity.x, -3, 3);
+    //    this.velocity.y = constrain(this.velocity.y, -4, 4);
 
     this.numColition++;
-      
+
     if (numColition > 100) {
       this.reset();
       this.numColition = 0;
@@ -125,58 +126,96 @@ class Asteroid {
       //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
       collition =true;
       shaking = true;
+
+
+
       player.soundBoing();
-      if (this.velocity.y > 0)
-        this.location.y -= 3;
-      if (this.velocity.x < 0)
-        this.location.x += 3;
-      else 
-      this.location.x -= 3;
-      this.velocity.y = this.velocity.y*-1;
-      this.velocity.x = this.velocity.x*-2;
-      //life -= 20;
-      player.shieldStatus = player.shieldStatus+ 1;
-      //player.loseshieldy = true;
-
-      player.cnt = 0;
-      player.loseshieldy = false;
-      //println(player.shieldStatus);
-
-      //this.velocity.x += 5;
-      //considerando destruirlo en vez de redireccionarlos
-    }
-    if (location.x+asteroid.height*d/2 > player.xmouse+45 && location.x - asteroid.height*d/2 < player.xmouse+55
-      && location.y+asteroid.height*d/2 > player.ymouse+25 && location.y -asteroid.height*d/2 < player.ymouse+80 
-      && player.shipStatus == 2)
-    {
-      //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
-      collition =true;
-      player.myColl = true;
-      shaking = true;
-
-      shipHit.play();
-      if ( shipHit.isPlaying() == true)
-      {
-        shipHit.rewind();
-      }
-
-      if (this.velocity.y > 0)
+      //if (this.velocity.y > 0)
+      //  this.location.y -= 3;
+      //this.velocity.y =this.velocity.y*-1;
+      //if (this.velocity.x < 0)
+      //{
+      //  this.location.x += 3;
+      //  this.velocity.x = this.velocity.x*-1;
+      //} else { 
+      //  this.location.x -= 3;
+      if (this.velocity.y > 0 && location.y+asteroid.height*d/2 > player.ymouse-50)
       {
         this.location.y -= 3;
-        this.velocity.y = this.velocity.y*-2;
+        this.velocity.y = this.velocity.y*-1;
+        println("frontal");
       }
-      if (this.velocity.x < 0)
-      {
-        this.location.x += 3;
-      } else
+      if (this.velocity.x > 0 )
       {
         this.location.x -= 3;
-        this.velocity.y = this.velocity.y*-2;
-        this.velocity.x = this.velocity.x*1;
-        //life -= 20;
-        player.shipLife -= 10;
+        this.location.y -= 3;
+        this.velocity.x = this.velocity.x*-1;
+        this.velocity.y = this.velocity.y*-1;
+        println("izquierdo");
       }
+      if (this.velocity.x < 0)
+      {
+        this.location.x += 3;
+        this.location.y += 3;
+        this.velocity.x = this.velocity.x*-1;
+        this.velocity.y = this.velocity.y*-1;
+        println("Derecho");
+      }
+
+      //if (mouseX > bx && mouseX < bx+boxW && 
+      //  mouseY > by && mouseY < by+boxH) {
+
+
+      //  this.velocity.y = this.velocity.y*-1;
+      //  this.velocity.x = this.velocity.x*-1;
+      //  //life -= 20;
+
+      //  //player.loseshieldy = true;
+
+      //  player.cnt = 0;
+      //  player.shieldStatus = player.shieldStatus+ 1;
+      //  player.loseshieldy = false;
+      //  println(player.shieldStatus);
+
+      //this.velocity.x -= 5;
+      //considerando destruirlo en vez de redireccionarlos
+      // }
     }
+    //if (location.x+asteroid.height*d/2 > player.xmouse+45 && location.x - asteroid.height*d/2 < player.xmouse+55
+    //  && location.y+asteroid.height*d/2 > player.ymouse+25 && location.y -asteroid.height*d/2 < player.ymouse+80 
+    //  && player.shipStatus == 2)
+    //{
+    //  //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
+    //  collition =true;
+    //  player.myColl = true;
+    //  shaking = true;
+
+
+
+    //  if (this.velocity.y > 0 )
+    //  {
+    //    this.location.y -= 3;
+    //    this.velocity.y = this.velocity.y*-2;
+    //  }
+    //  if (this.velocity.x < 0)
+    //  {
+    //    this.location.x += 3;
+    //    this.velocity.x = this.velocity.x*-2;
+    //  } else
+    //  {
+    //    this.location.x -= 3;
+    //    this.velocity.y = this.velocity.y*-2;
+    //    this.velocity.x = this.velocity.x*1;
+    //    //life -= 20;
+    //    player.shipLife -= 10;
+
+    //    shipHit.play();
+    //    if ( shipHit.isPlaying() == true)
+    //    {
+    //      shipHit.rewind();
+    //    }
+    //  }
+    //}
   }
 
 

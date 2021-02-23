@@ -1,4 +1,4 @@
-int gameStatus = 0;
+int gameStatus = 3;
 
 void stateMachine()
 {  
@@ -33,7 +33,7 @@ void stateMachine()
     noCursor();
     //this.scrollspace(); 
     scale(0.5);
-    translate(500,500);
+    translate(width/2,height/2*2);
     loading.pause();
     main.pause();
     window.waveShow();
@@ -67,7 +67,7 @@ void stateMachine()
     textAlign(CENTER, BOTTOM);
     text(" " + playerScore, 30, 100 ); //width/2,this.by+65
     noFill();
-
+    player.ShipTrigger();
     //xmouse = constrain(mouseX, 300, 1150);
     //ymouse = mouseY - 16;
 

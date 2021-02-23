@@ -33,8 +33,9 @@ void createAsteroids()
 {
   for (int i = 0; i < numAsteroids; i++) {
     //rock[i] = new Asteroids();
-    int rango = (1190-310)/numAsteroids;
-    meteoritos.add(new Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(5, 8))));//llamando el constructor
+    int rango = (1190-610)/numAsteroids;
+   // meteoritos.add(new Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(5, 8))));//llamando el constructor
+   meteoritos.add(new  Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(2,5 ))));//llamando el constructor
   }
 }
 void drawStars()
