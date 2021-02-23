@@ -32,6 +32,8 @@ void stateMachine()
 
     noCursor();
     //this.scrollspace(); 
+    scale(0.5);
+    translate(500,500);
     loading.pause();
     main.pause();
     window.waveShow();
@@ -39,6 +41,32 @@ void stateMachine()
     player.nave();
     player.shipPoints();
     player.keyPressed();
+    
+    text(str(meteoritos.size()), 30, 700);
+    
+    if (genAsteroids == false)
+    {
+      genAsteroids = true;
+      numAsteroids+=3;
+      createAsteroids();
+      window.txWh=0;
+      window.waveShow();
+      window.previousCount = frameCount;
+      window.counterSkip = 0;
+      window.abierto2 = true;
+      window.endSkip = true;
+      window.wave++;
+      println("meteoritos.size() = " + str(meteoritos.size()));
+    }
+    if (meteoritos.size() <= 2)
+    {
+      genAsteroids = false;
+    }
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, BOTTOM);
+    text(" " + playerScore, 30, 100 ); //width/2,this.by+65
+    noFill();
 
     //xmouse = constrain(mouseX, 300, 1150);
     //ymouse = mouseY - 16;

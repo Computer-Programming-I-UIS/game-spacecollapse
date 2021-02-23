@@ -1,11 +1,11 @@
 class Asteroid {
-  float d = random(0.5, 0.8);
+  float d = random(0.4, 0.5);
 
   float i;// rotacion
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
 
-  float life = 40;
+  float life = 10;
 
   PImage asteroid = loadImage("Asteroid.png");
   PImage asteroidDamaged = loadImage("Asteroid_Damaged.png");
@@ -23,9 +23,11 @@ class Asteroid {
   float e = 1;  // restitution coeficient
   float xmin, xmax;
 
+  int numColition = 0;
+
   Asteroid(float xmin, float xmax, PVector velocity)
   {
-    this.location = new PVector(random(xmin, xmax), random(-300, -50));
+    this.location = new PVector(random(xmin, xmax), random(-50, -500));
     this.velocity = velocity;
     //this.ballColor = ballColor;
     this.radius = asteroid.width*d/2;
@@ -34,6 +36,11 @@ class Asteroid {
     this.xmin = xmin;
     this.xmax = xmax;
   }
+
+  void reset() {
+    this.location = new PVector(random(xmin, xmax), random(-1000, -50));
+  }
+
 
   void caida() {
 
@@ -57,21 +64,22 @@ class Asteroid {
 
 
 
-    if ( location.y>height+asteroid.height*d/2 && life > 0|| location.y < 0-2*asteroid.height*d/2 || player.isDead == true ) {
+    if ( location.y>height+asteroid.height*d/2 && life >= 0  || location.y < 0-2*asteroid.height*d/2 && velocity.y <= -1 || player.isDead == true ) {
       location.x = random(xmin, xmax);
-      location.y = random(-300, -50);
-      velocity.x = random(-1.5, 1.5);
-      velocity.y = random(2, 5);
+      location.y = random(-50, -500);
+      velocity.x = random(-1, 1);
+      velocity.y = random(1, 2);
       life = 40;
     }
-    if (location.x <= 100 || location.x >= 1400 && life >0 || player.isDead == true) {
+    if (location.x <= 310 || location.x >= 1190 || player.isDead == true) {
 
-      location.y=random(-300, -50);
-      velocity.x = random(-1.5, 1.5);
-      velocity.y = random(3, 5);
+      location.y=random(-50, -500);
+      velocity.x = random(-1, 1);
+      velocity.y = random(1, 2);
       life = 40;
       //location.y = constrain(random(1500), 300, 1200);
     }
+
     last_velocity.x = velocity.x;
     last_velocity.y = velocity.y;
   }
@@ -93,6 +101,16 @@ class Asteroid {
     // final velocity from this object
     this.velocity.x = ( m1*v01 + m2*v02 - e*m2*(v01-v02) ) / (m1 + m2);
     this.velocity.y = ( m1*vIy1 + m2*vIy2 - e*m2*(vIy1-vIy2) ) / (m1 + m2);
+
+    this.velocity.x = constrain(this.velocity.x,-3,3);
+    this.velocity.y = constrain(this.velocity.y,-4,4);
+
+    this.numColition++;
+      
+    if (numColition > 100) {
+      this.reset();
+      this.numColition = 0;
+    }
   }
 
   void shipCollition() {
@@ -111,11 +129,11 @@ class Asteroid {
       if (this.velocity.y > 0)
         this.location.y -= 3;
       if (this.velocity.x < 0)
-        this.location.x += 2;
+        this.location.x += 3;
       else 
       this.location.x -= 3;
       this.velocity.y = this.velocity.y*-1;
-      this.velocity.x = this.velocity.x*-1;
+      this.velocity.x = this.velocity.x*-2;
       //life -= 20;
       player.shieldStatus = player.shieldStatus+ 1;
       //player.loseshieldy = true;
@@ -143,15 +161,21 @@ class Asteroid {
       }
 
       if (this.velocity.y > 0)
+      {
         this.location.y -= 3;
+        this.velocity.y = this.velocity.y*-2;
+      }
       if (this.velocity.x < 0)
-        this.location.x += 2;
-      else 
-      this.location.x -= 3;
-      this.velocity.y = this.velocity.y*-1;
-      this.velocity.x = this.velocity.x*-1;
-      //life -= 20;
-      player.shipLife -= 10;
+      {
+        this.location.x += 3;
+      } else
+      {
+        this.location.x -= 3;
+        this.velocity.y = this.velocity.y*-2;
+        this.velocity.x = this.velocity.x*1;
+        //life -= 20;
+        player.shipLife -= 10;
+      }
     }
   }
 

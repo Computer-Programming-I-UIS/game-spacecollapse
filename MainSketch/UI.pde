@@ -22,7 +22,7 @@ class UI {
   boolean abierto2 = true;
   boolean change = false;
 
-
+  int previousCount = 0;
 
 
   //constructor
@@ -185,7 +185,6 @@ class UI {
     } else
     {
       change = false;
-     
     }
 
     fill(123);
@@ -195,7 +194,7 @@ class UI {
   }
   void waveShow()
   {
-
+    //txWh=0;
     if (gameStatus == 3 && endSkip == true ) {
       if (abierto2 == true && counterSkip == 0)
       {
@@ -205,7 +204,7 @@ class UI {
         if ( txWh >= width/2)
         {
           txWh = width/2;
-          if (frameCount %110 == 0)
+          if ((frameCount - previousCount) %110 == 0)
           {
             abierto2 = false;
           }
@@ -218,6 +217,7 @@ class UI {
         {
           abierto2 = true;
           counterSkip++;
+
           woosh.play();
           if ( woosh.isPlaying() == true)
           {

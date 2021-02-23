@@ -331,13 +331,13 @@ class SpaceShip {
   }
   void shipPoints()
   {
-    if (playerScore > 3 && playerScore < 5)
-    {
-      window.counterSkip = 0;
-      window.wave++;
-      playerScore++;
-      numAsteroids = 6;
-    }
+    //if (playerScore > 3 && playerScore < 5)
+    //{
+    //  window.counterSkip = 0;
+    //  window.wave++;
+    //  playerScore++;
+    //  numAsteroids = 6;
+    //}
   }
 
 

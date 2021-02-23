@@ -45,6 +45,7 @@ int playerScore = 0;
 int thew = 1500;
 int theh = 1000;
 
+boolean genAsteroids = false;
 
 
 ArrayList<Bullet>bullets;

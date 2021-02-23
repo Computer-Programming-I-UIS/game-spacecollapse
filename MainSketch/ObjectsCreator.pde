@@ -26,16 +26,17 @@ void awakeStars()
   for (int i = 0; i < starsnorm.length; i++) {
     starsnorm[i] = new StarNorm(color(255, 255, 255), 0.9, 1.2 );
   }
+  createAsteroids();
+  genAsteroids = true;
+}
+void createAsteroids()
+{
   for (int i = 0; i < numAsteroids; i++) {
     //rock[i] = new Asteroids();
-    int rango = (1200-300)/numAsteroids;
-    meteoritos.add(new Asteroid((i*rango)+300+80, ((i+1)*rango)- 80 + 300, new PVector(random(-1.5, 1.5), random(3, 5))));//llamando el constructor
-    /*
-    (new PVector(random((i*rango)+300,(i+1)*rango + 300)
-     */
+    int rango = (1190-310)/numAsteroids;
+    meteoritos.add(new Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(5, 8))));//llamando el constructor
   }
 }
-
 void drawStars()
 {
   for (int i = 0; i < stars.length; i++) {
@@ -58,10 +59,12 @@ void drawStars()
   for (Asteroid rock : meteoritos) {
     //tint(255,0,0);
     rock.caida();
-   // noTint();
+    // noTint();
   }
   noStroke();
-  fill(0);
-  rect(0, 0, 310, height);
-  rect(1190, 0, 310, height);
+  
+  //cuadros negros
+ // fill(0);
+  //rect(0, 0, 310, height);
+  //rect(1190, 0, 310, height);
 }  
