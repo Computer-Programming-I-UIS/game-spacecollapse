@@ -32,8 +32,9 @@ void stateMachine()
 
     noCursor();
     //this.scrollspace(); 
-    scale(0.5);
-    translate(width/2,height/2*2);
+    //for debug Asteroids spawn
+    //scale(0.5);
+    //translate(width/2,height/2*2);
     loading.pause();
     main.pause();
     window.waveShow();

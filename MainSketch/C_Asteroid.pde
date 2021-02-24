@@ -1,17 +1,26 @@
 class Asteroid {
   float d = random(0.3, 0.5);
 
+  PImage spritesheet = loadImage("ShipDestroy.png");
+
+
+  int DIM = 8;
+  int W = spritesheet.width/DIM;
+  int H = spritesheet.height/DIM;
+
   float i;// rotacion
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
 
-  float life = 10;
+  float life = 20;
 
   PImage asteroid = loadImage("Asteroid.png");
   PImage asteroidDamaged = loadImage("Asteroid_Damaged.png");
 
   boolean collition = false;
 
+  float bulletdx;
+  float bulletdy;
 
   PVector location;
   PVector velocity;
@@ -25,6 +34,8 @@ class Asteroid {
 
   int numColition = 0;
 
+  PImage [] sprites = new PImage[DIM*DIM];
+
   Asteroid(float xmin, float xmax, PVector velocity)
   {
     this.location = new PVector(random(xmin, xmax), random(-1000, -500));
@@ -35,6 +46,14 @@ class Asteroid {
     this.mass = ( (4*PI*pow(this.radius, 3))/3 ) * density;
     this.xmin = xmin;
     this.xmax = xmax;
+
+
+
+    for (int i=0; i<sprites.length; i++) {
+      int x = i%DIM*W;
+      int y = i/DIM*H;
+      sprites[i] = spritesheet.get(x, y, W, H);
+    }
   }
 
   void reset() {
@@ -63,7 +82,6 @@ class Asteroid {
     popMatrix();
 
 
-
     if ( location.y>height+asteroid.height*d/2 && life >= 0  || location.y < 0-2*asteroid.height*d/2 && velocity.y <= -1 || player.isDead == true ) {
       location.x = random(xmin, xmax);
       location.y = random(-1000, -500);
@@ -71,14 +89,20 @@ class Asteroid {
       velocity.y = random(1, 2);
       life = 40;
     }
-    if (location.x <= 310 || location.x >= 1190 || player.isDead == true) {
+    if (location.x < 310) {
 
-      //location.x = random(xmin, xmax);
-      location.y=random(-1000, -500);
-      velocity.x = random(-1, 1);
-      velocity.y = random(1, 2);
-      life = 40;
+      location.x = 1190;
+
+      //velocity.x = random(-1, 1);
+      //velocity.y = random(1, 2);
+      life = 20;
       //location.y = constrain(random(1500), 300, 1200);
+    }
+    if (location.x > 1190) {
+
+      location.x = 310;
+
+      life = 20;
     }
 
     last_velocity.x = velocity.x;
@@ -94,7 +118,9 @@ class Asteroid {
     float v02 = meteoritoAcercandose.last_velocity.x;
     float vIy2 = meteoritoAcercandose.last_velocity.y;
 
-    hit.play();
+    if (location.y > 0) {
+      hit.play();
+    }
     if ( hit.isPlaying() == true)
     {
       hit.rewind();
@@ -166,56 +192,56 @@ class Asteroid {
       //  mouseY > by && mouseY < by+boxH) {
 
 
-      //  this.velocity.y = this.velocity.y*-1;
-      //  this.velocity.x = this.velocity.x*-1;
-      //  //life -= 20;
+      this.velocity.y = this.velocity.y*-1;
+      this.velocity.x = this.velocity.x*-1;
+      life -= 20;
 
-      //  //player.loseshieldy = true;
+      player.loseshieldy = true;
 
-      //  player.cnt = 0;
-      //  player.shieldStatus = player.shieldStatus+ 1;
-      //  player.loseshieldy = false;
-      //  println(player.shieldStatus);
+      player.cnt = 0;
+      player.shieldStatus = player.shieldStatus+ 1;
+      player.loseshieldy = false;
+      println(player.shieldStatus);
 
       //this.velocity.x -= 5;
       //considerando destruirlo en vez de redireccionarlos
       // }
     }
-    //if (location.x+asteroid.height*d/2 > player.xmouse+45 && location.x - asteroid.height*d/2 < player.xmouse+55
-    //  && location.y+asteroid.height*d/2 > player.ymouse+25 && location.y -asteroid.height*d/2 < player.ymouse+80 
-    //  && player.shipStatus == 2)
-    //{
-    //  //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
-    //  collition =true;
-    //  player.myColl = true;
-    //  shaking = true;
+    if (location.x+asteroid.height*d/2 > player.xmouse+45 && location.x - asteroid.height*d/2 < player.xmouse+55
+      && location.y+asteroid.height*d/2 > player.ymouse+25 && location.y -asteroid.height*d/2 < player.ymouse+80 
+      && player.shipStatus == 2)
+    {
+      //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
+      collition =true;
+      player.myColl = true;
+      shaking = true;
 
 
 
-    //  if (this.velocity.y > 0 )
-    //  {
-    //    this.location.y -= 3;
-    //    this.velocity.y = this.velocity.y*-2;
-    //  }
-    //  if (this.velocity.x < 0)
-    //  {
-    //    this.location.x += 3;
-    //    this.velocity.x = this.velocity.x*-2;
-    //  } else
-    //  {
-    //    this.location.x -= 3;
-    //    this.velocity.y = this.velocity.y*-2;
-    //    this.velocity.x = this.velocity.x*1;
-    //    //life -= 20;
-    //    player.shipLife -= 10;
+      if (this.velocity.y > 0 )
+      {
+        this.location.y -= 3;
+        this.velocity.y = this.velocity.y*-2;
+      }
+      if (this.velocity.x < 0)
+      {
+        this.location.x += 3;
+        this.velocity.x = this.velocity.x*-2;
+      } else
+      {
+        this.location.x -= 3;
+        this.velocity.y = this.velocity.y*-2;
+        this.velocity.x = this.velocity.x*1;
+        //life -= 20;
+        player.shipLife -= 10;
 
-    //    shipHit.play();
-    //    if ( shipHit.isPlaying() == true)
-    //    {
-    //      shipHit.rewind();
-    //    }
-    //  }
-    //}
+        shipHit.play();
+        if ( shipHit.isPlaying() == true)
+        {
+          shipHit.rewind();
+        }
+      }
+    }
   }
 
 
@@ -228,15 +254,33 @@ class Asteroid {
         myBullet.y > location.y-(asteroid.height*d/2.05) && myBullet.y < location.y+(asteroid.height*d/2.05) )
       {
         asteroidHit.play();
+
         if ( asteroidHit.isPlaying() == true)
         {
           asteroidHit.rewind();
         }
 
+        
+
         myBullet.desaparecer = true;
+
+        if (myBullet.desaparecer == true)
+        {
+          bulletdx = myBullet.x;
+          bulletdy = myBullet.y;
+        } 
+        
+        //pushMatrix();
+        //scale(0.5);
+        //image(sprites[frameCount%sprites.length], bulletdx, bulletdy);
+        //popMatrix();
+
+
         collition = true;
         life = life - 5;
+        pl = random(-1, 1);
         this.velocity.y -= 1;
+
         break;
       } else {
 

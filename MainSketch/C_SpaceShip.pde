@@ -10,9 +10,11 @@ class SpaceShip {
   PImage shield4 = loadImage("Shield4.png");
   PImage shield5 = loadImage("Shield5.png");
 
+  PImage spritesheet = loadImage("ShipDestroy.png");
 
-
-  PImage[] exp = new PImage[3];
+  int DIM = 8;
+  int W = spritesheet.width/DIM;
+  int H = spritesheet.height/DIM;
 
   int shipStatus = 1;
   int xmouse = width/2;
@@ -44,12 +46,22 @@ class SpaceShip {
   boolean ismovL = false;
   Boolean loseshieldy = false;
 
+  PImage[] exp = new PImage[10];
+
+  PImage [] sprites = new PImage[DIM*DIM];
+
+
+
   //Constructor
   SpaceShip()
   {
-    exp[0] = loadImage( "Exp_1.png" );
-    exp[1] = loadImage( "Exp_2.png" );
-    exp[2] = loadImage( "Exp_3.png" );
+
+
+    for (int i=0; i<sprites.length; i++) {
+      int x = i%DIM*W;
+      int y = i/DIM*H;
+      sprites[i] = spritesheet.get(x, y, W, H);
+    }
   }
 
   //Metodos
@@ -139,13 +151,14 @@ class SpaceShip {
       if (isDead == true)
       {
         lockMouse = true;
-        if (frameCount %3 == 0)
+        if (frameCount %10 == 0)
         {
-          frameFx = (frameFx+1)%3;
+          frameFx = (frameFx+1)%10;
         }
 
         // scale(0.3);
-        image( exp[frameFx], deadx, deady );
+
+        image(sprites[frameCount%sprites.length], deadx-(50), deady-(50));
       }
     }
   }
@@ -341,12 +354,12 @@ class SpaceShip {
   }
   void ShipTrigger()
   {
-    fill(255, 120, 0, 150);
-    rect(player.xmouse+25, player.ymouse-30, 50, 50);
-    rect(player.xmouse-30, player.ymouse-10, 50, 100);
-    rect(player.xmouse+ 80, player.ymouse-10, 50, 100);
-    
-    rect(500, -500, 50, 50);
+    //fill(255, 120, 0, 150);
+    //rect(player.xmouse+25, player.ymouse-30, 50, 50);
+    //rect(player.xmouse-30, player.ymouse-10, 50, 100);
+    //rect(player.xmouse+ 80, player.ymouse-10, 50, 100);
+
+    //rect(500, -500, 50, 50);
 
     //rect(player.xmouse, player.ymouse+80, 5, 5);
     noFill();
@@ -395,6 +408,9 @@ class SpaceShip {
       xmouse = constrain(xmouse, 300, 1200-shi.width);
       ymouse = constrain(ymouse, 0, height);
     }
+  }
+  void shipExplotion()
+  {
   }
   void soundBoing()
   {
