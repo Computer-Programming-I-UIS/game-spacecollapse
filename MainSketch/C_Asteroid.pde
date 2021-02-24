@@ -1,7 +1,7 @@
 class Asteroid {
   float d = random(0.3, 0.5);
 
-  PImage spritesheet = loadImage("ShipDestroy.png");
+  PImage spritesheet = loadImage("BulletDestroy.png");
 
 
   int DIM = 8;
