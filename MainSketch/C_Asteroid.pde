@@ -7,8 +7,13 @@ class Asteroid {
   int DIM = 8;
   int W = spritesheet.width/DIM;
   int H = spritesheet.height/DIM;
-
-  float i;// rotacion
+  int lastFramePoint = 0;
+  float posX, posY;
+  boolean exploting = false;
+  int caida = 0;
+  
+  
+    float i;// rotacion
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
 
@@ -67,6 +72,7 @@ class Asteroid {
 
     location.add(velocity);
     i = i+rr*pl;//rotacion
+
     fill(255);
     pushMatrix();
 
@@ -82,6 +88,21 @@ class Asteroid {
       image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
     }
     popMatrix();
+   
+    if (exploting) {
+      pushMatrix();
+      translate(location.x-asteroid.height*d/2,location.y -asteroid.height*d/2);
+      //bulletExp.draw();
+      scale(0.5);
+      image(sprites[frameCount%sprites.length], 0, 0);
+      popMatrix();
+      if (frameCount - lastFramePoint >= 63) {
+        exploting = false;
+        caida= 0;
+      }
+    }
+    println(exploting);
+
 
 
     if ( location.y>height+asteroid.height*d/2 && life >= 0  || location.y < 0-2*asteroid.height*d/2 && velocity.y <= -1 || player.isDead == true ) {
@@ -255,29 +276,27 @@ class Asteroid {
       if (myBullet.x > location.x-(asteroid.height*d/2) && myBullet.x < location.x+(asteroid.height*d/2) &&
         myBullet.y > location.y-(asteroid.height*d/2.05) && myBullet.y < location.y+(asteroid.height*d/2.05) )
       {
-        bulletdx = myBullet.x;
-        bulletdy = myBullet.y;
+        //bulletdx = myBullet.x;
+        //bulletdy = myBullet.y;
 
 
 
 
         myBullet.desaparecer = true;
 
-        if (myBullet.desaparecer == true)
-        {
+        exploting = true;
+        lastFramePoint = frameCount;
+        posX = myBullet.x;
+        posY = myBullet.y;
+        //if (myBullet.desaparecer == true)
+        //{
 
-          pushMatrix();
-          scale(0.5);
-          image(sprites[frameCount%sprites.length], bulletdx, bulletdy);
-          popMatrix();
-        }
+        //  pushMatrix();
+        //  scale(0.5);
+        //  image(sprites[frameCount%sprites.length], bulletdx, bulletdy);
+        //  popMatrix();
 
-
-
-
-
-
-
+        //}
 
 
         collition = true;
