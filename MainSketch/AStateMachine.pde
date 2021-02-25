@@ -1,4 +1,4 @@
-int gameStatus = 3;
+int gameStatus = 0;
 
 void stateMachine()
 {  
@@ -35,16 +35,24 @@ void stateMachine()
     //for debug Asteroids spawn
     //scale(0.5);
     //translate(width/2,height/2*2);
-    loading.pause();
-    main.pause();
+
+
     window.waveShow();
     drawStars();
     player.nave();
     player.shipPoints();
     player.keyPressed();
-    
+
+    loading.pause();
+    main.pause();
+    inGame.play();
+    if (inGame.isPlaying() != true)
+    {
+      inGame.rewind();
+    }
+
     text(str(meteoritos.size()), 30, 700);
-    
+
     if (genAsteroids == false)
     {
       genAsteroids = true;

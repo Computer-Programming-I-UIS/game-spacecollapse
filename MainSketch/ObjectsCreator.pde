@@ -1,12 +1,14 @@
 void createButtoms()
 {
   //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus,MX,MY)
-  start = new Buttom(width/2-150, height/3, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "START", width/2, height/2.5, 0, 255, 255, 0, 50, (4), 1920/2+100, 1080/2+100, 0, 0);
-  config = new Buttom(width/2-150, height/2, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "CREDITS", width/2, height/1.77, 255, 255, 0, 0, 50, (2), 1920/2+100, 1080/2+100, 0, 0.1);
-  exit = new Buttom(width/2-150, height/1.5, 300, 70, 12, #00ffff, 0, 10, #808080, 0, (133), "EXIT", width/2, height/1.37, 255, 0, 0, 0, 50, 1, 1920/2+100, 1080/2, 0, 0.50);
+  start = new Buttom(width/2-150, height/3, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "START", 0, 255, 255, 0, 40, 90,(4),1920/2+100, 1080/2+100, 0, 0);
+  config = new Buttom(width/2-150, height/3+100, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "OPTIONS", 255, 255, 0, 0, 40, 70, (2), 1920/2+100, 1080/2+100, 0, 0.1);
+  tutorial = new Buttom(width/2-150, height/3+200, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "TUTORIAL", 200, 255, 0, 0, 40, 60, (2), 1920/2+100, 1080/2+100, 0, 0.1);
+  credits = new Buttom(width/2-150, height/3+300, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "CREDITS", 255, 255, 0, 0, 40, 70, (2), 1920/2+100, 1080/2+100, 0, 0.1);
+  exit = new Buttom(width/2-150, height/3+400, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "EXIT", 255, 0, 0, 0, 40, 110, (1), 1920/2+100, 1080/2, 0, 0.50);
 
-  yes = new Buttom(width/2-70*2, height/2+35, 70, 70, 12, #ff0000, 0, 10, #808080, 0, 133, "YES", width/2-104, height/2+95, 255, 0, 0, 0, 35, 11, 1920/2-75, 1080/2+75, 0, 0);
-  no = new Buttom(width/2+70, height/2+35, 70, 70, 12, #0DFF00, 0, 10, #808080, 0, 133, "NO", width/2+104, height/2+95, 0, 255, 0, 0, 35, 0, 1920/2, 1080/2-300, 0, 0);
+  yes = new Buttom(width/2-70*2, height/2+35, 70, 40, 10, #ff0000, 0, 8, #808080, 0, 133, "YES", 255, 0, 0, 0, 30, 10, (11), 1920/2-75, 1080/2+75, 0, 0);
+  no = new Buttom(width/2+70, height/2+35, 70, 40, 10, #0DFF00, 0, 8, #808080, 0, 133, "NO", 0, 255, 0, 0, 30, 12, (0), 1920/2, 1080/2-300, 0, 0);
 }
 
 void awakeStars()
@@ -35,8 +37,8 @@ void createAsteroids()
     //rock[i] = new Asteroids();
     //1-190
     int rango = (1880-620)/numAsteroids;
-   // meteoritos.add(new Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(5, 8))));//llamando el constructor
-   meteoritos.add(new  Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(2,5))));//llamando el constructor
+    // meteoritos.add(new Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(5, 8))));//llamando el constructor
+    meteoritos.add(new  Asteroid((i*rango)+310+80, ((i+1)*rango)- 80 + 310, new PVector(random(-1.5, 1.5), random(2, 5))));//llamando el constructor
   }
 }
 void drawStars()
@@ -64,7 +66,7 @@ void drawStars()
     // noTint();
   }
   noStroke();
-  
+
   //cuadros negros
   fill(0);
   rect(0, 0, 310, height);

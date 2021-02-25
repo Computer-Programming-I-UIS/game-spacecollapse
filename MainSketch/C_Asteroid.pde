@@ -12,6 +12,9 @@ class Asteroid {
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
 
+  float bulletdx;
+  float bulletdy;
+
   float life = 20;
 
   PImage asteroid = loadImage("Asteroid.png");
@@ -19,8 +22,7 @@ class Asteroid {
 
   boolean collition = false;
 
-  float bulletdx;
-  float bulletdy;
+
 
   PVector location;
   PVector velocity;
@@ -253,33 +255,43 @@ class Asteroid {
       if (myBullet.x > location.x-(asteroid.height*d/2) && myBullet.x < location.x+(asteroid.height*d/2) &&
         myBullet.y > location.y-(asteroid.height*d/2.05) && myBullet.y < location.y+(asteroid.height*d/2.05) )
       {
-        asteroidHit.play();
+        bulletdx = myBullet.x;
+        bulletdy = myBullet.y;
 
-        if ( asteroidHit.isPlaying() == true)
-        {
-          asteroidHit.rewind();
-        }
 
-        
+
 
         myBullet.desaparecer = true;
 
         if (myBullet.desaparecer == true)
         {
-          bulletdx = myBullet.x;
-          bulletdy = myBullet.y;
-        } 
-        
-        //pushMatrix();
-        //scale(0.5);
-        //image(sprites[frameCount%sprites.length], bulletdx, bulletdy);
-        //popMatrix();
+
+          pushMatrix();
+          scale(0.5);
+          image(sprites[frameCount%sprites.length], bulletdx, bulletdy);
+          popMatrix();
+        }
+
+
+
+
+
+
+
 
 
         collition = true;
         life = life - 5;
         pl = random(-1, 1);
         this.velocity.y -= 1;
+
+
+
+        asteroidHit.play();
+        if ( asteroidHit.isPlaying() == true)
+        {
+          asteroidHit.rewind();
+        }
 
         break;
       } else {

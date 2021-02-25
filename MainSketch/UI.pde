@@ -12,6 +12,7 @@ class UI {
   int rotateS = 0;
   int clx = 0 ;
   int clx2 = 0 ;
+  int yslide = 0;
 
   int txWh = 0;
   int counterSkip = 0;
@@ -55,15 +56,57 @@ class UI {
     popMatrix();
 
     start.showbuttom();
+    tutorial.showbuttom();
+    credits.showbuttom();
     config.showbuttom();
     exit.showbuttom();
   }
   void options()
   {
-    image(Credits, 0, 0);
-    if (frameCount % 420 == 0)
+    background(0);
+    // image(Credits, 0, 0);
+    textAlign(CENTER, CENTER);
+    main.setGain(-10);
+    image(SC, width/2-298.5, 100 + yslide);
+
+    text("ESPECIAL GRETINGS:", width/2, -1500+ yslide);
+
+    text("Alex Mantilla Rios ", width/2, -1400+ yslide);
+    text(" @Alessandrocapra ", width/2, -1350+ yslide);
+    text(" @Sinestesia ", width/2, -1300+ yslide);
+    text(" @Thiebaut ", width/2, -1250+ yslide);
+
+    text("TESTERS:", width/2, -1100+ yslide);
+    text("@Biomehanik0", width/2, -1000+ yslide);
+    text("Fabian Romero", width/2, -950+ yslide);
+    text("@L3onav", width/2, -900+ yslide);
+    text("'thanks for the feed guys'", width/2, -850+ yslide);
+
+
+    text("PROGRAMING:", width/2, -650+ yslide);
+    text("@Jerok", width/2, -600+ yslide);
+    text("Alex Mantilla Rios ", width/2, -550+ yslide);
+
+    text("ARTIST:", width/2, -400+ yslide);
+    text("@Jerok", width/2, -350+ yslide);
+
+    text("MUSIC:", width/2, -200+ yslide);
+    text("@Jerok", width/2, -150+ yslide);
+
+    text("_______By David Romero (@Jerok)_______", width/2, 0+ yslide);
+
+    pushMatrix();
+    scale(0.5);
+    translate( width*2-(width/4), 1900);
+    text("'Press any key to skip'",0,0);
+    popMatrix();
+    yslide+= 2;
+
+    if ( keyPressed ||yslide >= 1800 )
     {
+      change = true;
       gameStatus = 0;
+      yslide = 0;
     }
   }
   void areyousure()

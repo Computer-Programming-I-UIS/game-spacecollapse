@@ -8,18 +8,19 @@ UI window;
 
 Buttom start;
 Buttom config;
+Buttom credits;
+Buttom tutorial;
 Buttom exit;
+
 Buttom yes;
 Buttom no;
-Buttom credits;
+
 
 SpaceShip player;
 
-
-
-
 Minim minim;
 AudioPlayer main;
+AudioPlayer inGame;
 AudioPlayer hit;
 AudioPlayer shoot;
 AudioPlayer shieldBoing;
@@ -64,6 +65,7 @@ void setup() {
 
   minim = new Minim(this);
   main = minim.loadFile("S_Start.mp3");
+  inGame = minim.loadFile("S_InGame.mp3");
   hit = minim.loadFile("Z_hit.mp3");
   asteroidHit = minim.loadFile("Z_TheHit.mp3");
   shoot = minim.loadFile("Z_Shoot.mp3");
@@ -82,9 +84,11 @@ void setup() {
   createButtoms();
 
   main.loop();
+  inGame.loop();
   loading.loop();
 
   loading.pause();
+  inGame.pause();
 
   main.setGain(-10);// ajustamos el volumen inicial a uno tolerable}
   loading.setGain(-30);
@@ -95,6 +99,7 @@ void setup() {
   shoot.setGain(-20);
   click.setGain(-15);
   woosh.setGain(-20);
+  inGame.setGain(-20);
 }
 
 void draw() 

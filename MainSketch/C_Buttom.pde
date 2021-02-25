@@ -22,6 +22,8 @@ class Buttom
   float Tx;
   float Ty;
 
+  float txWid;
+
   color theColorR;
   color theColorG;
   color theColorB;
@@ -45,7 +47,7 @@ class Buttom
   //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus)
   Buttom(float initbx, float initby, float initboxW, float initboxH, float initBorP, color initcolBorP, color initrectColP, 
     float initBorS, color initcolBorS, color initrectColS, color initpressCol, 
-    String initname, float initTx, float initTy, color initColorR, color initColorG, color initColorB, color initalpha, int initTS, int initgamest, int initMX, int initMY, float initbcP, float initbcS )
+    String initname, color initColorR, color initColorG, color initColorB, color initalpha, int initTS, int inittxWid, int initgamest, int initMX, int initMY, float initbcP, float initbcS )
   {
     this.bx = initbx;
     this.by = initby;
@@ -63,9 +65,9 @@ class Buttom
     this.pressCol = initpressCol;
 
     this.name = initname;
-    this.Tx = initTx;
-    this.Ty = initTy;
-
+    this.Tx = initbx;
+    this.Ty = initby;
+    this.txWid = inittxWid;
     //= color(0, 255, 255);
     this.theColorR = initColorR;
     this.theColorG = initColorG;
@@ -89,7 +91,7 @@ class Buttom
       mouseY > by && mouseY < by+boxH) {
       overBox = true;  
 
-      strokeJoin(ROUND);
+     // strokeJoin(SHAPE);
       strokeWeight(this.BorP);
       stroke(this.colBorP); 
       this.alpha = 255;
@@ -99,7 +101,7 @@ class Buttom
     } else 
     {
       //this.theColorTx = 0;
-      strokeJoin(ROUND);
+      //strokeJoin(ROUND);
       strokeWeight(this.BorS);
       stroke(this.colBorS); 
       this.alpha = 190;
@@ -141,8 +143,8 @@ class Buttom
 
     fill(this.theColorR, this.theColorG, this.theColorB, this.alpha);
     textSize(Ts);
-    textAlign(CENTER, BOTTOM);
-    text(this.name, this.Tx, this.Ty ); //width/2,this.by+65
+    textAlign(CORNER, BOTTOM);
+    text(this.name, this.Tx+txWid, this.Ty+boxH ); //width/2,this.by+65
   }
   public void centerCursor() throws Exception {
 

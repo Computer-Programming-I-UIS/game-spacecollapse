@@ -4,6 +4,7 @@ class Bullet
 {
   float x;
   float y;
+  
   float speed;
   float w;
   float time;
@@ -36,6 +37,7 @@ class Bullet
     if (this.y < 0 ) // || 
     {
       desaparecer = true;
+        
     } else
     {
       desaparecer = false;

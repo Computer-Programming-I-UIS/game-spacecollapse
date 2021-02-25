@@ -67,6 +67,9 @@ class SpaceShip {
   //Metodos
   void nave()
   {
+
+    
+    
     for (int i = bullets.size()-1; i >= 0; i--)
     {
       Bullet bullet = bullets.get(i);
@@ -151,6 +154,7 @@ class SpaceShip {
       if (isDead == true)
       {
         lockMouse = true;
+        inGame.rewind();
         if (frameCount %10 == 0)
         {
           frameFx = (frameFx+1)%10;
