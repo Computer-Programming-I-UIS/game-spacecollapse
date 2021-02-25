@@ -64,16 +64,18 @@ void setup() {
   meteoritos = new ArrayList<Asteroid>();
 
   minim = new Minim(this);
-  main = minim.loadFile("S_Start.mp3");
-  inGame = minim.loadFile("S_InGame.mp3");
-  hit = minim.loadFile("Z_hit.mp3");
-  asteroidHit = minim.loadFile("Z_TheHit.mp3");
-  shoot = minim.loadFile("Z_Shoot.mp3");
-  shieldBoing =  minim.loadFile("Z_TheHit.mp3");
-  shipHit =  minim.loadFile("Z_ShipHit.mp3");
-  loading =  minim.loadFile("Z_Loading.mp3");
-  click =  minim.loadFile("Z_Click.mp3");
-  woosh =  minim.loadFile("Z_Woosh.mp3");
+  
+  main = minim.loadFile("data/music/S_Start.mp3");
+  inGame = minim.loadFile("data/music/S_InGame.mp3");
+  loading =  minim.loadFile("data/music/Z_Loading.mp3");
+  
+  hit = minim.loadFile("data/audio/Z_hit.mp3");
+  asteroidHit = minim.loadFile("data/audio/Z_TheHit.mp3");
+  shoot = minim.loadFile("data/audio/Z_Shoot.mp3");
+  shieldBoing =  minim.loadFile("data/audio/Z_TheHit.mp3");
+  shipHit =  minim.loadFile("data/audio/Z_ShipHit.mp3");
+  click =  minim.loadFile("data/audio/Z_Click.mp3");
+  woosh =  minim.loadFile("data/audio/Z_Woosh.mp3");
 
 
 

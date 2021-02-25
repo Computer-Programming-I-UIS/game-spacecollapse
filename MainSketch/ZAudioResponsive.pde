@@ -26,7 +26,7 @@ void InitBackgroundCubes()
   //setUp
   minim = new Minim(this);
 
-  main = minim.loadFile("S_Start.mp3");
+  main = minim.loadFile("data/music/S_Start.mp3");
 
   fft = new FFT( main.bufferSize(), main.sampleRate());
 

@@ -1,16 +1,16 @@
 class SpaceShip {
   //Atributos
-  PImage shi = loadImage("ShipI.png");
-  PImage shi2 = loadImage("ShipII.png");
-  PImage shi3 = loadImage("ShipIII.png");
+  PImage shi = loadImage("data/player/ShipI.png");
+  PImage shi2 = loadImage("data/player/ShipII.png");
+  PImage shi3 = loadImage("data/player/ShipIII.png");
 
-  PImage shield1 = loadImage("Shield1.png");
-  PImage shield2 = loadImage("Shield2.png");
-  PImage shield3 = loadImage("Shield3.png");
-  PImage shield4 = loadImage("Shield4.png");
-  PImage shield5 = loadImage("Shield5.png");
+  PImage shield1 = loadImage("data/player/Shield1.png");
+  PImage shield2 = loadImage("data/player/Shield2.png");
+  PImage shield3 = loadImage("data/player/Shield3.png");
+  PImage shield4 = loadImage("data/player/Shield4.png");
+  PImage shield5 = loadImage("data/player/Shield5.png");
 
-  PImage spritesheet = loadImage("ShipDestroy.png");
+  PImage spritesheet = loadImage("data/sprites/ShipDestroy.png");
 
   int DIM = 8;
   int W = spritesheet.width/DIM;
@@ -68,8 +68,8 @@ class SpaceShip {
   void nave()
   {
 
-    
-    
+
+
     for (int i = bullets.size()-1; i >= 0; i--)
     {
       Bullet bullet = bullets.get(i);

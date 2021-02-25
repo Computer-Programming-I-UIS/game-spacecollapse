@@ -1,11 +1,10 @@
 class UI {
   //Atributos
 
-  PImage SC = loadImage("Logo.png");
-  PImage Credits = loadImage("Creditos.png");
-  PImage RP = loadImage("RP.png");
-  PImage space = loadImage("Space.png");
-  PImage roll = loadImage("LogoRot.png");
+  PImage SC = loadImage("data/UI/Logo.png");
+  PImage RP = loadImage("data/UI/RP.png");
+  //PImage space = loadImage("Space.png");
+  PImage roll = loadImage("data/UI/LogoRot.png");
 
   PImage[] load = new PImage[6];
 
@@ -29,12 +28,12 @@ class UI {
   //constructor
   UI()
   {
-    load[0] = loadImage( "Loading1.png" );
-    load[1] = loadImage( "Loading2.png" );
-    load[2] = loadImage( "Loading3.png" );
-    load[3] = loadImage( "Loading4.png" );
-    load[4] = loadImage( "Loading5.png" );
-    load[5] = loadImage( "Loading6.png" );
+    load[0] = loadImage( "data/sprites/Loading1.png" );
+    load[1] = loadImage( "data/sprites/Loading2.png" );
+    load[2] = loadImage( "data/sprites/Loading3.png" );
+    load[3] = loadImage( "data/sprites/Loading4.png" );
+    load[4] = loadImage( "data/sprites/Loading5.png" );
+    load[5] = loadImage( "data/sprites/Loading6.png" );
   }
   //metodos
   void mainmenu()
@@ -98,7 +97,7 @@ class UI {
     pushMatrix();
     scale(0.5);
     translate( width*2-(width/4), 1900);
-    text("'Press any key to skip'",0,0);
+    text("'Press any key to skip'", 0, 0);
     popMatrix();
     yslide+= 2;
 

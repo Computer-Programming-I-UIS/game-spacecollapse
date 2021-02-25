@@ -1,7 +1,7 @@
 class Asteroid {
   float d = random(0.3, 0.5);
 
-  PImage spritesheet = loadImage("BulletDestroy.png");
+  PImage spritesheet = loadImage("data/sprites/BulletDestroy.png");
 
 
   int DIM = 8;
@@ -17,8 +17,8 @@ class Asteroid {
 
   float life = 20;
 
-  PImage asteroid = loadImage("Asteroid.png");
-  PImage asteroidDamaged = loadImage("Asteroid_Damaged.png");
+  PImage asteroid = loadImage("data/enemy/Asteroid.png");
+  PImage asteroidDamaged = loadImage("data/enemy/Asteroid_Damaged.png");
 
   boolean collition = false;
 
