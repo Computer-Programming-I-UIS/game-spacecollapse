@@ -7,7 +7,8 @@ import ddf.minim.analysis.*;
 UI window;
 
 Buttom start;
-Buttom config;
+Buttom Pause;
+Buttom Continue;
 Buttom credits;
 Buttom tutorial;
 Buttom exit;

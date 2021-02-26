@@ -68,9 +68,6 @@ class Asteroid {
     }
     popMatrix();
 
-
-
-
     if ( location.y>height+asteroid.height*d/2 && life >= 0  || location.y < 0-2*asteroid.height*d/2 && velocity.y <= -1 || player.isDead == true ) {
       location.x = random(xmin, xmax);
       location.y = random(-1000, -500);
@@ -200,7 +197,7 @@ class Asteroid {
         this.velocity.add(6, -1);
         //println("Derecho");
       }
-      
+
       player.shipLife -= 10;
 
       shipHit.play();
@@ -227,8 +224,6 @@ class Asteroid {
         life = life - 5;
         pl = random(-1, 1);
         this.velocity.add(0, -1);
-
-
 
         asteroidHit.play();
         exp.play();

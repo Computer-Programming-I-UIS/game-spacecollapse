@@ -2,9 +2,12 @@ class UI {
   //Atributos
 
   PImage SC = loadImage("data/UI/Logo.png");
-  PImage RP = loadImage("data/UI/RP.png");
-  //PImage space = loadImage("Space.png");
+  PImage ESBR = loadImage("data/UI/ESBR.png");
+  PImage PEGI = loadImage("data/UI/PEGI.png");
+  PImage control = loadImage("data/UI/Control.png");
   PImage roll = loadImage("data/UI/LogoRot.png");
+  PImage border = loadImage("data/UI/Border.png");
+  PImage borderef = loadImage("data/UI/Borderef.png");
 
   PImage[] load = new PImage[6];
 
@@ -51,16 +54,17 @@ class UI {
     popMatrix();
     pushMatrix();
     scale(0.5);
-    image(window.RP, 100, 1500);
+    image(window.ESBR, 100, 1500);
+    image(window.PEGI, 300, 1500);
     popMatrix();
 
     start.showbuttom();
     tutorial.showbuttom();
     credits.showbuttom();
-    config.showbuttom();
+    // config.showbuttom();
     exit.showbuttom();
   }
-  void options()
+  void credits()
   {
     background(0);
     // image(Credits, 0, 0);
@@ -108,6 +112,30 @@ class UI {
       yslide = 0;
     }
   }
+  void tutorial()
+  {
+    pushMatrix();
+
+    image(control, 250, 100);
+
+    popMatrix();
+
+    pushMatrix();
+    scale(0.5);
+    translate( width*2-(width/2.5), 1900);
+    text("'Press any key to skip'", 0, 0);
+    popMatrix();
+    yslide+= 2;
+
+    if ( keyPressed ||yslide >= 1800 )
+    {
+      change = true;
+      gameStatus = 0;
+      yslide = 0;
+    }
+  }
+
+
   void areyousure()
   {
     int w = 500;
@@ -132,6 +160,18 @@ class UI {
       //filter( BLUR, 4);
     }
   }
+  void pause()
+  {
+    image(SC, width/2-298.5, 100);//width/2-298.5, 100
+    Pause.showbuttom();
+    Continue.showbuttom();
+    image(border, 0, 0);
+
+
+    image(borderef, width/1.69+10, 0);
+  
+  }
+
   void screenLoading ()
   {
     if (frameCount %7 == 0)
@@ -140,6 +180,7 @@ class UI {
     }
     pushMatrix();
     scale(0.3);
+    player.reset();
     image( load[frame], width*2.8, height*2.5 );
     popMatrix();
 

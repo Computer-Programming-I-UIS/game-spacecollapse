@@ -9,9 +9,6 @@ void stateMachine()
 
     window.mainmenu();
 
-
-
-
     break;
   case 1:
 
@@ -22,7 +19,7 @@ void stateMachine()
     break;
   case 2:
 
-    window.options();
+    window.credits();
 
 
     break;
@@ -31,11 +28,6 @@ void stateMachine()
 
 
     noCursor();
-    //this.scrollspace(); 
-    //for debug Asteroids spawn
-    //scale(0.5);
-    //translate(width/2,height/2*2);
-
 
     window.waveShow();
     drawStars();
@@ -46,9 +38,10 @@ void stateMachine()
     main.pause();
     inGame.play();
 
-
-    text(str(meteoritos.size()), 30, 700);
-
+    pushMatrix();
+    scale(0.5);
+    text("Asteroids "+str(meteoritos.size()), 180, 700);
+    popMatrix();
     if (genAsteroids == false)
     {
       genAsteroids = true;
@@ -61,7 +54,7 @@ void stateMachine()
       window.abierto2 = true;
       window.endSkip = true;
       window.wave++;
-      println("meteoritos.size() = " + str(meteoritos.size()));
+      //println("meteoritos.size() = " + str(meteoritos.size()));
     }
     if (meteoritos.size() <= 2)
     {
@@ -70,9 +63,9 @@ void stateMachine()
     fill(255);
     textSize(30);
     textAlign(CENTER, BOTTOM);
-    text(" " + playerScore, 30, 100 ); //width/2,this.by+65
+    text(" Score " + playerScore, 70, 100 ); //width/2,this.by+65
     noFill();
-    player.ShipTrigger();
+
     //xmouse = constrain(mouseX, 300, 1150);
     //ymouse = mouseY - 16;
 
@@ -84,20 +77,24 @@ void stateMachine()
     main.pause();
 
     break;
+  case 5://Tutorial
+
+    window.tutorial();
+
+    break;
+
+  case 10:
+
+    cursor();
+    window.pause();
+
+    break;
 
   case 11:
 
     exit();
 
     break;
-
-  case 5://Tutorial
-  
-    break;
-    
-     case 6://options
-     
-     break;
   }
   pushMatrix();
   window.changeScreen();
