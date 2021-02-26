@@ -7,9 +7,9 @@ Space collapse es un juego de acción modo horda con características de juegos 
 
 # Tutorial
 
--movimiento solo lateral con la flechas 'right' & 'left'
--disparo con 'Space' o barra espaciadora
--pausa con la tecla 'P'
+- movimiento solo lateral con la flechas 'right' & 'left'
+- disparo con 'Space' o barra espaciadora
+- pausa con la tecla 'P'
 
 # Space Collapse (Trailer)
 
