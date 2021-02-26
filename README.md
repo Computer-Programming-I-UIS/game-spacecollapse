@@ -62,11 +62,11 @@ Links a sus trabajos:
 
 # Clasificación 
 ![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/PEGI.png)
-![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/ESBR.png)
+![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/ESBR.png)
 
 # Banner
 
-![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Banner.png)
+![Banner](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Banner.png)
 
 # @Jerok (Logo)
 ![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/JerokLogo.png)
