@@ -47,6 +47,7 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1500 mb.
 # Créditos
 - David Romero
 - Fabian Romero
+- Alex Mantilla Rios (por orientar el desarrollo de este proyecto)
 - @alesandrocapra (por proveer el código para la pantalla de inicio)
 - @Sinestesia (por los sprites para las explosiones)(CC0)
 - @SoundFlakes (por la música para el tráiler del juego)
