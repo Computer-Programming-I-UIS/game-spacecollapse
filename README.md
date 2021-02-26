@@ -5,6 +5,16 @@
 # Descripción
 Space collapse es un juego de acción modo horda con características de juegos de naves arcade clásicos como Galaga o Space Invaders. conduce tu nave a través del espacio enfrentando oleadas de asteroides infinitas, su dificultad se basa en que no tienes objetos para recuperar el escudo o la vida, pero reduce la penalización al mínimo permitiendo volver a jugar al instante sin una pantalla de "Game Over".
 
+# Tutorial
+
+-movimiento solo lateral con la flechas 'right' & 'left'
+-disparo con 'Space' o barra espaciadora
+-pausa con la tecla 'P'
+
+#Space Collapse (Trailer)
+
+video: https://www.youtube.com/watch?v=ZrOknRQLvn4
+
 #Sugerencias aplicadas
 Sobre las sugerencias es claro que el evaluador no se tomó la molestia de revisar el juego ya que algunas sugerencias son irrelevantes o no existen:
 ![Sugerencias](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Sugerencias.png)
@@ -30,6 +40,7 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1500 mb.
 - ESCUDOS DE LA NAVE
 - ANIMACION DE PULPO (pantalla de carga)
 - PORTAL EN LA PANTALLA DE INICIO
+- BANNER
 
 2021 todos los derechos reservados.
 
@@ -51,6 +62,10 @@ Links a sus trabajos:
 # Clasificación 
 ![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/PEGI.png)
 ![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/ESBR.png)
+
+# Banner
+
+![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Banner.png)
 
 # @Jerok (Logo)
 ![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/JerokLogo.png)
