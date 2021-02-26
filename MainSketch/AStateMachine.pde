@@ -46,10 +46,7 @@ void stateMachine()
     loading.pause();
     main.pause();
     inGame.play();
-    if (inGame.isPlaying() != true)
-    {
-      inGame.rewind();
-    }
+    
 
     text(str(meteoritos.size()), 30, 700);
 

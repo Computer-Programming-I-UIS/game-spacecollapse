@@ -1,19 +1,7 @@
 class Asteroid {
   float d = random(0.3, 0.5);
 
-  PImage spritesheet = loadImage("data/sprites/BulletDestroy.png");
-
-
-  int DIM = 8;
-  int W = spritesheet.width/DIM;
-  int H = spritesheet.height/DIM;
-  int lastFramePoint = 0;
-  float posX, posY;
-  boolean exploting = false;
-  int caida = 0;
-  
-  
-    float i;// rotacion
+  float i;// rotacion
   float rr = random(-0.1, 0.1);
   float pl = random(-1, 1);
 
@@ -41,7 +29,6 @@ class Asteroid {
 
   int numColition = 0;
 
-  PImage [] sprites = new PImage[DIM*DIM];
 
   Asteroid(float xmin, float xmax, PVector velocity)
   {
@@ -53,14 +40,6 @@ class Asteroid {
     this.mass = ( (4*PI*pow(this.radius, 3))/3 ) * density;
     this.xmin = xmin;
     this.xmax = xmax;
-
-
-
-    for (int i=0; i<sprites.length; i++) {
-      int x = i%DIM*W;
-      int y = i/DIM*H;
-      sprites[i] = spritesheet.get(x, y, W, H);
-    }
   }
 
   void reset() {
@@ -88,20 +67,7 @@ class Asteroid {
       image(asteroid, 0-asteroid.width/2, 0-asteroid.height/2);
     }
     popMatrix();
-   
-    if (exploting) {
-      pushMatrix();
-      translate(location.x-asteroid.height*d/2,location.y -asteroid.height*d/2);
-      //bulletExp.draw();
-      scale(0.5);
-      image(sprites[frameCount%sprites.length], 0, 0);
-      popMatrix();
-      if (frameCount - lastFramePoint >= 63) {
-        exploting = false;
-        caida= 0;
-      }
-    }
-    println(exploting);
+
 
 
 
@@ -116,16 +82,13 @@ class Asteroid {
 
       location.x = 1190;
 
-      //velocity.x = random(-1, 1);
-      //velocity.y = random(1, 2);
-      life = 20;
-      //location.y = constrain(random(1500), 300, 1200);
+      life = 40;
     }
     if (location.x > 1190) {
 
       location.x = 310;
 
-      life = 20;
+      life = 40;
     }
 
     last_velocity.x = velocity.x;
@@ -175,60 +138,36 @@ class Asteroid {
       //ellipse(location.x,location.y, asteroid.height*d/2,asteroid.height*d/2);
       collition =true;
       shaking = true;
-
-
-
       player.soundBoing();
-      //if (this.velocity.y > 0)
-      //  this.location.y -= 3;
-      //this.velocity.y =this.velocity.y*-1;
-      //if (this.velocity.x < 0)
-      //{
-      //  this.location.x += 3;
-      //  this.velocity.x = this.velocity.x*-1;
-      //} else { 
-      //  this.location.x -= 3;
+
       if (this.velocity.y > 0 && location.y+asteroid.height*d/2 > player.ymouse-50)
       {
-        this.location.y -= 3;
-        this.velocity.y = this.velocity.y*-1;
-        println("frontal");
+        this.location.y -= 10;
+        this.velocity.add(0, -4);
+        //println("frontal");
       }
       if (this.velocity.x > 0 )
       {
-        this.location.x -= 3;
-        this.location.y -= 3;
-        this.velocity.x = this.velocity.x*-1;
-        this.velocity.y = this.velocity.y*-1;
-        println("izquierdo");
+        this.location.x -= 15;
+        this.location.y -= 15;
+        this.velocity.add(-6, -1);
+
+        //println("izquierdo");
       }
       if (this.velocity.x < 0)
       {
-        this.location.x += 3;
-        this.location.y += 3;
-        this.velocity.x = this.velocity.x*-1;
-        this.velocity.y = this.velocity.y*-1;
-        println("Derecho");
+
+        this.location.x += 15;
+        this.location.y -= 15;
+        this.velocity.add(6, -1);
+        //println("Derecho");
       }
 
-      //if (mouseX > bx && mouseX < bx+boxW && 
-      //  mouseY > by && mouseY < by+boxH) {
-
-
-      this.velocity.y = this.velocity.y*-1;
-      this.velocity.x = this.velocity.x*-1;
-      life -= 20;
-
       player.loseshieldy = true;
-
       player.cnt = 0;
       player.shieldStatus = player.shieldStatus+ 1;
       player.loseshieldy = false;
       println(player.shieldStatus);
-
-      //this.velocity.x -= 5;
-      //considerando destruirlo en vez de redireccionarlos
-      // }
     }
     if (location.x+asteroid.height*d/2 > player.xmouse+45 && location.x - asteroid.height*d/2 < player.xmouse+55
       && location.y+asteroid.height*d/2 > player.ymouse+25 && location.y -asteroid.height*d/2 < player.ymouse+80 
@@ -239,30 +178,35 @@ class Asteroid {
       player.myColl = true;
       shaking = true;
 
-
-
       if (this.velocity.y > 0 )
       {
-        this.location.y -= 3;
-        this.velocity.y = this.velocity.y*-2;
+        this.location.y -= 10;
+        this.velocity.add(0, -4);
+        //println("frontal");
+      }
+      if (this.velocity.x > 0 )
+      {
+        this.location.x -= 15;
+        this.location.y -= 15;
+        this.velocity.add(-6, -1);
+
+        //println("izquierdo");
       }
       if (this.velocity.x < 0)
       {
-        this.location.x += 3;
-        this.velocity.x = this.velocity.x*-2;
-      } else
-      {
-        this.location.x -= 3;
-        this.velocity.y = this.velocity.y*-2;
-        this.velocity.x = this.velocity.x*1;
-        //life -= 20;
-        player.shipLife -= 10;
 
-        shipHit.play();
-        if ( shipHit.isPlaying() == true)
-        {
-          shipHit.rewind();
-        }
+        this.location.x += 15;
+        this.location.y -= 15;
+        this.velocity.add(6, -1);
+        //println("Derecho");
+      }
+      
+      player.shipLife -= 10;
+
+      shipHit.play();
+      if ( shipHit.isPlaying() == true)
+      {
+        shipHit.rewind();
       }
     }
   }
@@ -276,40 +220,23 @@ class Asteroid {
       if (myBullet.x > location.x-(asteroid.height*d/2) && myBullet.x < location.x+(asteroid.height*d/2) &&
         myBullet.y > location.y-(asteroid.height*d/2.05) && myBullet.y < location.y+(asteroid.height*d/2.05) )
       {
-        //bulletdx = myBullet.x;
-        //bulletdy = myBullet.y;
-
-
-
 
         myBullet.desaparecer = true;
-
-        exploting = true;
-        lastFramePoint = frameCount;
-        posX = myBullet.x;
-        posY = myBullet.y;
-        //if (myBullet.desaparecer == true)
-        //{
-
-        //  pushMatrix();
-        //  scale(0.5);
-        //  image(sprites[frameCount%sprites.length], bulletdx, bulletdy);
-        //  popMatrix();
-
-        //}
-
 
         collition = true;
         life = life - 5;
         pl = random(-1, 1);
-        this.velocity.y -= 1;
+        this.velocity.add(0, -1);
 
 
 
         asteroidHit.play();
-        if ( asteroidHit.isPlaying() == true)
+        exp.play();
+
+        if ( asteroidHit.isPlaying() == true || exp.isPlaying() == true)
         {
           asteroidHit.rewind();
+          exp.rewind();
         }
 
         break;

@@ -11,10 +11,18 @@ class SpaceShip {
   PImage shield5 = loadImage("data/player/Shield5.png");
 
   PImage spritesheet = loadImage("data/sprites/ShipDestroy.png");
+  PImage spritesheetAster = loadImage("data/sprites/AsteroidDestroy.png");
 
   int DIM = 8;
   int W = spritesheet.width/DIM;
   int H = spritesheet.height/DIM;
+
+  int DIMA = 8;
+  int WA = spritesheetAster.width/DIMA;
+  int HA = spritesheetAster.height/DIMA;
+
+  float lugarx;
+  float lugary;
 
   int shipStatus = 1;
   int xmouse = width/2;
@@ -36,9 +44,10 @@ class SpaceShip {
   int shieldStatus = 0;
   int cnt = 0;
 
-
+  int frameDuration = frameCount;
 
   Boolean isDead = false;
+  Boolean isDeadA = false;
   Boolean myColl = false;
   boolean lockShoot = false;
   Boolean lockMouse = false;
@@ -46,21 +55,25 @@ class SpaceShip {
   boolean ismovL = false;
   Boolean loseshieldy = false;
 
-  PImage[] exp = new PImage[10];
 
   PImage [] sprites = new PImage[DIM*DIM];
-
+  PImage [] spritesAster = new PImage[DIMA*DIMA];
 
 
   //Constructor
   SpaceShip()
   {
 
-
     for (int i=0; i<sprites.length; i++) {
       int x = i%DIM*W;
       int y = i/DIM*H;
       sprites[i] = spritesheet.get(x, y, W, H);
+    }
+
+    for (int f=0; f<spritesAster.length; f++) {
+      int a = f%DIMA*WA;
+      int b = f/DIMA*HA;
+      spritesAster[f] = spritesheetAster.get(a, b, WA, HA);
     }
   }
 
@@ -88,12 +101,17 @@ class SpaceShip {
       Asteroid mymeteorito = meteoritos.get(i);
       // print("              ", mymeteorito.life, "                         ");
       colitionBulletIndex = mymeteorito.collision(bullets);
-      if (mymeteorito.collition == true && mymeteorito.life <= 0)
+      if (mymeteorito.collition == true && mymeteorito.life <= 0 || mymeteorito.life <= 0  )
       {
 
-        bullets.remove(colitionBulletIndex);
-        meteoritos.remove(i);
+        // bullets.remove(colitionBulletIndex);
+        isDeadA = true;
+        lugarx = mymeteorito.location.x;
+        lugary = mymeteorito.location.y;
+        println("lugary =" + (lugary));
+        println("lugarx =" + (lugarx));
 
+        meteoritos.remove(i);
         playerScore++;
       } else if (mymeteorito.collition == true)
       {
@@ -108,7 +126,7 @@ class SpaceShip {
           if (dist(mymeteorito.location.x, mymeteorito.location.y, mymeteorito2.location.x, mymeteorito2.location.y) <= mymeteorito.radius + mymeteorito2.radius)
           {
             mymeteorito2.rebote(mymeteorito);
-            mymeteorito.life -= 10;
+            mymeteorito.life -= 5;
             mymeteorito.collition = true;
           }
         }
@@ -116,6 +134,7 @@ class SpaceShip {
       }
     }
     lifebar();
+
 
     switch (shipStatus)
     {
@@ -125,6 +144,20 @@ class SpaceShip {
       ShieldRange();
 
       image(shi, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+
+
+      if (isDeadA == true)
+      {  
+        image(spritesAster[frameCount*2%spritesAster.length], lugarx-(110), lugary-(110));
+        frameFxA++;
+        println("frame = " + (frameFxA));
+      } 
+      if (frameFxA >= 30)
+      {
+        println("NOFRAME = " + (frameFxA));
+        frameFxA=0;
+        isDeadA = false;
+      }
 
       break;
     case 2:
@@ -144,20 +177,16 @@ class SpaceShip {
         }
       }
 
-
-
       break;
     default:
-
-
 
       if (isDead == true)
       {
         lockMouse = true;
         inGame.rewind();
-        if (frameCount %10 == 0)
+        if (frameCount %20 == 0)
         {
-          frameFx = (frameFx+1)%10;
+          frameFx = (frameFx+1)%20;
         }
 
         // scale(0.3);
@@ -333,12 +362,14 @@ class SpaceShip {
     shieldStatus = 0;
     numAsteroids = 5;
     cnt = 0;
+    frameFxA = 0;
 
     window.counterSkip = 0;
     window.wave = 1;
 
 
     isDead = false;
+    isDeadA = false;
     myColl = false;
     lockShoot = false;
     lockMouse = false;
@@ -385,34 +416,42 @@ class SpaceShip {
         {
           shoot.rewind();
         }
+        if (inGame.isPlaying() != true)
+        {
+          inGame.rewind();
+        }
       }
-      // if (key == 'P' && lockMouse == false)
-      //{
-
-
-      //}
-    }
-
-    if (keyPressed && key == CODED)
-    {
-
-      if (keyCode == LEFT &&  lockMouse == false )
+      if (keyPressed && key == CODED)
       {
-        //if (directionX>0) { 
-        xmouse -= 3;
-        ismovL =true;
+
+        if (keyCode == LEFT &&  lockMouse == false )
+        {
+          //if (directionX>0) { 
+          xmouse -= 3;
+          ismovL =true;
+          move.play();
+        }
+        if (keyCode == RIGHT &&  lockMouse == false)
+        {
+          //if (directionX<0) { 
+          move.play();
+
+          xmouse += 3;
+          ismovR = true;
+          //}
+        }  
+        xmouse = constrain(xmouse, 300, 1200-shi.width);
+        ymouse = constrain(ymouse, 0, height);
       }
-      if (keyCode == RIGHT &&  lockMouse == false)
-      {
-        //if (directionX<0) {  
-        xmouse += 3;
-        ismovR = true;
-        //}
-      }  
-      xmouse = constrain(xmouse, 300, 1200-shi.width);
-      ymouse = constrain(ymouse, 0, height);
     }
+    // if (key == 'P' && lockMouse == false)
+    //{
+
+
+    //}
   }
+
+
   void shipExplotion()
   {
   }
@@ -431,6 +470,7 @@ class SpaceShip {
   {
 
     lockShoot = false;
+    move.rewind();
     ismovR = false;
     ismovL = false;
   }

@@ -29,6 +29,8 @@ AudioPlayer asteroidHit;
 AudioPlayer loading;
 AudioPlayer click;
 AudioPlayer woosh;
+AudioPlayer move;
+AudioPlayer exp;
 
 FFT fft;
 
@@ -38,6 +40,7 @@ boolean shaking = false;
 boolean shakingmini = false;
 
 int frameFx = 0;
+int frameFxA = 0;
 int frame = 0;
 int timeSlow = 0;
 
@@ -64,18 +67,20 @@ void setup() {
   meteoritos = new ArrayList<Asteroid>();
 
   minim = new Minim(this);
-  
+
   main = minim.loadFile("data/music/S_Start.mp3");
   inGame = minim.loadFile("data/music/S_InGame.mp3");
   loading =  minim.loadFile("data/music/Z_Loading.mp3");
-  
+
   hit = minim.loadFile("data/audio/Z_hit.mp3");
+  exp = minim.loadFile("data/audio/Z_Exp.mp3");
   asteroidHit = minim.loadFile("data/audio/Z_TheHit.mp3");
   shoot = minim.loadFile("data/audio/Z_Shoot.mp3");
-  shieldBoing =  minim.loadFile("data/audio/Z_TheHit.mp3");
+  shieldBoing =  minim.loadFile("data/audio/Z_plasmaBoing.mp3");
   shipHit =  minim.loadFile("data/audio/Z_ShipHit.mp3");
   click =  minim.loadFile("data/audio/Z_Click.mp3");
   woosh =  minim.loadFile("data/audio/Z_Woosh.mp3");
+  move =  minim.loadFile("data/audio/Z_Mov.mp3");
 
 
 
@@ -101,6 +106,8 @@ void setup() {
   shoot.setGain(-20);
   click.setGain(-15);
   woosh.setGain(-20);
+  move.setGain(-20);
+  exp.setGain(-20);
   inGame.setGain(-20);
 }
 
