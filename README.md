@@ -11,11 +11,11 @@ Space collapse es un juego de acción modo horda con características de juegos 
 -disparo con 'Space' o barra espaciadora
 -pausa con la tecla 'P'
 
-#Space Collapse (Trailer)
+# Space Collapse (Trailer)
 
 video: https://www.youtube.com/watch?v=ZrOknRQLvn4
 
-#Sugerencias aplicadas
+# Sugerencias aplicadas
 Sobre las sugerencias es claro que el evaluador no se tomó la molestia de revisar el juego ya que algunas sugerencias son irrelevantes o no existen:
 ![Sugerencias](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Sugerencias.png)
 
