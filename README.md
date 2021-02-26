@@ -17,7 +17,7 @@ video: https://www.youtube.com/watch?v=ZrOknRQLvn4
 
 # Sugerencias aplicadas
 Sobre las sugerencias es claro que el evaluador no se tomó la molestia de revisar el juego ya que algunas sugerencias son irrelevantes o no existen:
-![Sugerencias](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Sugerencias.png)
+- ![Sugerencias](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Sugerencias.png)
 
 Sugerencia 4: sugerencia no valida ya que el fondo que está en la carpeta nunca se usa en el juego, en su momento fue un place holder para las estrellas que ahora se generan de manera procedural.  
 
@@ -53,10 +53,10 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1500 mb.
 - @freesound.org (por proveer los efectos de sonido)
 Links a sus trabajos:
 
-@alesandrocapra: https://github.com/alessandrocapra/ProcessingCubes/tree/master/cubes
-@Sinestesia: https://opengameart.org/content/2d-explosion-animations-2-frame-by-frame
-@SoundFlakes: https://freesound.org/people/SoundFlakes/sounds/523339/
-@freesound.org: https://freesound.org/
+- @alesandrocapra: https://github.com/alessandrocapra/ProcessingCubes/tree/master/cubes
+- @Sinestesia: https://opengameart.org/content/2d-explosion-animations-2-frame-by-frame
+- @SoundFlakes: https://freesound.org/people/SoundFlakes/sounds/523339/
+- @freesound.org: https://freesound.org/
 
 
 # Clasificación 
