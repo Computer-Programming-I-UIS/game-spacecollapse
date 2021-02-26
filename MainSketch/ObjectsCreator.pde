@@ -2,8 +2,8 @@ void createButtoms()
 {
   //bx,by,bW,bH,strokeW(int),stroke(color),rectcolorFill(color),SStrokeW(int),Sstroke(color),SrectcolorFill(color),MousePressFill(color),String(nombre), Tx(float),Ty(float),Tcolor,gamestatus,MX,MY)
   start = new Buttom(width/2-150, height/3, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "START", 0, 255, 255, 0, 40, 90,(4),1920/2+100, 1080/2+100, 0, 0);
-  config = new Buttom(width/2-150, height/3+100, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "OPTIONS", 255, 255, 0, 0, 40, 70, (2), 1920/2+100, 1080/2+100, 0, 0.1);
-  tutorial = new Buttom(width/2-150, height/3+200, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "TUTORIAL", 200, 255, 0, 0, 40, 60, (2), 1920/2+100, 1080/2+100, 0, 0.1);
+  config = new Buttom(width/2-150, height/3+100, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "OPTIONS", 255, 255, 0, 0, 40, 70, (6), 1920/2+100, 1080/2+100, 0, 0.1);
+  tutorial = new Buttom(width/2-150, height/3+200, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "TUTORIAL", 200, 255, 0, 0, 40, 60, (5), 1920/2+100, 1080/2+100, 0, 0.1);
   credits = new Buttom(width/2-150, height/3+300, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "CREDITS", 255, 255, 0, 0, 40, 70, (2), 1920/2+100, 1080/2+100, 0, 0.1);
   exit = new Buttom(width/2-150, height/3+400, 300, 50, 10, #00ffff, 0, 9, #808080, 0, (133), "EXIT", 255, 0, 0, 0, 40, 110, (1), 1920/2+100, 1080/2, 0, 0.50);
 

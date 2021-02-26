@@ -1,4 +1,4 @@
-int gameStatus = 3;
+int gameStatus = 0;
 
 void stateMachine()
 {  
@@ -40,13 +40,12 @@ void stateMachine()
     window.waveShow();
     drawStars();
     player.nave();
-    player.shipPoints();
     player.keyPressed();
 
     loading.pause();
     main.pause();
     inGame.play();
-    
+
 
     text(str(meteoritos.size()), 30, 700);
 
@@ -91,6 +90,14 @@ void stateMachine()
     exit();
 
     break;
+
+  case 5://Tutorial
+  
+    break;
+    
+     case 6://options
+     
+     break;
   }
   pushMatrix();
   window.changeScreen();

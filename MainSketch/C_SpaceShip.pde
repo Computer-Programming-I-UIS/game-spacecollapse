@@ -146,18 +146,7 @@ class SpaceShip {
       image(shi, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
 
 
-      if (isDeadA == true)
-      {  
-        image(spritesAster[frameCount*2%spritesAster.length], lugarx-(110), lugary-(110));
-        frameFxA++;
-        println("frame = " + (frameFxA));
-      } 
-      if (frameFxA >= 30)
-      {
-        println("NOFRAME = " + (frameFxA));
-        frameFxA=0;
-        isDeadA = false;
-      }
+      AsteroidExplotion();
 
       break;
     case 2:
@@ -165,9 +154,10 @@ class SpaceShip {
       if (myColl == false)
       {
         image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
+        AsteroidExplotion();
       } else
       {
-
+        AsteroidExplotion();
         tint(255, 0, 0);
         image(shi3, constrain(xmouse, 300, 1100), constrain(ymouse, -500, height-100));
         noTint();
@@ -377,15 +367,20 @@ class SpaceShip {
     ismovL = false;
     loseshieldy = false;
   }
-  void shipPoints()
+  void AsteroidExplotion()
   {
-    //if (playerScore > 3 && playerScore < 5)
-    //{
-    //  window.counterSkip = 0;
-    //  window.wave++;
-    //  playerScore++;
-    //  numAsteroids = 6;
-    //}
+    if (isDeadA == true)
+    {  
+      image(spritesAster[frameCount*2%spritesAster.length], lugarx-(110), lugary-(110));
+      frameFxA++;
+      println("frame = " + (frameFxA));
+    } 
+    if (frameFxA >= 30)
+    {
+      println("NOFRAME = " + (frameFxA));
+      frameFxA=0;
+      isDeadA = false;
+    }
   }
   void ShipTrigger()
   {
