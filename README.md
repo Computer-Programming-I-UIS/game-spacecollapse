@@ -1,37 +1,56 @@
-![Logospacecollapse](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/Logo.png)
+![Logospacecollapse](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Logo.png)
 
 # Autor
--David Romero (Jerok)
+-David Romero (@Jerok)
 # Descripción
-Space collapse es un juego de accion modo horda con caracteristicas de juegos de naves arcade clasicos como Galaga o Space Invaders. conduce tu nave a travez del espacio enfretando todo tipo de peligros de este mundo y de otros. 
-# Recomendaciones
-Aun faltan algunos aspectos y hay muchos "place holders" que no definen el estado final del juego,
+Space collapse es un juego de acción modo horda con características de juegos de naves arcade clásicos como Galaga o Space Invaders. conduce tu nave a través del espacio enfrentando oleadas de asteroides infinitas, su dificultad se basa en que no tienes objetos para recuperar el escudo o la vida, pero reduce la penalización al mínimo permitiendo volver a jugar al instante sin una pantalla de "Game Over".
 
-# REQUISITOS
+#Sugerencias aplicadas
+Sobre las sugerencias es claro que el evaluador no se tomó la molestia de revisar el juego ya que algunas sugerencias son irrelevantes o no existen:
+![Sugerencias](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Sugerencias.png)
+
+Sugerencia 4: sugerencia no valida ya que el fondo que está en la carpeta nunca se usa en el juego, en su momento fue un place holder para las estrellas que ahora se generan de manera procedural.  
+
+
+# Requisitos
 Se deben descargar la librería minim para el correcto funcionamiento de los sonidos.
 Tutoriales:
-Minima: http://www.programacionyrobotica.com/control-de-sonido-1-con-processing/
+Minim: http://www.programacionyrobotica.com/control-de-sonido-1-con-processing/
 
-Aumentar la memoria dedicada a processing al menos a un valor de 1200 mb.
+Aumentar la memoria dedicada a processing al menos a un valor de 1500 mb.
 # Referencias:
  - https://processing.org
  - http://code.compartmental.net/minim/index.html
+ - http://www.science.smith.edu/dftwiki/index.php/Processing_Tutorial_--_Showing_Animated_Gifs
+ 
+# imágenes originales por @Jerok
+- NAVE
+- LOGO SPACE COLLAPSE
+- ASTEROIDES
+- ESCUDOS DE LA NAVE
+- ANIMACION DE PULPO (pantalla de carga)
+- PORTAL EN LA PANTALLA DE INICIO
 
-agradecimieto especial para alessandrocapra:
+2021 todos los derechos reservados.
 
- -https://github.com/alessandrocapra/ProcessingCubes/tree/master/cubes
-
-# Imagenes originales por Jerok
-
- Todos los derechos reservados.
-
-# CRÉDITOS Y LINKS
+# Créditos
 - David Romero
 - Fabian Romero
-- alessandrocapra
+- @alesandrocapra (por proveer el código para la pantalla de inicio)
+- @Sinestesia (por los sprites para las explosiones)(CC0)
+- @SoundFlakes (por la música para el tráiler del juego)
+- @freesound.org (por proveer los efectos de sonido)
+Links a sus trabajos:
 
-# Clasificacion 
-![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/RP.png)
+@alesandrocapra: https://github.com/alessandrocapra/ProcessingCubes/tree/master/cubes
+@Sinestesia: https://opengameart.org/content/2d-explosion-animations-2-frame-by-frame
+@SoundFlakes: https://freesound.org/people/SoundFlakes/sounds/523339/
+@freesound.org: https://freesound.org/
 
 
-![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/JerokLogo.png)
+# Clasificación 
+![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/PEGI.png)
+![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/ESBR.png)
+
+# @Jerok (Logo)
+![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/JerokLogo.png)
