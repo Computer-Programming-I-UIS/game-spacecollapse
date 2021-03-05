@@ -52,7 +52,8 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1500 mb.
 - @Sinestesia (por los sprites para las explosiones)(CC0)
 - @SoundFlakes (por la música para el tráiler del juego)
 - @freesound.org (por proveer los efectos de sonido)
-Links a sus trabajos:
+
+# Links a sus trabajos:
 
 - @alesandrocapra: https://github.com/alessandrocapra/ProcessingCubes/tree/master/cubes
 - @Sinestesia: https://opengameart.org/content/2d-explosion-animations-2-frame-by-frame
