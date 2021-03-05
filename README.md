@@ -1,4 +1,4 @@
-![Logospacecollapse](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Logo.png)
+![Logospacecollapse](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/Logo.png)
 
 # Autor
 -David Romero (@Jerok)
@@ -17,7 +17,7 @@ video: https://www.youtube.com/watch?v=ZrOknRQLvn4
 
 # Sugerencias aplicadas
 
-- ![Sugerencias](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Sugerencias.png)
+- ![Sugerencias](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/Sugerencias.png)
 
 Sugerencia 4: sugerencia no valida ya que el fondo que está en la carpeta nunca se usa en el juego, en su momento fue un place holder para las estrellas que ahora se generan de manera procedural.  
 
@@ -61,12 +61,12 @@ Links a sus trabajos:
 
 
 # Clasificación 
-![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/PEGI.png)
-![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/ESBR.png)
+![Logo1](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/PEGI.png)
+![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/ESBR.png)
 
 # Banner
 
-![Banner](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/Banner.png)
+![Banner](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/Banner.png)
 
 # @Jerok (Logo)
-![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/master/ReadMe_Images/JerokLogo.png)
+![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/JerokLogo.png)
