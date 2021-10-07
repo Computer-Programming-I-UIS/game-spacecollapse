@@ -1,7 +1,7 @@
 ![Logospacecollapse](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/Logo.png)
 
 # Autor
--David Romero (@Jerok)
+-David Romero
 # Descripción
 Space collapse es un juego de acción modo horda con características de juegos de naves arcade clásicos como Galaga o Space Invaders. conduce tu nave a través del espacio enfrentando oleadas de asteroides infinitas, su dificultad se basa en que no tienes objetos para recuperar el escudo o la vida, pero reduce la penalización al mínimo permitiendo volver a jugar al instante sin una pantalla de "Game Over".
 
@@ -33,7 +33,7 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1500 mb.
  - http://code.compartmental.net/minim/index.html
  - http://www.science.smith.edu/dftwiki/index.php/Processing_Tutorial_--_Showing_Animated_Gifs
  
-# imágenes originales por @Jerok
+# imágenes originales 
 - NAVE
 - LOGO SPACE COLLAPSE
 - ASTEROIDES
@@ -69,5 +69,3 @@ Aumentar la memoria dedicada a processing al menos a un valor de 1500 mb.
 
 ![Banner](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/Banner.png)
 
-# @Jerok (Logo)
-![Logo2](https://github.com/Computer-Programming-I-UIS/game-spacecollapse/blob/main/ReadMe_Images/JerokLogo.png)
