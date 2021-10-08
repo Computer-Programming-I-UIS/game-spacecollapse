@@ -96,7 +96,7 @@ class UI {
     text("MUSIC:", width/2, -200+ yslide);
     text("@Jerok", width/2, -150+ yslide);
 
-    text("_______By David Romero (@Jerok)_______", width/2, 0+ yslide);
+    text("_______By David Romero_______", width/2, 0+ yslide);
 
     pushMatrix();
     scale(0.5);
